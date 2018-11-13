@@ -3,7 +3,15 @@ import java.awt.image.BufferedImage;
 public class Mammal extends Animal {
 	BufferedImage[] MammalImages;
 	
-	public Mammal() {}
+	public Mammal(int width, int height, Direction dir) {
+		imageWidth = width;
+		imageHeight = height;
+		d = dir;
+		xvel = 4;
+		yvel = 4;
+	}
 	
-	void move() {}
+	void move() {
+		this.updatePosition();
+	}
 }
