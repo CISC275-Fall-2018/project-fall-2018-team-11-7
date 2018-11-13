@@ -17,7 +17,7 @@ public abstract class Animal {
 	Direction getDirection() {
 		return d;
 	}
-	void updatePositions() {
+	void updatePosition() {
 		switch (d.getName()) {
 			case "north":
 				yloc +=yvel;
