@@ -1,15 +1,23 @@
 import java.awt.image.BufferedImage;
 
 public class View {
-	int frameWidth;
-	int frameHeight;
+	private int frameWidth = 500;
+	private int frameHeight = 300;
 	
-	public View() {}
+	//public View() {	}
 	
 	void paintBackground() {}
-	void updateView() {}
+	void updateView() {
+		
+	}
 	void pauseView() {}
 	BufferedImage[] createImage() {
 		return null;
+	}
+	int getWidth() {
+		return frameWidth;
+	}
+	int getHeight() {
+		return frameHeight;
 	}
 }

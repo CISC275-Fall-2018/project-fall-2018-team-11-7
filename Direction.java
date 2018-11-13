@@ -7,7 +7,8 @@ public enum Direction {
 	SOUTH("south"),
 	SOUTHWEST("southwest"),
 	WEST("west"),
-	NORTHWEST("northwest");
+	NORTHWEST("northwest"),
+	NONE("none");
 
 	private String name = null;
 
