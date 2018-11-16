@@ -1,15 +1,15 @@
-import java.awt.image.BufferedImage;
+import javax.swing.JFrame;
 
-public class View {
-	int frameWidth;
-	int frameHeight;
-	
-	public View() {}
-	
+public class View extends JFrame {
+	private int frameWidth;
+	private int frameHeight;
+
+	public View(int frameWidth, int frameHeight) {
+		this.frameWidth = frameWidth;
+		this.frameHeight = frameHeight;
+	}
+
 	void paintBackground() {}
 	void updateView() {}
 	void pauseView() {}
-	BufferedImage[] createImage() {
-		return null;
-	}
 }
