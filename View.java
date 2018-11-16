@@ -10,6 +10,8 @@ public class View extends JFrame {
 	}
 
 	void paintBackground() {}
-	void updateView() {}
+	void updateView() {
+		
+	}
 	void pauseView() {}
 }

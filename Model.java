@@ -7,5 +7,4 @@ public class Model {
 		this.frameHeight = frameHeight;
 	}
 
-
 }

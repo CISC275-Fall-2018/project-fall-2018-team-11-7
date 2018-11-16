@@ -1,5 +1,6 @@
 
 public class Camera {
+
 	int height;
 	int width;
 	int xloc;
@@ -25,6 +26,7 @@ public class Camera {
 	}
 
 	int getY(){
+
 		return yloc;
 	}
 
@@ -39,4 +41,33 @@ public class Camera {
 		}
 		return 0;
 	}
+/*
+	void setDirection(Direction dir) {
+		d = dir;
+	}
+	void updatePosition() {
+		switch (d.getName()) {
+		case "north":
+			yloc +=yvel;
+		case "northeast":
+			xloc+=xvel;
+			yloc+=yvel;
+		case "east":
+			xloc+=xvel;
+		case "southeast":
+			xloc+=xvel;
+			yloc-=yvel;
+		case "south":
+			yloc-=0;
+		case "southwest":
+			xloc-=xvel;
+			yloc-=yvel;
+		case "west":
+			xloc -=xvel;
+		case "northwest":
+			xloc -= xvel;
+			yloc +=yvel;
+	}
+	}
+*/
 }

@@ -34,5 +34,6 @@ public class Fish extends Animal{
 			dir = 1;
 			xloc+=vel;
 		}
+
 	}
 }
