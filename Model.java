@@ -1,11 +1,10 @@
-
 public class Model {
 	int frameWidth;
 	int frameHeight;
-	boolean run = true;
-	
-	public Model(int width, int height) {
-		frameWidth = width;
-		frameHeight = height;
+
+	public Model(int frameWidth,int frameHeight){
+		this.frameWidth = frameWidth;
+		this.frameHeight = frameHeight;
 	}
+
 }
