@@ -1,27 +1,47 @@
 
 public class Camera {
-	int width;
+
 	int height;
+	int width;
 	int xloc;
 	int yloc;
-	int xvel = 4;
-	int yvel = 4;
-	Direction d = Direction.NONE;
-	
-	public Camera(int w, int h) {
-		width = w;
-		height = h;
+
+	public Camera(int height, int width, int xloc, int yloc) {
+		this.height= height;
+		this.width = width;
+		this.xloc = xloc;
+		this.yloc = yloc;
 	}
-	
+
+	int getWidth(){
+		return width;
+	}
+
+	int getHeight(){
+		return height;
+	}
+
 	int getX() {
 		return xloc;
 	}
-	int getY() {
+
+	int getY(){
+
 		return yloc;
 	}
-	Direction getDirection() {
-		return null;
+
+	void updatePosition(int xloc, int yloc) {
+		this.xloc = xloc;
+		this.yloc = yloc;
 	}
+
+	int snap(int x, int y, int xlen, int ylen){
+		if(x>xloc && x+xlen < xloc+width && y>yloc && y+ylen < yloc+height){
+			return 1;
+		}
+		return 0;
+	}
+/*
 	void setDirection(Direction dir) {
 		d = dir;
 	}
@@ -49,4 +69,5 @@ public class Camera {
 			yloc +=yvel;
 	}
 	}
+*/
 }

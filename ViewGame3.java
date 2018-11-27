@@ -65,8 +65,6 @@ public class ViewGame3 extends View {
 		panel.add(b2);
 		panel.add(b3);
 		
-		
-		
     	pane.add(panel, BorderLayout.PAGE_END);
     	pane.setBackground(Color.gray);
     	frame.setVisible(true);
@@ -85,21 +83,12 @@ public class ViewGame3 extends View {
 	void switchQuestions() {
 		if(questionNum < questions.length-1) {
 			questionNum++;
+			System.out.println(questionNum);
 		}
 		else {
 			///end the game
 		}
 	}
-	
-	/*Button buttonAnswer1() {
-		return null;
-	}
-	Button buttonAnswer2() {
-		return null;
-	}
-	Button buttonAnswer3() {
-		return null;
-	}*/
 	
 	public static void main(String[] args) {
 		//Here solely for the purpose of testing

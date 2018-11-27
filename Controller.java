@@ -1,7 +1,38 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
+import java.awt.event.MouseEvent;
+import java.awt.MouseInfo;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+
+public class Controller {
+	ViewGame1 view;
+	ModelGame1 model;
+	boolean game1 = true;
+	int mX;
+	int mY;
+
+	public Controller() throws IOException {
+
+		MouseListener mouseinput = new MouseListener(){
+		@Override
+		public void mouseClicked(MouseEvent event){
+			model.takePicture();
+		}
+		public void mousePressed(MouseEvent event){}
+		public void mouseReleased(MouseEvent event){}
+		public void mouseEntered(MouseEvent event){}
+		public void mouseExited(MouseEvent event){}
+		};
+
+	view = new ViewGame1(800,500);
+	view.addMouseListener(mouseinput);
+	model = new ModelGame1(800,500);
+	model.addAnimals();
+
+/*
+import java.util.ArrayList;
 public class Controller {
 	ArrayList<Animal> animals;
 	View view;
@@ -58,5 +89,17 @@ public class Controller {
 			((ModelGame1)model).update();
 			view.updateView();
 		}
+    */
 	}
+
+	public void start(){
+		while(game1){
+			mX = (int)MouseInfo.getPointerInfo().getLocation().getX();
+			mY = (int)MouseInfo.getPointerInfo().getLocation().getY();
+			model.getCamera().updatePosition(mX,mY);
+			model.updateAnimals();
+
+			view.update(model.getCamera(),model.getAnimals(),model.getScore());
+			}
+		}
 }
