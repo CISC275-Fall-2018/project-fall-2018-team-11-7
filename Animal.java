@@ -68,4 +68,6 @@ public abstract class Animal {
 		return dir;
 	}
 
+	public abstract String toString();
+
 }

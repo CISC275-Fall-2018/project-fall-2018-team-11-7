@@ -134,11 +134,15 @@ public class Controller {
 			model.getCamera().updatePosition(mX,mY);
 			model.updateAnimals();
 
+<<<<<<< HEAD
 			view.update(model.getCamera(),model.getAnimals(),model.getScore(), model.getTarInd());
 			
 			if(model.getTarInd() == 4) {
 				game2 = true;
 				game1 = false;
+=======
+			view.update(model.getCamera(),model.getAnimals(),model.getScore(),model.getTarget().toString());
+>>>>>>> 1d541af7a2757ff6d7a809295198cf0ae739a019
 			}
 		}
 		ViewGame2 view2 = new ViewGame2(1600,1000);
