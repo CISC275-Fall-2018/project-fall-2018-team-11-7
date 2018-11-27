@@ -14,7 +14,7 @@ import javax.swing.Timer;
 import java.util.List;
 
 public class ViewGame1 extends View{
-	private String target = "Fish";
+	private String target = "";
 	Font font = new Font("Helvetica",Font.PLAIN,24);
 
 	Camera camera;
@@ -38,10 +38,11 @@ public class ViewGame1 extends View{
 
 	}
 
-	public void update(Camera camera, List<Animal> animals, int score){
+	public void update(Camera camera, List<Animal> animals, int score, String target){
 		this.camera = camera;
 		this.animals = animals;
 		this.score = score;
+		this.target = target;
 
 		this.repaint();
 		try {

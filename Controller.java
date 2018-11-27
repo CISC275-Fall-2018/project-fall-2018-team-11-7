@@ -132,7 +132,7 @@ public class Controller {
 			model.getCamera().updatePosition(mX,mY);
 			model.updateAnimals();
 
-			view.update(model.getCamera(),model.getAnimals(),model.getScore());
+			view.update(model.getCamera(),model.getAnimals(),model.getScore(),model.getTarget().toString());
 			}
 		}
 }

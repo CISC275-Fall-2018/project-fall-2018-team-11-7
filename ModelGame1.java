@@ -2,11 +2,13 @@
 import java.util.List;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ModelGame1 extends Model{
 
 	Camera camera;
 	List<Animal> animals;
+	Animal target;
 	private int score;
 
 
@@ -20,6 +22,11 @@ public class ModelGame1 extends Model{
 	void addAnimals() throws IOException{
 		animals.add(new Fish(450,350,30,15,300,1));
 		animals.add(new Fish(750,450,30,15,200,0));
+		animals.add(new Bird(50,100,30,15,700,1));
+		animals.add(new Bird(760,50,30,15,700,0));
+		animals.add(new Frog(50,400,15,15,300,1));
+		animals.add(new Frog(300,325,15,15,300,0));
+		changeTarget();
 	}
 
 	void updateAnimals(){
@@ -33,15 +40,31 @@ public class ModelGame1 extends Model{
 	}
 
 	void takePicture(){
+		int tmp = score;
 		for(Animal a: animals){
-			score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
+			if(a.toString().equals(target.toString())){
+					score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
+			}
 		}
-		System.out.println(camera.getX());
-		System.out.println(camera.getY());
+		if(score > tmp){
+			changeTarget();
+		}
+		//System.out.println(camera.getX());
+		//System.out.println(camera.getY());
+	}
+
+	void changeTarget(){
+		Random rand = new Random();
+		int randanimal = rand.nextInt(animals.size());
+		target = animals.get(randanimal);
 	}
 
 	public int getScore(){
 		return score;
+	}
+
+	public Animal getTarget(){
+		return target;
 	}
 
 	public List getAnimals(){
