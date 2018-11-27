@@ -10,7 +10,6 @@ public class ModelGame1 extends Model{
 	List<Animal> animals;
 	Animal target;
 	private int score;
-	public int tarInd = 0;
 
 
 	public ModelGame1(int frameWidth,int frameHeight){
@@ -43,15 +42,9 @@ public class ModelGame1 extends Model{
 	void takePicture(){
 		int tmp = score;
 		for(Animal a: animals){
-<<<<<<< HEAD
-			score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
-			tarInd+= camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
-			System.out.println(tarInd);
-=======
 			if(a.toString().equals(target.toString())){
 					score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
 			}
->>>>>>> 1d541af7a2757ff6d7a809295198cf0ae739a019
 		}
 		if(score > tmp){
 			changeTarget();
@@ -81,41 +74,30 @@ public class ModelGame1 extends Model{
 	public Camera getCamera(){
 		return camera;
 	}
-	public int getTarInd() {
-		return tarInd;
-	}
 /*
 import java.util.ArrayList;
-
 public class ModelGame1 extends Model{
-
 	Camera camera;
 	List<Animal> animals;
 	private int score;
-
-
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);
 		camera = new Camera(50,80,0,0);
 		animals = new ArrayList<Animal>();
 		score = 0;
 	}
-
 	void addAnimals() throws IOException{
 		animals.add(new Fish(450,350,30,15,300,1));
 		animals.add(new Fish(750,450,30,15,200,0));
 	}
-
 	void updateAnimals(){
 		for(Animal a : animals){
 			a.updatePosition();
 		}
 	}
-
 	void updateCamera(int x, int y){
 		camera.updatePosition(x,y);
 	}
-
 	void takePicture(){
 		for(Animal a: animals){
 			score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
@@ -123,27 +105,22 @@ public class ModelGame1 extends Model{
 		System.out.println(camera.getX());
 		System.out.println(camera.getY());
 	}
-
 	public int getScore(){
 		return score;
 	}
-
 	public List getAnimals(){
 		return animals;
 	}
-
 	public Camera getCamera(){
 		return camera;
 	}
 /*
 import java.util.ArrayList;
 public class ModelGame1 extends Model{
-
 	ArrayList<Animal> animals;
 	Camera camera;
 	String[] taskList = {"Take a picture of a mammal","Take a picture of a fish"};
 	int taskNumber = 0;
-
 	public ModelGame1(int width, int height) {
 		super(width, height);
 		animals.add(new Mammal(100,100,Direction.EAST));
