@@ -13,12 +13,14 @@ import javax.swing.JPanel;
 public class Animation3 extends JPanel {
 	Font font1 = new Font("Helvetica",Font.PLAIN,24);
 	Font font2 = new Font("Helvetica",Font.PLAIN,30);
-	Image[] questions = new Image[4];
+	String[] questions = {"What do Horseshoe crabs like to eat?","Grass","Birds","Mollusks","Where do birds live?","Trees","Water","Burrows","What do frogs like to eat?", "Leaves","Insects","Acorns"};
 	int questionNum = 0;
 	int score = 0;
+	private Color myGreen;
 	
 	public Animation3() throws IOException {
-		File file1 = new File("Question1.png");
+		myGreen = new Color(0,140,0);
+		/*File file1 = new File("Question1.png");
 		File file2 = new File("Question2.png");
 		File file3 = new File("Question3.png");
 		File file4 = new File("end.png");
@@ -30,7 +32,7 @@ public class Animation3 extends JPanel {
 			BufferedImage image3 = ImageIO.read(file3);
 			questions[2] = image3;
 			BufferedImage image4 = ImageIO.read(file4);
-			questions[3] = image4;
+			questions[3] = image4;*/
 			
 		}
 		
@@ -40,19 +42,28 @@ public class Animation3 extends JPanel {
 		questions[1] = background2;
 		Image background3 = Toolkit.getDefaultToolkit().createImage("Question3.png");
 		questions[2] = background3;*/
-	}
+
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(questions[questionNum], 0, 0, 1600,1000,this);
+		g.setColor(Color.cyan);
+		g.fillRect(0,0,1600,1000);
+		g.setColor(Color.blue);
+		g.fillRect(800,600,800,400);
+		g.setColor(myGreen);
+		g.fillRect(0,600,800,400);
+		//g.drawImage(questions[questionNum], 0, 0, 1600,1000,this);
 		g.setFont(font1);
 		g.setColor(Color.black);
 		if(questionNum<3) {
+			g.drawString(questions[4*questionNum], 675,400);
+			g.drawString("A - "+questions[4*questionNum + 1]+"\t B - "+questions[4*questionNum + 2]+"\t C - "+questions[4*questionNum + 3], 675, 500);
 			g.drawString("Score: " + score,800,60);
 		}
 		else {
 			g.setFont(font2);
 			g.setColor(Color.black);
-			g.drawString("Your Score: "+ score+" out of 3", 700, 600);
+			g.drawString("Good Job!", 675,400);
+			g.drawString("Your Score: "+ score+" out of 3", 675, 500);
 		}
 	}
 	

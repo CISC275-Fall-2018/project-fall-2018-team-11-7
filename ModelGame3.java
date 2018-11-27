@@ -2,7 +2,7 @@
 public class ModelGame3 extends Model{
 	private int Score=0;
 	int questionNum = 0;
-	int[] answerKey = {1,2,1};
+	int[] answerKey = {3,1,2};
 	static int resetQChoice = 0;
 	
 	public ModelGame3(int width, int height) {
