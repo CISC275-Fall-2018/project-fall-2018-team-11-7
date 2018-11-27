@@ -18,8 +18,8 @@ public class Fish extends Animal{
 		this.dir = dir;
 		this.distance = distance;
 		// gets all images for fish
-		File file1 = new File("/C:/Users/hfbff/Desktop/CISC275/src/project-fall-2018-team-11-7/Fish_west_1.png");
-		File file2 = new File("/C:/Users/hfbff/Desktop/CISC275/src/project-fall-2018-team-11-7/Fish_east_1.png");
+		File file1 = new File("Fish_west_1.png");
+		File file2 = new File("Fish_east_1.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			images[0] = image1;
