@@ -8,24 +8,26 @@ public class ModelGame1 extends Model{
 
 	Camera camera;
 	List<Animal> animals;
+	Tree tree;
 	Animal target;
 	private int score;
 
 
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);
-		camera = new Camera(50,80,0,0);
+		camera = new Camera(100,160,0,0);
 		animals = new ArrayList<Animal>();
 		score = 0;
 	}
 
 	void addAnimals() throws IOException{
-		animals.add(new Fish(450,350,30,15,300,1));
-		animals.add(new Fish(750,450,30,15,200,0));
-		animals.add(new Bird(50,100,30,15,700,1));
-		animals.add(new Bird(760,50,30,15,700,0));
-		animals.add(new Frog(50,400,15,15,300,1));
-		animals.add(new Frog(300,325,15,15,300,0));
+		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),60,30,frameWidth/2 - frameWidth/5,0));
+		animals.add(new Fish((int)(frameWidth/2 + (frameWidth/10)),(int)(frameHeight-(frameHeight/3)),60,35,frameWidth/2 - frameWidth/5,1));
+		animals.add(new Bird((int)(frameWidth/10),(int)(frameHeight/10),60,30,frameWidth - frameWidth/5,1));
+		animals.add(new Bird((int)(frameWidth - frameWidth/10),(int)(frameHeight/7),60,30,frameWidth - frameWidth/5,0));
+		animals.add(new Frog((int)(frameWidth/10),(int)(frameHeight - frameHeight/5),30,30,frameWidth/2 - frameWidth/5,1));
+		animals.add(new Frog((int)(frameWidth/2 - frameWidth/10),(int)(frameHeight - frameHeight/4),30,30,frameWidth/2 - frameWidth/5,0));
+		tree = new Tree((int)(frameWidth/10),(int)(frameHeight/10),60,30);
 		changeTarget();
 	}
 
@@ -69,6 +71,9 @@ public class ModelGame1 extends Model{
 
 	public List getAnimals(){
 		return animals;
+	}
+	public Tree getTree() {
+		return tree;
 	}
 
 	public Camera getCamera(){

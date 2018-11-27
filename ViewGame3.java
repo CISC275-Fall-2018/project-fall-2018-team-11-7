@@ -36,12 +36,13 @@ public class ViewGame3 extends View {
 	int score;
 	int qchoice = 0;
 	
-	public ViewGame3(int imageWidth, int imageHeight) throws IOException {
-		super(imageWidth, imageHeight);
+	public ViewGame3(int imageWidth, int imageHeight, Dimension size) throws IOException {
+		super(imageWidth, imageHeight,size);
 		
 				//Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
 		frame = new JFrame();
 		Container pane = frame.getContentPane();
+		pane.setPreferredSize(size);
     	pane.setLayout(new BorderLayout());
     	a = new Animation3();
     	pane.add(a, BorderLayout.CENTER);
@@ -77,6 +78,7 @@ public class ViewGame3 extends View {
 		
     	pane.add(panel, BorderLayout.PAGE_END);
     	frame.setVisible(true);
+    	frame.pack();
 	}
 	
 	/*public void paint(Graphics g) {
@@ -89,7 +91,7 @@ public class ViewGame3 extends View {
 		this.score = score;
 		this.questionNum = questionNum;
 		this.qchoice = reset;
-		a.update(this.questionNum, this.score);
+		a.update(this.frameWidth, this.frameHeight, this.questionNum, this.score);
 		this.repaint();
 		try {
 			Thread.sleep(50);
@@ -101,7 +103,7 @@ public class ViewGame3 extends View {
 		return qchoice;
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		//Here solely for the purpose of testing
 		try {
 			DummyController3 c = new DummyController3();
@@ -109,5 +111,5 @@ public class ViewGame3 extends View {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

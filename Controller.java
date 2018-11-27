@@ -2,7 +2,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import java.awt.event.MouseEvent;
+import java.awt.Dimension;
 import java.awt.MouseInfo;
+import java.awt.Toolkit;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
@@ -13,6 +15,9 @@ public class Controller {
 	boolean game3 = true;
 	int mX;
 	int mY;
+	static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+	protected static int frameWidth = (int) size.getWidth();
+	protected static int frameHeight = (int) size.getHeight();
 
 	public Controller() throws IOException {
 
@@ -27,9 +32,10 @@ public class Controller {
 		public void mouseExited(MouseEvent event){}
 		};
 
-	view = new ViewGame1(800,500);
+	view = new ViewGame1(frameWidth,frameHeight, size);
 	view.addMouseListener(mouseinput);
-	model = new ModelGame1(800,500);
+	System.out.println(frameHeight);
+	model = new ModelGame1(frameWidth,frameHeight);
 	model.addAnimals();
 
 /*
@@ -118,18 +124,20 @@ public class Controller {
 
 	public void start() throws IOException{
 		while(game1){
+			
 			mX = (int)MouseInfo.getPointerInfo().getLocation().getX();
 			mY = (int)MouseInfo.getPointerInfo().getLocation().getY();
 			model.getCamera().updatePosition(mX,mY);
 			model.updateAnimals();
+			//System.out.println("update from controller");
 
-			view.update(model.getCamera(),model.getAnimals(),model.getScore(),model.getTarget().toString());
+			view.update(model.getCamera(),model.getAnimals(), model.getTree(),model.getScore(),model.getTarget().toString());
 			if(model.getScore()==5) {
 				game1=false;
 			}
 		}
-		ViewGame3 view3 = new ViewGame3(1600,1000);
-		ModelGame3 model3 = new ModelGame3(1600,1000);
+		ViewGame3 view3 = new ViewGame3(frameWidth,frameHeight, size);
+		ModelGame3 model3 = new ModelGame3(frameWidth,frameHeight);
 		while(game3) {
 			model3.update(view3.getQChoice());
 			view3.update(model3.getQNum(), model3.getScore(), model3.resetQChoice);

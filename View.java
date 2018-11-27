@@ -1,23 +1,51 @@
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class View extends JFrame {
-	private int frameWidth;
-	private int frameHeight;
+	protected int frameWidth;
+	protected int frameHeight;
 	JFrame frame;
+	Dimension size;
 
-	public View(int frameWidth, int frameHeight) {
+	public View(int frameWidth, int frameHeight, Dimension size) {
 		this.frameWidth = frameWidth;
 		this.frameHeight = frameHeight;
+		this.size = size;
+		//this.frameWidth = frameWidth;
+		//this.frameHeight = frameHeight;
 		frame = new JFrame();
 		frame.setSize(frameWidth, frameHeight);
-		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//frame.setUndecorated(true);
-		frame.setVisible(true);
+		//frame.setVisible(true);
 	}
 
-	void paintBackground() {}
+	public int getWidth() {
+		return frameWidth;
+	}
+	public int getHieght() {
+		return frameHeight;
+	}
+	
+	//void paintBackground() {}
 	void updateView() {
 		
 	}
 	void pauseView() {}
+
+	public void update(Object camera, Object animals, int score, String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(int qNum, int score, int resetQChoice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getQChoice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

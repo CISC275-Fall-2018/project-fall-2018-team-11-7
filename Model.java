@@ -6,5 +6,4 @@ public class Model {
 		this.frameWidth = frameWidth;
 		this.frameHeight = frameHeight;
 	}
-
 }

@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 public class Animation3 extends JPanel {
 	Font font1 = new Font("Helvetica",Font.PLAIN,24);
 	Font font2 = new Font("Helvetica",Font.PLAIN,30);
+	int frameWidth;
+	int frameHeight;
 	String[] questions = {"What do Horseshoe crabs like to eat?","Grass","Birds","Mollusks","Where do birds live?","Trees","Water","Burrows","What do frogs like to eat?", "Leaves","Insects","Acorns"};
 	int questionNum = 0;
 	int score = 0;
@@ -46,11 +48,18 @@ public class Animation3 extends JPanel {
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(Color.cyan);
+		g.fillRect(0,0,frameWidth,frameHeight/2);
+		g.setColor(Color.blue);
+		g.fillRect(frameWidth/2,frameHeight/2,frameWidth/2,frameHeight/2);
+		g.setColor(myGreen);
+		g.fillRect(0,frameHeight/2,frameWidth/2,frameHeight/2);
+		/*
+		g.setColor(Color.cyan);
 		g.fillRect(0,0,1600,1000);
 		g.setColor(Color.blue);
 		g.fillRect(800,600,800,400);
 		g.setColor(myGreen);
-		g.fillRect(0,600,800,400);
+		g.fillRect(0,600,800,400);*/
 		//g.drawImage(questions[questionNum], 0, 0, 1600,1000,this);
 		g.setFont(font1);
 		g.setColor(Color.black);
@@ -67,7 +76,9 @@ public class Animation3 extends JPanel {
 		}
 	}
 	
-	public void update(int questionNum, int score) {
+	public void update(int w, int h, int questionNum, int score) {
+		this.frameHeight = h;
+		this.frameWidth = w;
 		this.questionNum = questionNum;
 		this.score = score;
 		this.repaint();
