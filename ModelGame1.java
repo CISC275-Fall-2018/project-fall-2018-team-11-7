@@ -8,6 +8,7 @@ public class ModelGame1 extends Model{
 	Camera camera;
 	List<Animal> animals;
 	private int score;
+	public int tarInd = 0;
 
 
 	public ModelGame1(int frameWidth,int frameHeight){
@@ -35,6 +36,8 @@ public class ModelGame1 extends Model{
 	void takePicture(){
 		for(Animal a: animals){
 			score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
+			tarInd+= camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
+			System.out.println(tarInd);
 		}
 		System.out.println(camera.getX());
 		System.out.println(camera.getY());
@@ -50,6 +53,9 @@ public class ModelGame1 extends Model{
 
 	public Camera getCamera(){
 		return camera;
+	}
+	public int getTarInd() {
+		return tarInd;
 	}
 /*
 import java.util.ArrayList;

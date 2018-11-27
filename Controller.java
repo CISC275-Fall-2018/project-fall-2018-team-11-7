@@ -10,6 +10,8 @@ public class Controller {
 	ViewGame1 view;
 	ModelGame1 model;
 	boolean game1 = true;
+	boolean game2;
+	boolean game3;
 	int mX;
 	int mY;
 
@@ -26,9 +28,9 @@ public class Controller {
 		public void mouseExited(MouseEvent event){}
 		};
 
-	view = new ViewGame1(800,500);
+	view = new ViewGame1(1600,1000);
 	view.addMouseListener(mouseinput);
-	model = new ModelGame1(800,500);
+	model = new ModelGame1(1600,1000);
 	model.addAnimals();
 
 /*
@@ -132,7 +134,15 @@ public class Controller {
 			model.getCamera().updatePosition(mX,mY);
 			model.updateAnimals();
 
-			view.update(model.getCamera(),model.getAnimals(),model.getScore());
+			view.update(model.getCamera(),model.getAnimals(),model.getScore(), model.getTarInd());
+			
+			if(model.getTarInd() == 4) {
+				game2 = true;
+				game1 = false;
 			}
 		}
+		ViewGame2 view2 = new ViewGame2(1600,1000);
+		while(game2) {
+		}
+	}
 }

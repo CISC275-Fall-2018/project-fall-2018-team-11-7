@@ -14,7 +14,8 @@ import javax.swing.Timer;
 import java.util.List;
 
 public class ViewGame1 extends View{
-	private String target = "Fish";
+	private String[] target = {"Fish", "Bird","Horseshoe Crab", "Squirel"};
+	private int tarInd = 0;
 	Font font = new Font("Helvetica",Font.PLAIN,24);
 
 	Camera camera;
@@ -27,7 +28,7 @@ public class ViewGame1 extends View{
 		super(frameWidth,frameHeight);
 		JPanel drawPanel = new JPanel();
 
-		add(drawPanel);
+		frame.add(drawPanel);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		drawPanel.setSize(frameWidth, frameHeight);
 		drawPanel.setBackground(Color.white);
@@ -38,10 +39,11 @@ public class ViewGame1 extends View{
 
 	}
 
-	public void update(Camera camera, List<Animal> animals, int score){
+	public void update(Camera camera, List<Animal> animals, int score, int tarInd){
 		this.camera = camera;
 		this.animals = animals;
 		this.score = score;
+		this.tarInd = tarInd;
 
 		this.repaint();
 		try {
@@ -62,7 +64,7 @@ public class ViewGame1 extends View{
 		g.setFont(font);
 		g.setColor(Color.black);
 		g.drawString("Score: " + score,20,60);
-		g.drawString("Target: " + target,600,60);
+		g.drawString("Target: " + target[tarInd],600,60);
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
 		g.setColor(Color.red);
 		for(Animal a: animals){
