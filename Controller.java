@@ -4,6 +4,38 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.MouseInfo;
 import java.awt.event.MouseListener;
+
+public class Controller {
+	ViewGame1 view;
+	ModelGame1 model;
+	boolean game1 = true;
+	int mX;
+	int mY;
+
+	public Controller() {
+
+		MouseListener mouseinput = new MouseListener(){
+		@Override
+		public void mouseClicked(MouseEvent event){
+			model.takePicture();
+		}
+		public void mousePressed(MouseEvent event){}
+		public void mouseReleased(MouseEvent event){}
+		public void mouseEntered(MouseEvent event){}
+		public void mouseExited(MouseEvent event){}
+		};
+
+	view = new ViewGame1(800,500);
+	view.addMouseListener(mouseinput);
+	model = new ModelGame1(800,500);
+	model.addAnimals();
+
+/*
+import java.util.ArrayList;
+
+import java.awt.event.MouseEvent;
+import java.awt.MouseInfo;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
 public class Controller {
@@ -37,11 +69,11 @@ public class Controller {
 	ArrayList<Animal> animals;
 	View view;
 	Model model;
-	
+
 	public Controller(View v, Model m) {
 		view = v;
 		model = m;
-		
+
 		KeyListener input = new KeyListener(){
 			@Override
 			public void keyPressed(KeyEvent event){
@@ -62,7 +94,7 @@ public class Controller {
 						System.out.println("down");
 						((ModelGame1)model).camera.setDirection(Direction.SOUTH);
 					}
-					
+
 					if(event.getKeyCode() == KeyEvent.VK_ENTER) {
 						((ModelGame1) model).takePicture();
 					}
@@ -79,7 +111,7 @@ public class Controller {
 			@Override
 			public void keyTyped(KeyEvent event){}
 		};
-		
+
 		view = new View();
 		model = new Model(view.getWidth(), view.getHeight());
 	}

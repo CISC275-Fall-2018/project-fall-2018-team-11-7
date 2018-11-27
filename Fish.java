@@ -26,7 +26,7 @@ public class Fish extends Animal{
 			BufferedImage image2 = ImageIO.read(file2);
 			images[1] = image2;
 		}
-		
+
 		if(dir == 1){
 			start = xloc;
 		}
@@ -55,9 +55,9 @@ public class Fish extends Animal{
 	public BufferedImage getImage(int i) {
 		return images[i];
 	}
-	
+
 	public int getDir() {
 		return dir;
 	}
-	
+
 }

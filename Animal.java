@@ -63,7 +63,7 @@ public abstract class Animal {
 	public BufferedImage getImage(int i) {
 		return images[i];
 	}
-	
+
 	public int getDir() {
 		return dir;
 	}

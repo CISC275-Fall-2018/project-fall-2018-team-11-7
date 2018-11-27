@@ -16,8 +16,6 @@ import java.util.List;
 public class ViewGame1 extends View{
 	private String target = "Fish";
 	Font font = new Font("Helvetica",Font.PLAIN,24);
-	BufferedImage[] fishImages;
-	BufferedImage[] mammalImages;
 
 	Camera camera;
 	List<Animal> animals;
