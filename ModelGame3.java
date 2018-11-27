@@ -1,8 +1,9 @@
 
 public class ModelGame3 extends Model{
 	private int Score=0;
-	String[][] questions = {{"What do horseshoe crabs like to eat?", "clams","grass","birds"},{"Where do birds like to live?","water","trees", "burrows"}};
 	int questionNum = 0;
+	int[] answerKey = {1,2,1};
+	static int resetQChoice = 0;
 	
 	public ModelGame3(int width, int height) {
 		super(width, height);
@@ -11,12 +12,19 @@ public class ModelGame3 extends Model{
 	int getScore() {
 		return Score;
 	}
-	String askQuestion() {
-		String q = questions[questionNum][0];
-		return q;
+	public int getQNum() {
+		return questionNum;
 	}
-	String[] getAnswerChoices() {
-		String[] ans = {questions[questionNum][1], questions[questionNum][2],questions[questionNum][3]};
-		return ans;
+	
+	public void update(int qchoice) {
+		if(qchoice != 0) {
+			System.out.println("Hello");
+			if(answerKey[questionNum]==qchoice) {
+				Score += 1;
+			}
+			questionNum += 1;
+			System.out.println(questionNum);
+			
+		}
 	}
 }
