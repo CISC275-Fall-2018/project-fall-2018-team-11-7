@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ModelGame1 extends Model{
@@ -16,7 +17,7 @@ public class ModelGame1 extends Model{
 		score = 0;
 	}
 
-	void addAnimals(){
+	void addAnimals() throws IOException{
 		animals.add(new Fish(450,350,30,15,300,1));
 		animals.add(new Fish(750,450,30,15,200,0));
 	}

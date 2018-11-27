@@ -4,6 +4,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.MouseInfo;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 public class Controller {
 	ViewGame1 view;
@@ -12,7 +13,7 @@ public class Controller {
 	int mX;
 	int mY;
 
-	public Controller() {
+	public Controller() throws IOException {
 
 		MouseListener mouseinput = new MouseListener(){
 		@Override
