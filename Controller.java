@@ -10,6 +10,7 @@ public class Controller {
 	ViewGame1 view;
 	ModelGame1 model;
 	boolean game1 = true;
+	boolean game3 = true;
 	int mX;
 	int mY;
 
@@ -115,7 +116,7 @@ public class Controller {
     */
 	}
 
-	public void start(){
+	public void start() throws IOException{
 		while(game1){
 			mX = (int)MouseInfo.getPointerInfo().getLocation().getX();
 			mY = (int)MouseInfo.getPointerInfo().getLocation().getY();
@@ -123,6 +124,18 @@ public class Controller {
 			model.updateAnimals();
 
 			view.update(model.getCamera(),model.getAnimals(),model.getScore(),model.getTarget().toString());
+			if(model.getScore()==5) {
+				game1=false;
 			}
 		}
+		ViewGame3 view3 = new ViewGame3(1600,1000);
+		ModelGame3 model3 = new ModelGame3(1600,1000);
+		while(game3) {
+			model3.update(view3.getQChoice());
+			view3.update(model3.getQNum(), model3.getScore(), model3.resetQChoice);
+			if(model3.getQNum()==4) {
+				game3=false;
+			}
+		}
+	}
 }
