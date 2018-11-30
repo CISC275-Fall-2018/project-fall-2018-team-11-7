@@ -79,7 +79,7 @@ public class ViewGame1 extends View{
 		g.setColor(Color.red);
 		g.drawImage(tree.getImage(), tree.getX(), tree.getY(), tree.getWidth(), tree.getHeight(), this);
 		for(Animal a: animals){
-			g.drawImage(a.getImage(a.getDir()),a.getX(), a.getY(), a.getWidth(), a.getHeight(), this);
+			g.drawImage(a.getImage(),a.getX(), a.getY(), a.getWidth(), a.getHeight(), this);
 		}
 	}
 }

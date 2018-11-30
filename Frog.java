@@ -65,9 +65,9 @@ public class Frog extends Animal{
 		yloc += yvel;
 	}
 
-
-	public BufferedImage getImage(int i) {
-		return images[i];
+	@Override
+	public BufferedImage getImage() {
+		return images[dir];
 	}
 
 

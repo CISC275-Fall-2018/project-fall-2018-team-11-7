@@ -1,8 +1,9 @@
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 public interface GameObjects {
 
-	Image getImage();
+	BufferedImage getImage();
 
 	int getX();
 

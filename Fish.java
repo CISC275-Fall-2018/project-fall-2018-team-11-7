@@ -1,3 +1,4 @@
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -52,8 +53,8 @@ public class Fish extends Animal{
 		}
 
 	}
-	public BufferedImage getImage(int i) {
-		return images[i];
+	public BufferedImage getImage() {
+		return images[dir];
 	}
 
 
@@ -64,4 +65,5 @@ public class Fish extends Animal{
 	public String toString(){
 		return "Fish";
 	}
+
 }

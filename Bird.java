@@ -21,8 +21,8 @@ public class Bird extends Animal{
 
 		// gets all images for Bird
 
-		File file1 = new File("Fish_west_1.png");
-		File file2 = new File("Fish_east_1.png");
+		File file1 = new File("bird_west.png");
+		File file2 = new File("bird_east.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			images[0] = image1;
@@ -64,8 +64,8 @@ public class Bird extends Animal{
 	}
 
 
-	public BufferedImage getImage(int i) {
-		return images[i];
+	public BufferedImage getImage() {
+		return images[dir];
 	}
 
 
