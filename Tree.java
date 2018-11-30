@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Tree {
+public class Tree implements GameObjects {
 	BufferedImage[] image = new BufferedImage[1];
 	int xloc;
 	int yloc;
@@ -13,6 +13,7 @@ public class Tree {
 	
 	public Tree(int xloc, int yloc, int imageWidth, int imageHeight) throws IOException {
 		File file = new File("Tree.png");
+		
 		if(file.exists()) {
 			image[0] = ImageIO.read(file);
 		}

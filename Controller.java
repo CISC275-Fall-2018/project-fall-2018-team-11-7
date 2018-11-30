@@ -136,8 +136,9 @@ public class Controller {
 				game1=false;
 			}
 		}
-		ViewGame3 view3 = new ViewGame3(frameWidth,frameHeight, size);
 		ModelGame3 model3 = new ModelGame3(frameWidth,frameHeight);
+		ViewGame3 view3 = new ViewGame3(frameWidth,frameHeight, size, model3.getGameObjects());
+		
 		while(game3) {
 			model3.update(view3.getQChoice());
 			view3.update(model3.getQNum(), model3.getScore(), model3.resetQChoice);

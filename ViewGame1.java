@@ -46,8 +46,8 @@ public class ViewGame1 extends View{
 		this.animals = animals;
 		this.score = score;
 		this.target = target;
+		this.tree = tree;
 		
-
 		this.repaint();
 		try {
 		Thread.sleep(50);
@@ -56,6 +56,12 @@ public class ViewGame1 extends View{
 		}
 	}
 
+	/*public void updateGraphics(Graphics g) {
+		Graphics offgc;
+		Image offscreen = null;
+		
+	}*/
+	
 	public void paint(Graphics g){
 		super.paint(g);
 		g.setColor(Color.cyan);
@@ -71,7 +77,7 @@ public class ViewGame1 extends View{
 		g.drawString("Target: " + target,frameWidth-200,60);
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
 		g.setColor(Color.red);
-		//g.drawImage(tree.getImage(0), tree.getX(), tree.getY(), tree.getWidth(), tree.getHeight(), this);
+		g.drawImage(tree.getImage(), tree.getX(), tree.getY(), tree.getWidth(), tree.getHeight(), this);
 		for(Animal a: animals){
 			g.drawImage(a.getImage(a.getDir()),a.getX(), a.getY(), a.getWidth(), a.getHeight(), this);
 		}

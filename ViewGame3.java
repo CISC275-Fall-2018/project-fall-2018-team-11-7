@@ -35,16 +35,18 @@ public class ViewGame3 extends View {
 	ArrayList<Integer> answerChoices = new ArrayList<Integer>();
 	int score;
 	int qchoice = 0;
+	GameObjects[] objects;
 	
-	public ViewGame3(int imageWidth, int imageHeight, Dimension size) throws IOException {
+	public ViewGame3(int imageWidth, int imageHeight, Dimension size, GameObjects[] o) throws IOException {
 		super(imageWidth, imageHeight,size);
-		
+		objects = o;
+		System.out.println(objects);
 				//Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
 		frame = new JFrame();
 		Container pane = frame.getContentPane();
 		pane.setPreferredSize(size);
     	pane.setLayout(new BorderLayout());
-    	a = new Animation3();
+    	a = new Animation3(objects);
     	pane.add(a, BorderLayout.CENTER);
     	panel = new JPanel();
     	

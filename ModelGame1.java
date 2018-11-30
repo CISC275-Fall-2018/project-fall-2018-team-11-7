@@ -21,14 +21,16 @@ public class ModelGame1 extends Model{
 	}
 
 	void addAnimals() throws IOException{
-		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),60,30,frameWidth/2 - frameWidth/5,0));
-		animals.add(new Fish((int)(frameWidth/2 + (frameWidth/10)),(int)(frameHeight-(frameHeight/3)),60,35,frameWidth/2 - frameWidth/5,1));
-		animals.add(new Bird((int)(frameWidth/10),(int)(frameHeight/10),60,30,frameWidth - frameWidth/5,1));
-		animals.add(new Bird((int)(frameWidth - frameWidth/10),(int)(frameHeight/7),60,30,frameWidth - frameWidth/5,0));
-		animals.add(new Frog((int)(frameWidth/10),(int)(frameHeight - frameHeight/5),30,30,frameWidth/2 - frameWidth/5,1));
-		animals.add(new Frog((int)(frameWidth/2 - frameWidth/10),(int)(frameHeight - frameHeight/4),30,30,frameWidth/2 - frameWidth/5,0));
-		tree = new Tree((int)(frameWidth/10),(int)(frameHeight/10),60,30);
+		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
+		animals.add(new Fish((int)(frameWidth/2 + (frameWidth/10)),(int)(frameHeight-(frameHeight/3)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
+		animals.add(new Bird((int)(frameWidth/10),(int)(frameHeight/10),(frameWidth/28),(frameWidth/52),frameWidth - frameWidth/5,1));
+		animals.add(new Bird((int)(frameWidth - frameWidth/10),(int)(frameHeight/7),(frameWidth/28),(frameWidth/52),frameWidth - frameWidth/5,0));
+		animals.add(new Frog((int)(frameWidth/10),(int)(frameHeight - frameHeight/5),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
+		animals.add(new Frog((int)(frameWidth/2 - frameWidth/10),(int)(frameHeight - frameHeight/4),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
+		tree = new Tree((int)(0),(int)(0),(int)(frameWidth/3),(int)(frameWidth/2.5));
 		changeTarget();
+		System.out.println(frameWidth);
+		System.out.println(frameHeight);
 	}
 
 	void updateAnimals(){

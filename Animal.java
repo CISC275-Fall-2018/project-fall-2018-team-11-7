@@ -1,7 +1,7 @@
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
-public abstract class Animal {
+public abstract class Animal implements GameObjects {
 	int xloc;
 	int yloc;
 	int xvel;

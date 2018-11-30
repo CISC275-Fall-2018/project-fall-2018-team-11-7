@@ -19,8 +19,10 @@ public class Animation3 extends JPanel {
 	int questionNum = 0;
 	int score = 0;
 	private Color myGreen;
+	private GameObjects[] objects;
 	
-	public Animation3() throws IOException {
+	public Animation3(GameObjects[] objects) throws IOException {
+		this.objects = objects;
 		myGreen = new Color(0,140,0);
 		/*File file1 = new File("Question1.png");
 		File file2 = new File("Question2.png");
@@ -53,14 +55,9 @@ public class Animation3 extends JPanel {
 		g.fillRect(frameWidth/2,frameHeight/2,frameWidth/2,frameHeight/2);
 		g.setColor(myGreen);
 		g.fillRect(0,frameHeight/2,frameWidth/2,frameHeight/2);
-		/*
-		g.setColor(Color.cyan);
-		g.fillRect(0,0,1600,1000);
-		g.setColor(Color.blue);
-		g.fillRect(800,600,800,400);
-		g.setColor(myGreen);
-		g.fillRect(0,600,800,400);*/
-		//g.drawImage(questions[questionNum], 0, 0, 1600,1000,this);
+		for(GameObjects o:objects) {
+			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
+		}
 		g.setFont(font1);
 		g.setColor(Color.black);
 		if(questionNum<3) {
