@@ -21,7 +21,6 @@ public class ModelGame3 extends Model{
 	
 	public void update(int qchoice) {
 		if(qchoice != 0) {
-			System.out.println("Hello");
 			if(answerKey[questionNum]==qchoice) {
 				Score += 1;
 			}

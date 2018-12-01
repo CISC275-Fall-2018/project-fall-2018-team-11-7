@@ -40,4 +40,8 @@ public class Tree implements GameObjects {
 		return this.imageHeight;
 	}
 	public void updatePosition() {}
+	
+	public String toString() {
+		return "Tree";
+	}
 }

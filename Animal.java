@@ -36,7 +36,7 @@ public abstract class Animal implements GameObjects {
 	Direction getDirection() {
 		return d;
 	}
-	public void updatePosition() {
+	/*public void updatePosition() {
 		switch (d.getName()) {
 			case "north":
 				yloc +=yvel;
@@ -59,11 +59,7 @@ public abstract class Animal implements GameObjects {
 				xloc -= xvel;
 				yloc +=yvel;
 		}
-	}
-	public BufferedImage getImage(int i) {
-		return images[i];
-	}
-
+	}*/
 	public int getDir() {
 		return dir;
 	}

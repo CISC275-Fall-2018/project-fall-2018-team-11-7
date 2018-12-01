@@ -50,7 +50,7 @@ public class MyTests {
         tester.updateAnimals();
         assertEquals(8, tester.animals.get(0).getX());
         
-        ///Starting tests for view
+        ///Starting tests for viewgame1
         //testing constructor
         Dimension size = new Dimension(1900,1000);
         ViewGame1 tester1 = new ViewGame1(1900,1000, size);
@@ -58,10 +58,16 @@ public class MyTests {
         //testing update. Retesting getters for ModelGame1
         tester1.update(tester.getCamera(), tester.getObjects(), tester.getScore(), tester.getTarget().toString());
         assertEquals(tester.getObjects(),tester1.objects);
-        ///
-        Robot robot = new Robot();
-        tester1.repaint();
-        Color color = robot.getPixelColor(500,500);
-        assertEquals(Color.cyan, color);
+        
+        ///Starting tests for modelgame3
+        //testing model constructor and tree toString
+        ModelGame3 tester2 = new ModelGame3(1900,1000);
+        assertEquals("Tree", tester2.getGameObjects()[0].toString());
+        //testing update and getScore
+        tester2.questionNum = 1;
+        tester2.update(1);
+        assertEquals(1, tester2.getScore());
+        //testing getQNum
+        assertEquals(2, tester2.getQNum());
     }
 }
