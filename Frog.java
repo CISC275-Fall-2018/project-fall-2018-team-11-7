@@ -39,7 +39,7 @@ public class Frog extends Animal{
 		}
 	}
 
-	void updatePosition(){
+	public void updatePosition(){
 		count++;
 		vel = 6;
 		if(count%4 == 0){

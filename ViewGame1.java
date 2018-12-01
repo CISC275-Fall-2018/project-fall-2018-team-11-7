@@ -21,7 +21,7 @@ public class ViewGame1 extends View{
 	Font font = new Font("Helvetica",Font.PLAIN,24);
 
 	Camera camera;
-	List<Animal> animals;
+	List<GameObjects> objects;
 	private int score;
 	Tree tree;
 
@@ -41,12 +41,11 @@ public class ViewGame1 extends View{
 
 	}
 
-	public void update(Camera camera, List<Animal> animals,Tree tree, int score, String target){
+	public void update(Camera camera, List<GameObjects> objects, int score, String target){
 		this.camera = camera;
-		this.animals = animals;
+		this.objects = objects;
 		this.score = score;
 		this.target = target;
-		this.tree = tree;
 		
 		this.repaint();
 		try {
@@ -77,9 +76,8 @@ public class ViewGame1 extends View{
 		g.drawString("Target: " + target,frameWidth-200,60);
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
 		g.setColor(Color.red);
-		g.drawImage(tree.getImage(), tree.getX(), tree.getY(), tree.getWidth(), tree.getHeight(), this);
-		for(Animal a: animals){
-			g.drawImage(a.getImage(),a.getX(), a.getY(), a.getWidth(), a.getHeight(), this);
+		for(GameObjects o: objects){
+			g.drawImage(o.getImage(),o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}
 	}
 }

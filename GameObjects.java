@@ -13,4 +13,6 @@ public interface GameObjects {
 	
 	int getHeight();
 
+	void updatePosition();
+
 }

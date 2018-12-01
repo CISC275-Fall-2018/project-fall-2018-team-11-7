@@ -39,7 +39,7 @@ public class Bird extends Animal{
 		}
 	}
 
-	void updatePosition(){
+	public void updatePosition(){
 		count++;
 		if(count%10 == 0){
 			yvel *= -1;

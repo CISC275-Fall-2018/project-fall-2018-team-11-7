@@ -36,7 +36,7 @@ public abstract class Animal implements GameObjects {
 	Direction getDirection() {
 		return d;
 	}
-	void updatePosition() {
+	public void updatePosition() {
 		switch (d.getName()) {
 			case "north":
 				yloc +=yvel;

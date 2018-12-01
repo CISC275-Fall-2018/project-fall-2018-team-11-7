@@ -29,8 +29,6 @@ public class ModelGame1 extends Model{
 		animals.add(new Frog((int)(frameWidth/2 - frameWidth/10),(int)(frameHeight - frameHeight/4),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
 		tree = new Tree((int)(0),(int)(0),(int)(frameWidth/3),(int)(frameWidth/2.5));
 		changeTarget();
-		System.out.println(frameWidth);
-		System.out.println(frameHeight);
 	}
 
 	void updateAnimals(){
@@ -71,8 +69,11 @@ public class ModelGame1 extends Model{
 		return target;
 	}
 
-	public List getAnimals(){
-		return animals;
+	public List getObjects(){
+		ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
+		objects.addAll(animals);
+		objects.add(tree);
+		return objects;
 	}
 	public Tree getTree() {
 		return tree;

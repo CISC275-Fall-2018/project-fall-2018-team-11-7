@@ -131,7 +131,7 @@ public class Controller {
 			model.updateAnimals();
 			//System.out.println("update from controller");
 
-			view.update(model.getCamera(),model.getAnimals(), model.getTree(),model.getScore(),model.getTarget().toString());
+			view.update(model.getCamera(),model.getObjects(),model.getScore(),model.getTarget().toString());
 			if(model.getScore()==5) {
 				game1=false;
 			}

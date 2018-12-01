@@ -36,7 +36,7 @@ public class Fish extends Animal{
 		}
 	}
 
-	void updatePosition(){
+	public void updatePosition(){
 		if(dir == 1 && xloc < start+distance){
 			xloc += vel;
 		}

@@ -39,4 +39,5 @@ public class Tree implements GameObjects {
 	public int getHeight(){
 		return this.imageHeight;
 	}
+	public void updatePosition() {}
 }
