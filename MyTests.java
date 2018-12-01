@@ -82,5 +82,17 @@ public class MyTests {
         //testing get qchoice
         tester3.qchoice = 3;
         assertEquals(3,tester3.getQChoice());
+        
+        //Starting tests for modelgame2
+        //testing ModelGame2 constructor and run()
+        ModelGame2 tester4 = new ModelGame2(1900,1000);
+        tester4.bigFish = 3;
+        tester4.middleFish = 7;
+        tester4.littleFish = 15;
+        tester4.run();
+        assertEquals(4, tester4.bigFish);
+        assertEquals(6, tester4.middleFish);
+        assertEquals(15, tester4.littleFish);
+        
     }
 }

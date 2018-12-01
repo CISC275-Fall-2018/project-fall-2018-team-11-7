@@ -38,7 +38,7 @@ public class ModelGame2 extends Model {
 		int l = littleFish;
 		// for big fish
 		bigFish = b + ((int)(b/2));
-		middleFish = m - (((int)(b/2))+1) + ((int)((1/2)*(m - (((int)(b/2))+1)))) - ((int)((1/2)*(bigFish/2)));
-		littleFish = l - (((int)(m/2))+1) + ((int)((1/2)*(l - (((int)(m/2))+1)))) - ((int)((1/2)*(middleFish/2)));
+		middleFish = m - (((int)(b/2))+1) + ((int)(((m - (((int)(b/2))+1))/2))) - ((int)((((int)(bigFish/2))/2)));
+		littleFish = l - (((int)(m/2))+1) + ((int)(((l - (((int)(m/2))+1))/2))) - ((int)((((int)(middleFish/2))/2)));
 	}
 }
