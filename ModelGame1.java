@@ -15,7 +15,7 @@ public class ModelGame1 extends Model{
 
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);
-		camera = new Camera(100,160,0,0);
+		camera = new Camera(125,190,0,0);
 		animals = new ArrayList<Animal>();
 		score = 0;
 	}

@@ -64,7 +64,6 @@ public class ViewGame1 extends View{
 	public void paint(Graphics g){
 		super.paint(g);
 		g.setColor(Color.cyan);
-
 		g.fillRect(0,0,frameWidth,frameHeight/2);
 		g.setColor(Color.blue);
 		g.fillRect(frameWidth/2,frameHeight/2,frameWidth/2,frameHeight/2);
@@ -75,7 +74,6 @@ public class ViewGame1 extends View{
 		g.drawString("Score: " + score,20,60);
 		g.drawString("Target: " + target,frameWidth-200,60);
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
-		g.setColor(Color.red);
 		for(GameObjects o: objects){
 			g.drawImage(o.getImage(),o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}
