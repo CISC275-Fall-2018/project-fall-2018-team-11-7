@@ -69,14 +69,11 @@ public class ModelGame1 extends Model{
 		return target;
 	}
 
-	public List getObjects(){
+	public List<GameObjects> getObjects(){
 		ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
 		objects.addAll(animals);
 		objects.add(tree);
 		return objects;
-	}
-	public Tree getTree() {
-		return tree;
 	}
 
 	public Camera getCamera(){

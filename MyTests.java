@@ -8,6 +8,7 @@ public class MyTests {
 
     @Test
     public void taskCheckerTesting() throws IOException {
+    	///testing for ModelGame1
         ModelGame1 tester = new ModelGame1(500,300); // MyClass is tested
 
         // assert statements
@@ -18,10 +19,23 @@ public class MyTests {
         assertEquals(5, tester.animals.get(0).xloc);
         tester.target = (Animal) tester.animals.get(0);
         assertEquals("Fish", tester.getTarget().toString());
-        tester.camera.xloc = 440;
-        tester.camera.yloc = 260;
-        assertEquals(100, tester.getCamera().height);
-        tester.animals.add(new Bird(0,0,0,0,20,1));
-        assertEquals("Bird",tester.getObjects().get(1).toString());
+        tester.camera = new Camera(100, 160, 440, 260);
+        assertEquals(100, tester.getCamera().getHeight());
+        tester.animals.add(new Bird(0,6,0,0,20,1));
+        assertEquals(6,(tester.getObjects().get(1)).getY());
+        tester.animals.remove(1);
+        tester.animals.remove(0);
+        tester.addAnimals();
+        assertEquals("Frog",tester.animals.get(5).toString());
+        tester.animals.get(5).xloc = 1000;
+        tester.animals.get(5).yloc = 800;
+        tester.updateCamera(920,750);
+        tester.target = tester.animals.get(5);
+        tester.takePicture();
+        assertEquals(1, tester.getScore());
+        tester.animals.get(0).dir = 0;
+        tester.animals.get(0).xloc = 0;
+        tester.updateAnimals();
+        assertEquals(8, tester.animals.get(0).getX());
     }
 }
