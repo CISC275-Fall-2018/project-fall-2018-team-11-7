@@ -54,7 +54,6 @@ public class ViewGame3 extends View {
 		b1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				answerChoices.add(1);
-				System.out.println("Button 1 working");
 				qchoice = 1;
 			}
 		});
@@ -62,7 +61,6 @@ public class ViewGame3 extends View {
 		b2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				answerChoices.add(2);
-				System.out.println("Button 2 working");
 				qchoice = 2;
 			}
 		});
@@ -70,7 +68,6 @@ public class ViewGame3 extends View {
 		b3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				answerChoices.add(3);
-				System.out.println("Button 3 working");
 				qchoice = 3;
 			}
 		});

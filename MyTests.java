@@ -69,5 +69,18 @@ public class MyTests {
         assertEquals(1, tester2.getScore());
         //testing getQNum
         assertEquals(2, tester2.getQNum());
+        
+        //Starting tests for viewgame3 and animation3
+        //testing veiwgame3 constructor and tree getWidth
+        ViewGame3 tester3 = new ViewGame3(1900,1000,size,tester2.objects);
+        assertEquals(633, tester3.objects[0].getWidth());
+        //testing viewgame3 update, animation3 update, and animation3 constructor
+        tester3.update(3, 2, 0);
+        assertEquals(2, tester3.a.score);
+        tester3.update(2,2,0);
+        assertEquals(2, tester3.a.questionNum);
+        //testing get qchoice
+        tester3.qchoice = 3;
+        assertEquals(3,tester3.getQChoice());
     }
 }
