@@ -1,3 +1,4 @@
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -5,7 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Tree implements GameObjects {
-	BufferedImage[] image = new BufferedImage[1];
+	Image[] image = new BufferedImage[1];
 	int xloc;
 	int yloc;
 	int imageWidth;
@@ -22,7 +23,7 @@ public class Tree implements GameObjects {
 		this.imageWidth = imageWidth;
 		this.imageHeight = imageHeight;
 	}
-	public BufferedImage getImage() {
+	public Image getImage() {
 		return image[0];
 	}
 	public int getX() {

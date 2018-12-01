@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 
 public interface GameObjects {
 
-	BufferedImage getImage();
+	Image getImage();
 
 	int getX();
 
