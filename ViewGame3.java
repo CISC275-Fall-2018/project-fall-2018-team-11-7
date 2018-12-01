@@ -35,11 +35,11 @@ public class ViewGame3 extends View {
 	ArrayList<Integer> answerChoices = new ArrayList<Integer>();
 	int score;
 	int qchoice = 0;
-	GameObjects[] objects;
+	ArrayList<GameObjects> objects;
 	
-	public ViewGame3(int imageWidth, int imageHeight, Dimension size, GameObjects[] o) throws IOException {
+	public ViewGame3(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects) throws IOException {
 		super(imageWidth, imageHeight,size);
-		objects = o;
+		this.objects = objects;
 		System.out.println(objects);
 				//Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
 		frame = new JFrame();

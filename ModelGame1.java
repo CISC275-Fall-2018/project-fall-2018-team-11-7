@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class ModelGame1 extends Model{
 
-	Camera camera;
 	List<Animal> animals;
 	Tree tree;
 	Animal target;
@@ -19,8 +18,8 @@ public class ModelGame1 extends Model{
 		animals = new ArrayList<Animal>();
 		score = 0;
 	}
-
-	void addAnimals() throws IOException{
+	@Override
+	public void addAnimals() throws IOException{
 		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
 		animals.add(new Fish((int)(frameWidth/2 + (frameWidth/10)),(int)(frameHeight-(frameHeight/3)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
 		animals.add(new Bird((int)(frameWidth/10),(int)(frameHeight/10),(frameWidth/15),(frameWidth/25),frameWidth - frameWidth/5,1));
@@ -30,8 +29,8 @@ public class ModelGame1 extends Model{
 		tree = new Tree((int)(0),(int)(0),(int)(frameWidth/3),(int)(frameWidth/2.5));
 		changeTarget();
 	}
-
-	void updateAnimals(){
+	@Override
+	public void updateAnimals(){
 		for(Animal a : animals){
 			a.updatePosition();
 		}
@@ -40,8 +39,8 @@ public class ModelGame1 extends Model{
 	void updateCamera(int x, int y){
 		camera.updatePosition(x,y);
 	}
-
-	void takePicture(){
+	@Override
+	public void takePicture(){
 		int tmp = score;
 		for(Animal a: animals){
 			if(a.toString().equals(target.toString())){
@@ -60,22 +59,22 @@ public class ModelGame1 extends Model{
 		int randanimal = rand.nextInt(animals.size());
 		target = animals.get(randanimal);
 	}
-
+	@Override
 	public int getScore(){
 		return score;
 	}
-
+	@Override
 	public Animal getTarget(){
 		return target;
 	}
-
-	public List<GameObjects> getObjects(){
+	@Override
+	public ArrayList<GameObjects> getObjects(){
 		ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
 		objects.addAll(animals);
 		objects.add(tree);
 		return objects;
 	}
-
+	@Override
 	public Camera getCamera(){
 		return camera;
 	}

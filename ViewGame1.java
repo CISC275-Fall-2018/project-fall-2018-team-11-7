@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ViewGame1 extends View{
@@ -28,8 +30,10 @@ public class ViewGame1 extends View{
 
 	private Color myGreen;
 
-	public ViewGame1(int frameWidth, int frameHeight, Dimension size) {
+	public ViewGame1(int frameWidth, int frameHeight, Dimension size, Camera camera, ArrayList<GameObjects> objects) {
 		super(frameWidth, frameHeight, size);
+		this.camera = camera;
+		this.objects = objects;
 		Container pane = frame.getContentPane();
 		pane.setPreferredSize(size);
 		//super(frameWidth,frameHeight);
@@ -41,8 +45,8 @@ public class ViewGame1 extends View{
 		myGreen = new Color(0,140,0);
 
 	}
-
-	public void update(Camera camera, List<GameObjects> objects, int score, String target){
+	@Override
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target){
 		this.camera = camera;
 		this.objects = objects;
 		this.score = score;

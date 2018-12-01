@@ -1,5 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -34,7 +36,12 @@ public class View extends JFrame {
 	}
 	void pauseView() {}
 
-	public void update(Object camera, Object animals, int score, String string) {
+	public int getQChoice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -44,8 +51,8 @@ public class View extends JFrame {
 		
 	}
 
-	public int getQChoice() {
+	//public void update(Camera camera, List<GameObjects> objects, int score, String target) {
 		// TODO Auto-generated method stub
-		return 0;
-	}
+		
+	//}
 }

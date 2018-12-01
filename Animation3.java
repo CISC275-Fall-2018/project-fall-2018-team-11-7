@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -19,9 +20,9 @@ public class Animation3 extends JPanel {
 	int questionNum = 0;
 	int score = 0;
 	private Color myGreen;
-	private GameObjects[] objects;
+	private ArrayList<GameObjects> objects;
 	
-	public Animation3(GameObjects[] objects) throws IOException {
+	public Animation3(ArrayList<GameObjects> objects) throws IOException {
 		this.objects = objects;
 		myGreen = new Color(0,140,0);
 		/*File file1 = new File("Question1.png");
