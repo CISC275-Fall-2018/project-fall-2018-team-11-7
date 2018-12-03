@@ -6,7 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Tree implements GameObjects {
-	Image[] image = new BufferedImage[1];
+	BufferedImage[] image = new BufferedImage[1];
 	int xloc;
 	int yloc;
 	int imageWidth;
@@ -23,7 +23,8 @@ public class Tree implements GameObjects {
 		this.imageWidth = imageWidth;
 		this.imageHeight = imageHeight;
 	}
-	public Image getImage() {
+	
+	public BufferedImage getImage() {
 		return image[0];
 	}
 	public int getX() {
@@ -44,5 +45,15 @@ public class Tree implements GameObjects {
 	
 	public String toString() {
 		return "Tree";
+	}
+	@Override
+	public void setX(int x) {
+		// TODO Auto-generated method stub
+		this.xloc = x;
+	}
+	@Override
+	public void setY(int y) {
+		// TODO Auto-generated method stub
+		this.yloc = y;
 	}
 }

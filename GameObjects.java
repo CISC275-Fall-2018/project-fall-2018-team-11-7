@@ -3,7 +3,9 @@ import java.awt.image.BufferedImage;
 
 public interface GameObjects {
 
-	Image getImage();
+	boolean drag = false;
+
+	BufferedImage getImage();
 
 	int getX();
 
@@ -14,5 +16,13 @@ public interface GameObjects {
 	int getHeight();
 
 	void updatePosition();
+
+	void setX(int x);
+
+	void setY(int y);
+
+	boolean getDrag();
+
+	void setDrag(boolean b);
 
 }

@@ -31,9 +31,7 @@ public class View extends JFrame {
 	}
 	
 	//void paintBackground() {}
-	void updateView() {
-		
-	}
+	void update() {}
 	void pauseView() {}
 
 	public int getQChoice() {

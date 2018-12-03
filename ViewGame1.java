@@ -34,8 +34,8 @@ public class ViewGame1 extends View{
 		super(frameWidth, frameHeight, size);
 		this.camera = camera;
 		this.objects = objects;
-		Container pane = frame.getContentPane();
-		pane.setPreferredSize(size);
+		//Container pane = frame.getContentPane();
+		//pane.setPreferredSize(size);
 		//super(frameWidth,frameHeight);
 		//pane.add(panel, BorderLayout.CENTER);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,7 +54,7 @@ public class ViewGame1 extends View{
 		
 		this.repaint();
 		try {
-		Thread.sleep(50);
+		Thread.sleep(100);
 		} catch (InterruptedException e) {
 		e.printStackTrace();
 		}

@@ -53,4 +53,19 @@ public class Model {
 		// TODO Auto-generated method stub
 		return (Integer) null;
 	}
+
+	public void update(int mX, int mY) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void drop() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(int x, int y, boolean mouseloc) {
+		// TODO Auto-generated method stub
+		
+	}
 }

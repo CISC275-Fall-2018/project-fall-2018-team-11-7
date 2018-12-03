@@ -53,7 +53,7 @@ public class MyTests {
         ///Starting tests for viewgame1
         //testing constructor
         Dimension size = new Dimension(1900,1000);
-        ViewGame1 tester1 = new ViewGame1(1900,1000, size);
+        ViewGame1 tester1 = new ViewGame1(1900,1000, size, tester.camera, tester.getObjects());
         assertEquals(1900, tester1.frameWidth);
         //testing update. Retesting getters for ModelGame1
         tester1.update(tester.getCamera(), tester.getObjects(), tester.getScore(), tester.getTarget().toString());
@@ -62,7 +62,7 @@ public class MyTests {
         ///Starting tests for modelgame3
         //testing model constructor and tree toString
         ModelGame3 tester2 = new ModelGame3(1900,1000);
-        assertEquals("Tree", tester2.getGameObjects()[0].toString());
+        assertEquals("Tree", tester2.getObjects().get(0).toString());
         //testing update and getScore
         tester2.questionNum = 1;
         tester2.update(1);
@@ -73,7 +73,7 @@ public class MyTests {
         //Starting tests for viewgame3 and animation3
         //testing veiwgame3 constructor and tree getWidth
         ViewGame3 tester3 = new ViewGame3(1900,1000,size,tester2.objects);
-        assertEquals(633, tester3.objects[0].getWidth());
+        assertEquals(633, tester3.objects.get(0).getWidth());
         //testing viewgame3 update, animation3 update, and animation3 constructor
         tester3.update(3, 2, 0);
         assertEquals(2, tester3.a.score);

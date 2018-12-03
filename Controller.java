@@ -16,6 +16,7 @@ public class Controller {
 	boolean game3 = true;
 	int mX;
 	int mY;
+	boolean mouseloc = false;
 	static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 	protected static int frameWidth = (int) size.getWidth();
 	protected static int frameHeight = (int) size.getHeight();
@@ -37,18 +38,6 @@ public class Controller {
 		model.addAnimals();
 		view = new ViewGame1(frameWidth, frameHeight, size, model.camera, model.getObjects());
 		view.addMouseListener(mouseinput);
-		
-		
-		MouseListener mouseinput2 = new MouseListener() {
-			public void mouseClicked(MouseEvent event){}
-			@Override
-			public void mousePressed(MouseEvent event){
-				
-			}
-			public void mouseReleased(MouseEvent event){}
-			public void mouseEntered(MouseEvent event){}
-			public void mouseExited(MouseEvent event){}
-		};
 	}
 	
 	public void mouseLocation() {
@@ -67,6 +56,39 @@ public class Controller {
 			if(model.getScore()==5) {
 				game1=false;
 			}
+		}
+		MouseListener mouseinput2 = new MouseListener() {
+			public void mouseClicked(MouseEvent event){}
+			@Override
+			public void mousePressed(MouseEvent event){
+				mouseloc = true;
+				for(GameObjects o: model.getObjects()) {
+					if(mX>o.getX() && mX<(o.getX()+o.getWidth())) {
+						if(mY>o.getY() && mY<(o.getY()+o.getHeight())) {
+							o.setX(mX);
+							o.setY(mY);
+							o.setDrag(true);
+						}
+					}
+				}
+			}
+			public void mouseReleased(MouseEvent event){
+				mouseloc = false;
+				model.drop();
+			}
+			public void mouseEntered(MouseEvent event){}
+			public void mouseExited(MouseEvent event){}
+		};
+	
+		model = new ModelGame2(frameWidth, frameHeight);
+		System.out.println(model.getObjects());
+		view = new ViewGame2(frameWidth, frameHeight, size, model.getObjects());
+		view.addMouseListener(mouseinput2);
+		
+		while(game2) {
+			mouseLocation();
+			model.update(mX, mY, mouseloc);
+			view.update();
 		}
 		
 		model = new ModelGame3(frameWidth,frameHeight);
