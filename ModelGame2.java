@@ -33,8 +33,25 @@ public class ModelGame2 extends Model {
 			bigFish -=1;
 		}
 	}
-	 
+	
+	void count() {
+		littleFish = -1;
+		middleFish = -1;
+		bigFish = -1;
+		for(GameObjects o: objects) {
+			switch(o.toString()) {
+			case "little fish":
+				littleFish +=1;
+			case "middle fish":
+				middleFish +=1;
+			case "big fish":
+				bigFish +=1;
+			}	
+		}
+	}
+	
 	void run() {
+		count();
 		int b = bigFish;
 		int m = middleFish;
 		int l = littleFish;
@@ -56,11 +73,20 @@ public class ModelGame2 extends Model {
 		}
 	}
 	@Override
-	public void drop(int x, int y) {
+	public void drop(int x, int y) throws IOException {
 		for(GameObjects o: objects) {
 			if(o.getDrag()) {
 				o.setX(x);
 				o.setY(y);
+				switch(o.toString()) {
+				case "little fish":
+					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
+						objects.remove(o);
+						objects.add(new LittleFish(frameWidth, frameHeight));
+					}
+					else {
+					}
+				}
 				o.setDrag(false);
 			}
 		}

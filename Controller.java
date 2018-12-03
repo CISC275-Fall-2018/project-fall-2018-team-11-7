@@ -74,7 +74,12 @@ public class Controller {
 			}
 			public void mouseReleased(MouseEvent event){
 				mouseloc = false;
-				model.drop(mX,mY);
+				try {
+					model.drop(mX,mY);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}

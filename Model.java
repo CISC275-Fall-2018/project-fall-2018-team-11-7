@@ -64,7 +64,7 @@ public class Model {
 		
 	}
 
-	public void drop(int x, int y) {
+	public void drop(int x, int y) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
