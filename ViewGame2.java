@@ -42,6 +42,9 @@ public class ViewGame2 extends View {
 		g.fillRect((int)(frameWidth - frameWidth/5), (int)(frameHeight - frameHeight/4), (int)(frameWidth/5), (int)(frameHeight/4));
 		g.fillRect(0, (int)(frameHeight/6), (int)(frameWidth/7), (int)(frameHeight - frameHeight/3));
 		g.setColor(Color.black);
+		g.drawRect(0, (int)(frameHeight/6), (int)(frameWidth/7), (int)(frameHeight/3 - frameHeight/9));
+		g.drawRect(0, (int)(frameHeight/2 - frameHeight/9),(int)(frameWidth/7), (int)(frameHeight/3 - frameHeight/9));
+		g.drawRect(0, (int)(frameHeight/2 + frameHeight/9), (int)(frameWidth/7), (int)(frameHeight/3 - frameHeight/9));
 		g.setFont(font);
 		g.drawString("Remove",(int)(frameWidth - frameWidth/7), (int)(frameHeight - frameHeight/6));
 		g.drawRect((int)(frameWidth - frameWidth/5), (int)(frameHeight - frameHeight/4), (int)(frameWidth/5), (int)(frameHeight/4));

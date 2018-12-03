@@ -10,6 +10,7 @@ public class ModelGame2 extends Model {
 	public ModelGame2(int width, int height) throws IOException {
 		super(width, height);
 		objects.add(new LittleFish(frameWidth, frameHeight));
+		objects.add(new MiddleFish(frameWidth, frameHeight));
 	}
 	
 	void addAnimal(Animal a) {
@@ -82,9 +83,44 @@ public class ModelGame2 extends Model {
 				case "little fish":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
 						objects.remove(o);
-						objects.add(new LittleFish(frameWidth, frameHeight));
+						if(o.getOrigin()) {
+							objects.add(new LittleFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
+					}
+					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
+						objects.remove(o);
+						if(o.getOrigin()) {
+							objects.add(new LittleFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
 					}
 					else {
+						if(o.getOrigin()) {
+							objects.add(new LittleFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
+					}
+				case "middle fish":
+					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
+						objects.remove(o);
+						if(o.getOrigin()) {
+							objects.add(new MiddleFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
+					}
+					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
+						objects.remove(o);
+						if(o.getOrigin()) {
+							objects.add(new MiddleFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
+					}
+					else {
+						if(o.getOrigin()) {
+							objects.add(new MiddleFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
 					}
 				}
 				o.setDrag(false);

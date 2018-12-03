@@ -25,4 +25,8 @@ public interface GameObjects {
 
 	void setDrag(boolean b);
 
+	boolean getOrigin();
+
+	void setOrigin(boolean b);
+
 }
