@@ -49,15 +49,21 @@ public class ModelGame2 extends Model {
 		if(mouseloc) {
 			for(GameObjects o: objects) {
 				if(o.getDrag()) {
-					System.out.println("Sucess");
 					o.setX(x);
 					o.setY(y);
 				}
 			}
 		}
 	}
-	
+	@Override
 	public void drop(int x, int y) {
+		for(GameObjects o: objects) {
+			if(o.getDrag()) {
+				o.setX(x);
+				o.setY(y);
+				o.setDrag(false);
+			}
+		}
 	}
 	@Override
 	public ArrayList<GameObjects> getObjects(){

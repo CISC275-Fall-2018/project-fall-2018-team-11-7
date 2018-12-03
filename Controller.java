@@ -47,7 +47,7 @@ public class Controller {
 	
 
 	public void start() throws IOException{
-		while(game1){
+		/*while(game1){
 			mouseLocation();
 			((ModelGame1)model).getCamera().updatePosition(mX,mY);
 			model.updateAnimals();
@@ -56,7 +56,7 @@ public class Controller {
 			if(model.getScore()==5) {
 				game1=false;
 			}
-		}
+		}*/
 		MouseListener mouseinput2 = new MouseListener() {
 			public void mouseClicked(MouseEvent event){}
 			@Override
@@ -74,7 +74,7 @@ public class Controller {
 			}
 			public void mouseReleased(MouseEvent event){
 				mouseloc = false;
-				model.drop();
+				model.drop(mX,mY);
 			}
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}

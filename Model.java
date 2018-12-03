@@ -59,12 +59,12 @@ public class Model {
 		
 	}
 
-	public void drop() {
+	public void update(int x, int y, boolean mouseloc) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void update(int x, int y, boolean mouseloc) {
+	public void drop(int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}

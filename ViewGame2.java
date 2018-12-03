@@ -34,8 +34,10 @@ public class ViewGame2 extends View {
 	
 	public void paint(Graphics g) {
 		super.paint(g);
+		g.setColor(Color.cyan);
+		g.fillRect(0, 0, frameWidth, (int)(frameHeight/4));
 		g.setColor(Color.blue);
-		g.fillRect(0,0,frameWidth,frameHeight);
+		g.fillRect(0,(int)(frameHeight/4),frameWidth,(frameHeight - frameHeight/4));
 		for(GameObjects o:objects) {
 			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}
