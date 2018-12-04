@@ -56,4 +56,28 @@ public class Tree implements GameObjects {
 		// TODO Auto-generated method stub
 		this.yloc = y;
 	}
+
+	@Override
+	public boolean getDrag() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setDrag(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean getOrigin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setOrigin(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 }

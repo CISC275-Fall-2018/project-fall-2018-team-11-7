@@ -11,6 +11,7 @@ public class ModelGame2 extends Model {
 		super(width, height);
 		objects.add(new LittleFish(frameWidth, frameHeight));
 		objects.add(new MiddleFish(frameWidth, frameHeight));
+		objects.add(new BigFish(frameWidth, frameHeight));
 	}
 	
 	void addAnimal(Animal a) {
@@ -67,29 +68,30 @@ public class ModelGame2 extends Model {
 		if(mouseloc) {
 			for(GameObjects o: objects) {
 				if(o.getDrag()) {
-					o.setX(x);
-					o.setY(y);
+					o.setX(x - (int)(o.getWidth()/3));
+					o.setY(y - (int)(o.getHeight()/3));
 				}
 			}
 		}
 	}
 	@Override
 	public void drop(int x, int y) throws IOException {
+		ArrayList<GameObjects> removeList = new ArrayList<GameObjects>();
 		for(GameObjects o: objects) {
 			if(o.getDrag()) {
-				o.setX(x);
-				o.setY(y);
+				o.setX(x - (int)(o.getWidth()/3));
+				o.setY(y - (int)(o.getHeight()/3));
 				switch(o.toString()) {
 				case "little fish":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
-						objects.remove(o);
+						removeList.add(o);
 						if(o.getOrigin()) {
 							objects.add(new LittleFish(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
-						objects.remove(o);
+						removeList.add(o);
 						if(o.getOrigin()) {
 							objects.add(new LittleFish(frameWidth, frameHeight));
 							o.setOrigin(false);
@@ -103,14 +105,14 @@ public class ModelGame2 extends Model {
 					}
 				case "middle fish":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
-						objects.remove(o);
+						removeList.add(o);
 						if(o.getOrigin()) {
 							objects.add(new MiddleFish(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
-						objects.remove(o);
+						removeList.add(o);
 						if(o.getOrigin()) {
 							objects.add(new MiddleFish(frameWidth, frameHeight));
 							o.setOrigin(false);
@@ -122,9 +124,31 @@ public class ModelGame2 extends Model {
 							o.setOrigin(false);
 						}
 					}
+				case "big fish":
+					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
+						removeList.add(o);
+						if(o.getOrigin()) {
+							objects.add(new BigFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
+					}
+					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
+						removeList.add(o);
+						if(o.getOrigin()) {
+							objects.add(new BigFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
+					}
+					else {
+						if(o.getOrigin()) {
+							objects.add(new BigFish(frameWidth, frameHeight));
+							o.setOrigin(false);
+						}
+					}
 				}
 				o.setDrag(false);
 			}
+			objects.removeAll(removeList);
 		}
 	}
 	@Override
