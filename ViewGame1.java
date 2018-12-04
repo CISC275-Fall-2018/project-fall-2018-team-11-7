@@ -27,6 +27,7 @@ public class ViewGame1 extends View{
 	List<GameObjects> objects;
 	private int score;
 	Tree tree;
+	boolean init = true;
 
 	private Color myGreen;
 
@@ -38,9 +39,6 @@ public class ViewGame1 extends View{
 		//pane.setPreferredSize(size);
 		//super(frameWidth,frameHeight);
 		//pane.add(panel, BorderLayout.CENTER);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
-		pack();
 
 		myGreen = new Color(0,140,0);
 
@@ -51,10 +49,10 @@ public class ViewGame1 extends View{
 		this.objects = objects;
 		this.score = score;
 		this.target = target;
-		
+
 		this.repaint();
 		try {
-		Thread.sleep(100);
+		Thread.sleep(50);
 		} catch (InterruptedException e) {
 		e.printStackTrace();
 		}
@@ -63,18 +61,21 @@ public class ViewGame1 extends View{
 	/*public void updateGraphics(Graphics g) {
 		Graphics offgc;
 		Image offscreen = null;
-		
+
 	}*/
-	
-	public void paint(Graphics g){
-		super.paint(g);
-		g.setColor(Color.cyan);
-		g.fillRect(0,0,frameWidth,frameHeight/2);
-		g.setColor(Color.blue);
-		g.fillRect(frameWidth/2,frameHeight/2,frameWidth/2,frameHeight/2);
-		g.setColor(myGreen);
-		g.fillRect(0,frameHeight/2,frameWidth/2,frameHeight/2);
-		g.setFont(font);
+
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		if(init){
+			g.setColor(Color.cyan);
+			g.fillRect(0,0,frameWidth,frameHeight/2);
+			g.setColor(Color.blue);
+			g.fillRect(frameWidth/2,frameHeight/2,frameWidth/2,frameHeight/2);
+			g.setColor(myGreen);
+			g.fillRect(0,frameHeight/2,frameWidth/2,frameHeight/2);
+			g.setFont(font);
+			//init = false;
+		}
 		g.setColor(Color.black);
 		g.drawString("Score: " + score,20,60);
 		g.drawString("Target: " + target,frameWidth-200,60);

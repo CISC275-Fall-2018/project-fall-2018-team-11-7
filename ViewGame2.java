@@ -18,11 +18,11 @@ import javax.swing.JPanel;
 public class ViewGame2 extends View {
 	Font font = new Font("Helvetica",Font.PLAIN,45);
 	JFrame frame;
-	JPanel panel;
+
 	Animation2 a;
 	ArrayList<GameObjects> objects;
 	boolean next = false;
-	
+
 	public ViewGame2(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects, MouseListener mouseinput2) throws IOException {
 		super(imageWidth, imageHeight,size);
 		this.objects = objects;
@@ -32,15 +32,14 @@ public class ViewGame2 extends View {
 		Container pane = frame.getContentPane();
 		pane.setPreferredSize(size);
     	pane.setLayout(new BorderLayout());
-    	panel = new JPanel();
     	JButton b = new JButton("Go to next day");
     	b.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent e) {
     			next = true;
     		}
     	});
-    	panel.add(b);
-    	pane.add(panel, BorderLayout.PAGE_END);
+    	this.add(b);
+    	pane.add(this, BorderLayout.PAGE_END);
     	a = new Animation2(imageWidth, imageHeight, objects);
     	a.addMouseListener(mouseinput2);
     	pane.add(a, BorderLayout.CENTER);
@@ -48,7 +47,7 @@ public class ViewGame2 extends View {
 		frame.setVisible(true);
     	frame.pack();
 	}
-	
+
 	/*public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(Color.cyan);
@@ -65,13 +64,13 @@ public class ViewGame2 extends View {
 		g.setFont(font);
 		g.drawString("Remove",(int)(frameWidth - frameWidth/7), (int)(frameHeight - frameHeight/6));
 		g.drawRect((int)(frameWidth - frameWidth/5), (int)(frameHeight - frameHeight/4), (int)(frameWidth/5), (int)(frameHeight/4));
-		
-		
+
+
 		for(GameObjects o:objects) {
 			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}
 	}*/
-	
+
 	public void update(ArrayList<GameObjects> objects) {
 		this.objects = objects;
 		a.update(frameWidth, frameHeight, objects);
@@ -82,7 +81,7 @@ public class ViewGame2 extends View {
 			e.printStackTrace();
 			}
 	}
-	
+
 	@Override
 	public boolean getNext() {
 		return next;
@@ -91,5 +90,5 @@ public class ViewGame2 extends View {
 	public void setNext(boolean b) {
 		this.next = b;
 	}
-	
+
 }
