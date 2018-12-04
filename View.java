@@ -49,6 +49,21 @@ public class View extends JFrame {
 		
 	}
 
+	public boolean getNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setNext(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(ArrayList<GameObjects> objects) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	//public void update(Camera camera, List<GameObjects> objects, int score, String target) {
 		// TODO Auto-generated method stub
 		

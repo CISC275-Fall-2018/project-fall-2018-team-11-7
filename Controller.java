@@ -47,7 +47,7 @@ public class Controller {
 	
 
 	public void start() throws IOException{
-		/*while(game1){
+		while(game1){
 			mouseLocation();
 			((ModelGame1)model).getCamera().updatePosition(mX,mY);
 			model.updateAnimals();
@@ -56,7 +56,7 @@ public class Controller {
 			if(model.getScore()==5) {
 				game1=false;
 			}
-		}*/
+		}
 		MouseListener mouseinput2 = new MouseListener() {
 			public void mouseClicked(MouseEvent event){}
 			@Override
@@ -64,7 +64,7 @@ public class Controller {
 				mouseloc = true;
 				for(GameObjects o: model.getObjects()) {
 					if(mX>o.getX() && mX<(o.getX()+o.getWidth())) {
-						if(mY>o.getY() && mY<(o.getY()+o.getHeight())) {
+						if(mY>(o.getY()+50) && mY<(o.getY()+o.getHeight()+50)) {
 							o.setX(mX);
 							o.setY(mY);
 							o.setDrag(true);
@@ -86,14 +86,20 @@ public class Controller {
 		};
 	
 		model = new ModelGame2(frameWidth, frameHeight);
-		System.out.println(model.getObjects());
-		view = new ViewGame2(frameWidth, frameHeight, size, model.getObjects());
-		view.addMouseListener(mouseinput2);
+		view = new ViewGame2(frameWidth, frameHeight, size, model.getObjects(), mouseinput2);
+		//view.addMouseListener(mouseinput2);
 		
 		while(game2) {
 			mouseLocation();
-			model.update(mX, mY, mouseloc);
-			view.update();
+			mouseloc = true;
+			model.update(mX, mY, mouseloc, view.getNext());
+			if(view.getNext()) {
+				view.setNext(false);
+			}
+			view.update(model.getObjects());
+			if(model.getNum() >= 3) {
+				game2 = false;
+			}
 		}
 		
 		model = new ModelGame3(frameWidth,frameHeight);
@@ -101,8 +107,8 @@ public class Controller {
 		
 		while(game3) {
 			model.update(view.getQChoice());
-			view.update(model.getQNum(), model.getScore(), model.resetQChoice);
-			if(model.getQNum()==4) {
+			view.update(model.getNum(), model.getScore(), model.resetQChoice);
+			if(model.getNum()==4) {
 				game3=false;
 			}
 		}

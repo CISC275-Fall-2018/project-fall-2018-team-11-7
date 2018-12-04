@@ -22,6 +22,18 @@ public class LittleFish extends Animal {
 		}
 	}
 	
+	public LittleFish(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
+		super(frameWidth, frameHeight);
+		this.xloc = xloc;
+		this.yloc = yloc;
+		imageWidth = (int)(frameWidth/52);
+		imageHeight = (int)(frameWidth/52);
+		File file = new File("Fish_east_1.png");
+		if(file.exists()) {
+			image = ImageIO.read(file);
+		}
+	}
+	
 	public String toString() {
 		return "little fish";
 	}

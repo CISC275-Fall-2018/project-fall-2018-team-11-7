@@ -21,6 +21,18 @@ public class BigFish extends Animal {
 			image = ImageIO.read(file);
 		}
 	}
+	
+	public BigFish(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
+		super(frameWidth, frameHeight);
+		this.xloc = xloc;
+		this.yloc = yloc;
+		imageWidth = (int)(frameWidth/20);
+		imageHeight = (int)(frameWidth/20);
+		File file = new File("Fish_east_1.png");
+		if(file.exists()) {
+			image = ImageIO.read(file);
+		}
+	}
 
 	public String toString() {
 		return "big fish";

@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,22 +18,38 @@ import javax.swing.JPanel;
 public class ViewGame2 extends View {
 	Font font = new Font("Helvetica",Font.PLAIN,45);
 	JFrame frame;
-	//JPanel panel;
-	Image[] questions = new Image[3];
+	JPanel panel;
+	Animation2 a;
 	ArrayList<GameObjects> objects;
+	boolean next = false;
 	
-	public ViewGame2(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects) throws IOException {
+	public ViewGame2(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects, MouseListener mouseinput2) throws IOException {
 		super(imageWidth, imageHeight,size);
 		this.objects = objects;
-		System.out.println(objects);
 				//Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
 		//frame = new JFrame();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
-    	pack();
+		frame = new JFrame();
+		Container pane = frame.getContentPane();
+		pane.setPreferredSize(size);
+    	pane.setLayout(new BorderLayout());
+    	panel = new JPanel();
+    	JButton b = new JButton("Go to next day");
+    	b.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent e) {
+    			next = true;
+    		}
+    	});
+    	panel.add(b);
+    	pane.add(panel, BorderLayout.PAGE_END);
+    	a = new Animation2(imageWidth, imageHeight, objects);
+    	a.addMouseListener(mouseinput2);
+    	pane.add(a, BorderLayout.CENTER);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+    	frame.pack();
 	}
 	
-	public void paint(Graphics g) {
+	/*public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(Color.cyan);
 		g.fillRect(0, 0, frameWidth, (int)(frameHeight/4));
@@ -53,24 +70,26 @@ public class ViewGame2 extends View {
 		for(GameObjects o:objects) {
 			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}
-	}
+	}*/
 	
-	public void update() {
+	public void update(ArrayList<GameObjects> objects) {
+		this.objects = objects;
+		a.update(frameWidth, frameHeight, objects);
 		this.repaint();
 		try {
-			Thread.sleep(100);
+			Thread.sleep(50);
 			} catch (InterruptedException e) {
 			e.printStackTrace();
 			}
 	}
 	
-	/*public static void main(String[] args) {
-		//Here solely for the purpose of testing
-		try {
-			DummyController3 c = new DummyController3();
-			c.start();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-	}*/
+	@Override
+	public boolean getNext() {
+		return next;
+	}
+	@Override
+	public void setNext(boolean b) {
+		this.next = b;
+	}
+	
 }

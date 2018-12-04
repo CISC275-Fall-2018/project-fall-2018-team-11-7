@@ -49,7 +49,7 @@ public class Model {
 		
 	}
 
-	public int getQNum() {
+	public int getNum() {
 		// TODO Auto-generated method stub
 		return (Integer) null;
 	}
@@ -59,12 +59,13 @@ public class Model {
 		
 	}
 
-	public void update(int x, int y, boolean mouseloc) {
+
+	public void drop(int x, int y) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void drop(int x, int y) throws IOException {
+	public void update(int x, int y, boolean mouseloc, boolean next) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}

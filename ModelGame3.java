@@ -16,7 +16,7 @@ public class ModelGame3 extends Model{
 	public int getScore() {
 		return Score;
 	}
-	public int getQNum() {
+	public int getNum() {
 		return questionNum;
 	}
 	
