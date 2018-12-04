@@ -25,12 +25,11 @@ public class Controller {
 	public Controller() throws IOException {
 
 		MouseListener mouseinput = new MouseListener(){
-			@Override
-			public void mouseClicked(MouseEvent event){
+			public void mouseClicked(MouseEvent event){}
+			public void mousePressed(MouseEvent event){}
+			public void mouseReleased(MouseEvent event){
 				model.takePicture();
 			}
-			public void mousePressed(MouseEvent event){}
-			public void mouseReleased(MouseEvent event){}
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}
 		};
@@ -59,34 +58,50 @@ public class Controller {
 			}
 		}
 		MouseListener mouseinput2 = new MouseListener() {
-			public void mouseClicked(MouseEvent event){
+			public void mouseClicked(MouseEvent event){}
+			public void mousePressed(MouseEvent event){}
+			public void mouseReleased(MouseEvent event){
 				if(dragging){
 					mouseloc = false;
+					dragging = false;
 					try {
 						model.drop(mX,mY);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					dragging = false;
 				}
 				else{
-					mouseloc = true;
-					for(GameObjects o: model.getObjects()) {
-						if(mX>o.getX() && mX<(o.getX()+o.getWidth())) {
-							if(mY>(o.getY()+50) && mY<(o.getY()+o.getHeight()+50)) {
-								o.setX(mX);
-								o.setY(mY);
-								o.setDrag(true);
-								dragging = true;
+					if(mX<frameWidth/7 && mY>(frameHeight/6)){
+						for(GameObjects o: model.getObjects()) {
+							if(o.getX() < frameWidth/7){
+								//System.out.println("abs" + Math.abs(o.getY()-mY));
+								//System.out.println("bound" + (frameHeight/3 - frameHeight/9)/4);
+								if(Math.abs(o.getY()+50-mY) <= (frameHeight/3 - frameHeight/9)/3){
+									o.setX(mX);
+									o.setY(mY);
+									o.setDrag(true);
+									dragging = true;
+								}
+							}
+						}
+
+					}
+					else{
+						mouseloc = true;
+						for(GameObjects o: model.getObjects()) {
+							if(mX>o.getX() && mX<(o.getX()+o.getWidth())) {
+								if(mY>(o.getY()+50) && mY<(o.getY()+o.getHeight()+50)) {
+									o.setX(mX);
+									o.setY(mY);
+									o.setDrag(true);
+									dragging = true;
+								}
 							}
 						}
 					}
 				}
 			}
-			@Override
-			public void mousePressed(MouseEvent event){}
-			public void mouseReleased(MouseEvent event){}
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}
 		};

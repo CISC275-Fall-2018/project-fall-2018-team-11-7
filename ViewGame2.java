@@ -41,9 +41,6 @@ public class ViewGame2 extends View {
     	a = new Animation2(imageWidth, imageHeight, objects);
     	a.addMouseListener(mouseinput2);
     	pane.add(a, BorderLayout.CENTER);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-    	frame.pack();
 	}
 
 	/*public void paint(Graphics g) {

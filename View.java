@@ -16,9 +16,10 @@ public class View extends JPanel {
 		this.frameWidth = frameWidth;
 		this.frameHeight = frameHeight;
 		this.size = size;
-		frame = new JFrame("Screen");
+		frame = new JFrame("Game");
 		frame.add(this);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setPreferredSize(size);
 		frame.setVisible(true);
 		frame.pack();
 	}
@@ -26,7 +27,7 @@ public class View extends JPanel {
 	public int getWidth() {
 		return frameWidth;
 	}
-	public int getHieght() {
+	public int getHeight() {
 		return frameHeight;
 	}
 
