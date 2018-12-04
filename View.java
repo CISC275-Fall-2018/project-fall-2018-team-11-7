@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class View extends JFrame {
+public class View extends JPanel {
 	protected int frameWidth;
 	protected int frameHeight;
 	JFrame frame;
@@ -16,11 +16,11 @@ public class View extends JFrame {
 		this.frameWidth = frameWidth;
 		this.frameHeight = frameHeight;
 		this.size = size;
-		//this.frameWidth = frameWidth;
-		//this.frameHeight = frameHeight;
-		frame = new JFrame();
-		frame.setSize(frameWidth, frameHeight);
-		//frame.setVisible(true);
+		frame = new JFrame("Screen");
+		frame.add(this);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.pack();
 	}
 
 	public int getWidth() {
@@ -29,7 +29,7 @@ public class View extends JFrame {
 	public int getHieght() {
 		return frameHeight;
 	}
-	
+
 	//void paintBackground() {}
 	void update() {}
 	void pauseView() {}
@@ -41,12 +41,12 @@ public class View extends JFrame {
 
 	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void update(int qNum, int score, int resetQChoice) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public boolean getNext() {
@@ -56,16 +56,16 @@ public class View extends JFrame {
 
 	public void setNext(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void update(ArrayList<GameObjects> objects) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	//public void update(Camera camera, List<GameObjects> objects, int score, String target) {
 		// TODO Auto-generated method stub
-		
+
 	//}
 }

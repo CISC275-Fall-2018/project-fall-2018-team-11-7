@@ -28,7 +28,6 @@ import javax.swing.JFrame;
 public class ViewGame3 extends View {
 	Font font = new Font("Helvetica",Font.PLAIN,45);
 	JFrame frame;
-	JPanel panel;
 	Animation3 a;
 	Image[] questions = new Image[3];
 	int questionNum = 0;
@@ -36,7 +35,7 @@ public class ViewGame3 extends View {
 	int score;
 	int qchoice = 0;
 	ArrayList<GameObjects> objects;
-	
+
 	public ViewGame3(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects) throws IOException {
 		super(imageWidth, imageHeight,size);
 		this.objects = objects;
@@ -48,8 +47,7 @@ public class ViewGame3 extends View {
     	pane.setLayout(new BorderLayout());
     	a = new Animation3(objects);
     	pane.add(a, BorderLayout.CENTER);
-    	panel = new JPanel();
-    	
+
 		JButton b1 = new JButton("A");
 		b1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -71,21 +69,21 @@ public class ViewGame3 extends View {
 				qchoice = 3;
 			}
 		});
-		panel.add(b1);
-		panel.add(b2);
-		panel.add(b3);
+		this.add(b1);
+		this.add(b2);
+		this.add(b3);
 		
-    	pane.add(panel, BorderLayout.PAGE_END);
+    	pane.add(this, BorderLayout.PAGE_END);
     	frame.setVisible(true);
     	frame.pack();
 	}
-	
+
 	/*public void paint(Graphics g) {
 		super.paint(g);
 		g.drawImage(questions[questionNum], 0, 0, 1600,1000,this);
 		g.drawString("Score: " + score,20,60);
 	}*/
-	
+
 	public void update(int questionNum, int score, int reset) {
 		this.score = score;
 		this.questionNum = questionNum;
@@ -101,7 +99,7 @@ public class ViewGame3 extends View {
 	public int getQChoice() {
 		return qchoice;
 	}
-	
+
 	/*public static void main(String[] args) {
 		//Here solely for the purpose of testing
 		try {
