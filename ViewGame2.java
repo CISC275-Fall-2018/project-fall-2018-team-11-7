@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 
 public class ViewGame2 extends View {
 	Font font = new Font("Helvetica",Font.PLAIN,45);
-	JFrame frame;
 
 	Animation2 a;
 	ArrayList<GameObjects> objects;
@@ -28,7 +27,6 @@ public class ViewGame2 extends View {
 		this.objects = objects;
 				//Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
 		//frame = new JFrame();
-		frame = new JFrame();
 		Container pane = frame.getContentPane();
 		pane.setPreferredSize(size);
     	pane.setLayout(new BorderLayout());

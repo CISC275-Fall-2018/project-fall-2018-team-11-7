@@ -16,6 +16,7 @@ public class Controller {
 	boolean game3 = true;
 	int mX;
 	int mY;
+	boolean dragging = false;
 	boolean mouseloc = false;
 	static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 	protected static int frameWidth = (int) size.getWidth();
@@ -39,12 +40,12 @@ public class Controller {
 		view = new ViewGame1(frameWidth, frameHeight, size, model.camera, model.getObjects());
 		view.addMouseListener(mouseinput);
 	}
-	
+
 	public void mouseLocation() {
 		mX = (int)MouseInfo.getPointerInfo().getLocation().getX();
 		mY = (int)MouseInfo.getPointerInfo().getLocation().getY();
 	}
-	
+
 
 	public void start() throws IOException{
 		while(game1){
@@ -58,37 +59,42 @@ public class Controller {
 			}
 		}
 		MouseListener mouseinput2 = new MouseListener() {
-			public void mouseClicked(MouseEvent event){}
-			@Override
-			public void mousePressed(MouseEvent event){
-				mouseloc = true;
-				for(GameObjects o: model.getObjects()) {
-					if(mX>o.getX() && mX<(o.getX()+o.getWidth())) {
-						if(mY>(o.getY()+50) && mY<(o.getY()+o.getHeight()+50)) {
-							o.setX(mX);
-							o.setY(mY);
-							o.setDrag(true);
+			public void mouseClicked(MouseEvent event){
+				if(dragging){
+					mouseloc = false;
+					try {
+						model.drop(mX,mY);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					dragging = false;
+				}
+				else{
+					mouseloc = true;
+					for(GameObjects o: model.getObjects()) {
+						if(mX>o.getX() && mX<(o.getX()+o.getWidth())) {
+							if(mY>(o.getY()+50) && mY<(o.getY()+o.getHeight()+50)) {
+								o.setX(mX);
+								o.setY(mY);
+								o.setDrag(true);
+								dragging = true;
+							}
 						}
 					}
 				}
 			}
-			public void mouseReleased(MouseEvent event){
-				mouseloc = false;
-				try {
-					model.drop(mX,mY);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			@Override
+			public void mousePressed(MouseEvent event){}
+			public void mouseReleased(MouseEvent event){}
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}
 		};
-	
+
 		model = new ModelGame2(frameWidth, frameHeight);
 		view = new ViewGame2(frameWidth, frameHeight, size, model.getObjects(), mouseinput2);
 		//view.addMouseListener(mouseinput2);
-		
+
 		while(game2) {
 			mouseLocation();
 			mouseloc = true;
@@ -101,10 +107,10 @@ public class Controller {
 				game2 = false;
 			}
 		}
-		
+
 		model = new ModelGame3(frameWidth,frameHeight);
 		view = new ViewGame3(frameWidth,frameHeight, size, model.getObjects());
-		
+
 		while(game3) {
 			model.update(view.getQChoice());
 			view.update(model.getNum(), model.getScore(), model.resetQChoice);
