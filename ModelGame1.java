@@ -11,18 +11,18 @@ public class ModelGame1 extends Model{
 	Animal target;
 	private int score;
 
-
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);
 		camera = new Camera(125,190,0,0);
 		animals = new ArrayList<Animal>();
 		score = 0;
+		tutorial = true;
 	}
 	@Override
 	public void addAnimals() throws IOException{
 		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
 		animals.add(new Fish((int)(frameWidth/2 + (frameWidth/10)),(int)(frameHeight-(frameHeight/3)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
-		animals.add(new Bird((int)(frameWidth/10),(int)(frameHeight/10),(frameWidth/15),(frameWidth/25),frameWidth - frameWidth/5,1));
+		animals.add(new Bird((int)(frameWidth/10),(int)(frameHeight/10),(frameWidth/20),(frameWidth/30),frameWidth - frameWidth/5,1));
 		animals.add(new Bird((int)(frameWidth - frameWidth/10),(int)(frameHeight/7),(frameWidth/28),(frameWidth/52),frameWidth - frameWidth/5,0));
 		animals.add(new Frog((int)(frameWidth/10),(int)(frameHeight - frameHeight/5),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
 		animals.add(new Frog((int)(frameWidth/2 - frameWidth/10),(int)(frameHeight - frameHeight/4),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
@@ -31,8 +31,10 @@ public class ModelGame1 extends Model{
 	}
 	@Override
 	public void updateAnimals(){
-		for(Animal a : animals){
-			a.updatePosition();
+		if(!tutorial) {
+			for(Animal a : animals){
+				a.updatePosition();
+			}
 		}
 	}
 
@@ -44,10 +46,14 @@ public class ModelGame1 extends Model{
 		int tmp = score;
 		for(Animal a: animals){
 			if(a.toString().equals(target.toString())){
-					score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
+				score += camera.snap(a.getX(),a.getY(),a.getWidth(),a.getHeight());
+				
 			}
 		}
 		if(score > tmp){
+			if(tutorial) {
+				tutorial = false;
+			}
 			changeTarget();
 		}
 		//System.out.println(camera.getX());

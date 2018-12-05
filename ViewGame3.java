@@ -73,7 +73,7 @@ public class ViewGame3 extends View {
 		this.add(b2);
 		this.add(b3);
 		
-    	pane.add(this, BorderLayout.PAGE_END);
+    	pane.add(this, BorderLayout.PAGE_START);
     	frame.setVisible(true);
     	frame.pack();
 	}

@@ -37,7 +37,7 @@ public class ViewGame2 extends View {
     		}
     	});
     	this.add(b);
-    	pane.add(this, BorderLayout.PAGE_END);
+    	pane.add(this, BorderLayout.PAGE_START);
     	a = new Animation2(imageWidth, imageHeight, objects);
     	a.addMouseListener(mouseinput2);
     	pane.add(a, BorderLayout.CENTER);
@@ -59,8 +59,6 @@ public class ViewGame2 extends View {
 		g.setFont(font);
 		g.drawString("Remove",(int)(frameWidth - frameWidth/7), (int)(frameHeight - frameHeight/6));
 		g.drawRect((int)(frameWidth - frameWidth/5), (int)(frameHeight - frameHeight/4), (int)(frameWidth/5), (int)(frameHeight/4));
-
-
 		for(GameObjects o:objects) {
 			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}

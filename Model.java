@@ -6,6 +6,7 @@ public class Model {
 	int frameHeight;
 	Camera camera = null;
 	public int resetQChoice;
+	public boolean tutorial;
 
 	public Model(int frameWidth,int frameHeight){
 		this.frameWidth = frameWidth;

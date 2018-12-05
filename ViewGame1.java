@@ -28,13 +28,16 @@ public class ViewGame1 extends View{
 	private int score;
 	Tree tree;
 	boolean init = true;
+	//Bird tutorialBird;
 
 	private Color myGreen;
 
-	public ViewGame1(int frameWidth, int frameHeight, Dimension size, Camera camera, ArrayList<GameObjects> objects) {
+	public ViewGame1(int frameWidth, int frameHeight, Dimension size, Camera camera, ArrayList<GameObjects> objects) throws IOException {
 		super(frameWidth, frameHeight, size);
 		this.camera = camera;
 		this.objects = objects;
+		this.tutorial = true;
+		//tutorialBird = new Bird((int)(frameWidth - frameWidth/10),(int)(frameHeight/7),(frameWidth/28),(frameWidth/52),frameWidth - frameWidth/5,0);
 		//Container pane = frame.getContentPane();
 		//pane.setPreferredSize(size);
 		//super(frameWidth,frameHeight);
@@ -44,11 +47,12 @@ public class ViewGame1 extends View{
 
 	}
 	@Override
-	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target){
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial){
 		this.camera = camera;
 		this.objects = objects;
 		this.score = score;
 		this.target = target;
+		this.tutorial = tutorial;
 
 		this.repaint();
 		try {
@@ -61,7 +65,6 @@ public class ViewGame1 extends View{
 	/*public void updateGraphics(Graphics g) {
 		Graphics offgc;
 		Image offscreen = null;
-
 	}*/
 
 	public void paintComponent(Graphics g){
@@ -82,6 +85,12 @@ public class ViewGame1 extends View{
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
 		for(GameObjects o: objects){
 			g.drawImage(o.getImage(),o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
+		}
+		if(tutorial) {
+			g.drawString("Move the mouse to move the camera.",(int)(frameWidth - frameWidth/3), (int)(frameHeight/4));
+			g.drawString("Click to take a picture.", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+50);
+			g.drawString("Take a picture of the target animal to get a point!", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+100);
+			g.drawString("Take a picture of a "+target+" to start the game!", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+150);
 		}
 	}
 }

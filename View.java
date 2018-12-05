@@ -11,6 +11,7 @@ public class View extends JPanel {
 	protected int frameHeight;
 	JFrame frame;
 	Dimension size;
+	boolean tutorial;
 
 	public View(int frameWidth, int frameHeight, Dimension size) {
 		this.frameWidth = frameWidth;
@@ -63,6 +64,11 @@ public class View extends JPanel {
 	public void update(ArrayList<GameObjects> objects) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String string, boolean tutorial2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	//public void update(Camera camera, List<GameObjects> objects, int score, String target) {
