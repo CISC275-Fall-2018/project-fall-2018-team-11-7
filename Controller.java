@@ -117,7 +117,7 @@ public class Controller {
 			if(view.getNext()) {
 				view.setNext(false);
 			}
-			view.update(model.getObjects());
+			view.update(model.getObjects(), model.tutorial);
 			if(model.getNum() >= 3) {
 				game2 = false;
 			}

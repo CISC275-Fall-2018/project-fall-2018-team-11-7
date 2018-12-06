@@ -11,6 +11,11 @@ public class Animation2 extends JPanel {
 	int frameWidth;
 	int frameHeight;
 	ArrayList<GameObjects> objects;
+	boolean tutorial;
+	int score = 0;
+	int littleFish = 0;
+	int middleFish = 0;
+	int bigFish = 0;
 	
 	public Animation2(int frameWidth, int frameHeight, ArrayList<GameObjects> objects) {
 		this.frameWidth = frameWidth;
@@ -34,15 +39,23 @@ public class Animation2 extends JPanel {
 		g.setFont(font);
 		g.drawString("Remove",(int)(frameWidth - frameWidth/7), (int)(frameHeight - frameHeight/6));
 		g.drawRect((int)(frameWidth - frameWidth/5), (int)(frameHeight - frameHeight/4), (int)(frameWidth/5), (int)(frameHeight/4));
+		g.drawString("Score: "+score, 50,50);
 		
 		for(GameObjects o:objects) {
 			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}
+		if(tutorial) {
+			g.drawString("Try to balance the ecosystem!", (int)(frameWidth/3), 50);
+			g.drawString("Click to pick up a fish.", (int)(frameWidth/3), 150);
+			g.drawString("Click again to place the fish.", (int)(frameWidth/3), 200);
+			g.drawString("Click 'go to next day' to see what happens!", (int)(frameWidth/3), 250);
+		}
 	}
-	public void update(int w, int h, ArrayList<GameObjects> objects) {
+	public void update(int w, int h, ArrayList<GameObjects> objects, boolean tutorial) {
 		this.frameHeight = h;
 		this.frameWidth = w;
 		this.objects = objects;
+		this.tutorial = tutorial;
 		this.repaint();
 	}
 }

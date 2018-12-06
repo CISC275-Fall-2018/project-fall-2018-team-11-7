@@ -25,6 +25,7 @@ public class ViewGame2 extends View {
 	public ViewGame2(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects, MouseListener mouseinput2) throws IOException {
 		super(imageWidth, imageHeight,size);
 		this.objects = objects;
+		this.tutorial = true;
 				//Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
 		//frame = new JFrame();
 		Container pane = frame.getContentPane();
@@ -41,6 +42,7 @@ public class ViewGame2 extends View {
     	a = new Animation2(imageWidth, imageHeight, objects);
     	a.addMouseListener(mouseinput2);
     	pane.add(a, BorderLayout.CENTER);
+    	frame.setVisible(true);
 	}
 
 	/*public void paint(Graphics g) {
@@ -64,9 +66,10 @@ public class ViewGame2 extends View {
 		}
 	}*/
 
-	public void update(ArrayList<GameObjects> objects) {
+	public void update(ArrayList<GameObjects> objects, boolean tutorial) {
 		this.objects = objects;
-		a.update(frameWidth, frameHeight, objects);
+		this.tutorial = tutorial;
+		a.update(frameWidth, frameHeight, objects, tutorial);
 		this.repaint();
 		try {
 			Thread.sleep(50);
