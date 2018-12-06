@@ -102,4 +102,10 @@ public class Bird extends Animal{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void updatePosition(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
 }

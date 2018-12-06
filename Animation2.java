@@ -42,9 +42,8 @@ public class Animation2 extends JPanel {
 		g.drawRect((int)(frameWidth - frameWidth/5), (int)(frameHeight - frameHeight/4), (int)(frameWidth/5), (int)(frameHeight/4));
 		g.drawString("Score: "+score, 50,50);
 		g.drawString("Day: "+dayNum, (int)(frameWidth - 100), 50);
-		
 		for(GameObjects o:objects) {
-			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
+			g.drawImage(o.getImage(), (int)(o.getX()), (int)(o.getY()), (int)(o.getWidth()), (int)(o.getHeight()), this);
 		}
 		if(tutorial) {
 			g.drawString("Try to balance the ecosystem!", (int)(frameWidth/3), 50);

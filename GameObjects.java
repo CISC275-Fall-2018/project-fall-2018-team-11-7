@@ -29,4 +29,6 @@ public interface GameObjects {
 
 	void setOrigin(boolean b);
 
+	void updatePosition(int x, int y);
+
 }

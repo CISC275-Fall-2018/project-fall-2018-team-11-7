@@ -52,6 +52,9 @@ public class ModelGame2 extends Model {
 		}
 		else {
 			bigFish = b;
+			if(bigFish > 8) {
+				bigFish = 8;
+			}
 		}
 		if(m>=l) {
 			if(l-b > 0) {
@@ -68,11 +71,17 @@ public class ModelGame2 extends Model {
 			}
 			else {
 				middleFish = m - (((int)(b/2))+1) + ((int)(((m - (((int)(b/2))+1))/4))) - ((int)((((int)(bigFish/2))/2)));
+				if(middleFish > 10) {
+					middleFish = 10;
+				}
 				if(l==0) {
 					littleFish = 0;
 				}
 				else {
 					littleFish = l - (((int)(m/2))+1) + ((int)(((l - (((int)(m/2))+1))/4))) - ((int)((((int)(middleFish/2))/2)));
+					if(littleFish > 15) {
+						littleFish = 15;
+					}
 				}
 			}
 		}
@@ -83,15 +92,15 @@ public class ModelGame2 extends Model {
 		l = 0;
 		Random rand = new Random();
 		while(b<bigFish) {
-			fish.add(new BigFish(frameWidth, frameHeight, (frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/3)))));
+			fish.add(new BigFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth/2))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
 			b+=1;
 		}
 		while(m<middleFish) {
-			fish.add(new MiddleFish(frameWidth, frameHeight, (frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/3)))));
+			fish.add(new MiddleFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
 			m+=1;
 		}
 		while(l<littleFish) {
-			fish.add(new LittleFish(frameWidth, frameHeight, (frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/3)))));
+			fish.add(new LittleFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
 			l+=1;
 		}
 		
@@ -118,8 +127,7 @@ public class ModelGame2 extends Model {
 			if(mouseloc) {
 				for(GameObjects o: objects) {
 					if(o.getDrag()) {
-						o.setX(x - (int)(o.getWidth()));
-						o.setY(y - (int)(o.getHeight()));
+						o.updatePosition(x,y);
 					}
 				}
 			}
@@ -133,8 +141,7 @@ public class ModelGame2 extends Model {
 		ArrayList<GameObjects> removeList = new ArrayList<GameObjects>();
 		for(GameObjects o: objects) {
 			if(o.getDrag()) {
-				o.setX(x - (int)(o.getWidth()));
-				o.setY(y - (int)(o.getHeight()));
+				o.updatePosition(x,y);
 				switch(o.toString()) {
 				case "little fish":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {

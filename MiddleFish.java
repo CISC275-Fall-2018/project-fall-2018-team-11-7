@@ -13,8 +13,8 @@ public class MiddleFish extends Animal {
 		super(frameWidth, frameHeight);
 		xloc = (int)(frameWidth/18);
 		yloc = (int)(frameHeight/2 - frameHeight/28);
-		imageWidth = (int)(frameWidth/32);
-		imageHeight = (int)(frameWidth/32);
+		imageWidth = (int)(frameWidth/28);
+		imageHeight = (int)(frameWidth/28);
 		File file = new File("Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
@@ -25,8 +25,8 @@ public class MiddleFish extends Animal {
 		super(frameWidth, frameHeight);
 		this.xloc = xloc;
 		this.yloc = yloc;
-		imageWidth = (int)(frameWidth/32);
-		imageHeight = (int)(frameWidth/32);
+		imageWidth = (int)(frameWidth/28);
+		imageHeight = (int)(frameWidth/28);
 		File file = new File("Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
@@ -44,9 +44,9 @@ public class MiddleFish extends Animal {
 	}
 
 	@Override
-	public void updatePosition() {
-		// TODO Auto-generated method stub
-		
+	public void updatePosition(int x, int y) {
+		this.xloc = x - (int)(imageWidth/2 + imageWidth/4);
+		this.yloc = y - (int)(imageHeight + imageHeight/2 + imageHeight/4);
 	}
 	
 	@Override
@@ -67,6 +67,12 @@ public class MiddleFish extends Animal {
 	@Override
 	public void setOrigin(boolean o) {
 		origin = o;
+	}
+
+	@Override
+	public void updatePosition() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

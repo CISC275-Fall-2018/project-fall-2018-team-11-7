@@ -45,9 +45,9 @@ public class BigFish extends Animal {
 	}
 
 	@Override
-	public void updatePosition() {
-		// TODO Auto-generated method stub
-		
+	public void updatePosition(int x, int y) {
+		this.xloc = x - (int)(imageWidth/2 + imageWidth/8);
+		this.yloc = y - (int)(imageHeight + imageHeight/5);
 	}
 	
 	@Override
@@ -68,6 +68,12 @@ public class BigFish extends Animal {
 	@Override
 	public void setOrigin(boolean o) {
 		origin = o;
+	}
+
+	@Override
+	public void updatePosition() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

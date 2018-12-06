@@ -81,7 +81,7 @@ public class Controller {
 							if(o.getX() < frameWidth/7){
 								//System.out.println("abs" + Math.abs(o.getY()-mY));
 								//System.out.println("bound" + (frameHeight/3 - frameHeight/9)/4);
-								if(Math.abs(o.getY()+50-mY) <= (frameHeight/3 - frameHeight/9)/3){
+								if(Math.abs((o.getY() + o.getWidth()/2)+50-mY) <= (frameHeight/3 - frameHeight/9)/3){
 									o.setX(mX);
 									o.setY(mY);
 									o.setDrag(true);
@@ -95,7 +95,7 @@ public class Controller {
 						mouseloc = true;
 						for(GameObjects o: model.getObjects()) {
 							if(mX>o.getX() && mX<(o.getX()+o.getWidth())) {
-								if(mY>(o.getY()+50) && mY<(o.getY()+o.getHeight()+50)) {
+								if(mY>(o.getY()-100) && mY<(o.getY()+o.getHeight()+100)) {
 									o.setX(mX);
 									o.setY(mY);
 									o.setDrag(true);

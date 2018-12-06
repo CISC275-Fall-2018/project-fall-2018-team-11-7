@@ -22,8 +22,8 @@ public class ModelGame1 extends Model{
 	}
 	@Override
 	public void addAnimals() throws IOException{
-		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
-		animals.add(new Fish((int)(frameWidth/2 + (frameWidth/10)),(int)(frameHeight-(frameHeight/3)),(frameWidth/28),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
+		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),(frameWidth/28),(frameWidth/42),frameWidth/2 - frameWidth/5,0));
+		animals.add(new Fish((int)(frameWidth/2 + (frameWidth/10)),(int)(frameHeight-(frameHeight/3)),(frameWidth/28),(frameWidth/42),frameWidth/2 - frameWidth/5,1));
 		animals.add(new Bird((int)(frameWidth/10),(int)(frameHeight/10),(frameWidth/20),(frameWidth/30),frameWidth - frameWidth/5,1));
 		animals.add(new Bird((int)(frameWidth - frameWidth/10),(int)(frameHeight/7),(frameWidth/20),(frameWidth/30),frameWidth - frameWidth/5,0));
 		animals.add(new Frog((int)(frameWidth/10),(int)(frameHeight - frameHeight/5),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
