@@ -54,12 +54,17 @@ public class ModelGame2 extends Model {
 			bigFish = b;
 		}
 		if(m>=l) {
-			m = l-b;
+			if(l-b > 0) {
+				middleFish = l-b;
+			}
+			else {
+				middleFish = 0;
+			}
 			littleFish = 0;
 		}
 		else {
 			if(b>=m) {
-				m=0;
+				middleFish=0;
 			}
 			else {
 				middleFish = m - (((int)(b/2))+1) + ((int)(((m - (((int)(b/2))+1))/4))) - ((int)((((int)(bigFish/2))/2)));
