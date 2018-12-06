@@ -31,12 +31,13 @@ public class Camera {
 	}
 
 	void updatePosition(int xloc, int yloc) {
-		this.xloc = xloc;
-		this.yloc = yloc;
+		this.xloc = xloc - (int)(width/2);
+		this.yloc = yloc - (int)(height/2);
 	}
 
-	int snap(int x, int y, int xlen, int ylen){
-		if(x>xloc && x+xlen < xloc+width && y>yloc && y+ylen < yloc+height){
+	int snap(int x, int y){
+		
+		if(x>xloc && x < xloc+width && y>yloc && y < yloc+height){
 			return 1;
 		}
 		return 0;

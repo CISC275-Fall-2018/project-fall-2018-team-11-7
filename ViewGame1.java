@@ -28,7 +28,7 @@ public class ViewGame1 extends View{
 	private int score;
 	Tree tree;
 	boolean init = true;
-	//Bird tutorialBird;
+	String fact = " ";
 
 	private Color myGreen;
 
@@ -47,12 +47,13 @@ public class ViewGame1 extends View{
 
 	}
 	@Override
-	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial){
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial, String fact){
 		this.camera = camera;
 		this.objects = objects;
 		this.score = score;
 		this.target = target;
 		this.tutorial = tutorial;
+		this.fact = fact;
 
 		this.repaint();
 		try {
@@ -85,6 +86,10 @@ public class ViewGame1 extends View{
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
 		for(GameObjects o: objects){
 			g.drawImage(o.getImage(),o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
+			g.drawRect(o.getX() + (int)(o.getWidth()/2), o.getY() + (int)(o.getHeight()/2), 20,20);
+		}
+		if(score > 0) {
+			g.drawString("Good Job! "+fact, (int)(frameWidth/2 - frameWidth/8), (int)(frameHeight/2 - frameHeight/9));
 		}
 		if(tutorial) {
 			g.drawString("Move the mouse to move the camera.",(int)(frameWidth - frameWidth/3), (int)(frameHeight/4));

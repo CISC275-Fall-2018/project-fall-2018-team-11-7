@@ -52,7 +52,7 @@ public class Controller {
 			((ModelGame1)model).getCamera().updatePosition(mX,mY);
 			model.updateAnimals();
 
-			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial);
+			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact());
 			if(model.getScore()>=5) {
 				game1=false;
 			}

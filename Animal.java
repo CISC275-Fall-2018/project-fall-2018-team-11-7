@@ -12,6 +12,7 @@ public abstract class Animal implements GameObjects {
 	protected int frameHeight;
 	Direction d;
 	int dir;
+	String fact;
 	protected BufferedImage[] images = new BufferedImage[2];
 	
 	public Animal(int frameWidth, int frameHeight) {
@@ -79,6 +80,9 @@ public abstract class Animal implements GameObjects {
 	
 	public void setY(int y) {
 		this.yloc = y;
+	}
+	public String getFact() {
+		return fact;
 	}
 
 }

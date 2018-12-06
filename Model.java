@@ -71,4 +71,9 @@ public class Model {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public String getFact() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

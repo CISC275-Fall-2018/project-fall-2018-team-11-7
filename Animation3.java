@@ -16,7 +16,7 @@ public class Animation3 extends JPanel {
 	Font font2 = new Font("Helvetica",Font.PLAIN,30);
 	int frameWidth;
 	int frameHeight;
-	String[] questions = {"What do Horseshoe crabs like to eat?","Grass","Birds","Mollusks","Where do birds live?","Trees","Water","Burrows","What do frogs like to eat?", "Leaves","Insects","Acorns"};
+	String[] questions = {"What do Shore Birds like to eat?","Grass","Horseshoe Crab eggs","Frogs","Where do fish live?","Trees","Burrows","Water","What do frogs like to eat?", "Leaves","Insects","Acorns"};
 	int questionNum = 0;
 	int score = 0;
 	private Color myGreen;

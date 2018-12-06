@@ -18,7 +18,7 @@ public class Frog extends Animal{
 		super(xloc,yloc,imageWidth,imageHeight);
 		this.dir = dir;
 		this.distance = distance;
-
+		fact = "Frogs eat insects";
 		// gets all images for Frog
 
 		File file1 = new File("frog_west.png");

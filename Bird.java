@@ -18,6 +18,7 @@ public class Bird extends Animal{
 		super(xloc,yloc,imageWidth,imageHeight);
 		this.dir = dir;
 		this.distance = distance;
+		fact = "Shore Birds eat horseshoe crab eggs";
 
 		// gets all images for Bird
 
