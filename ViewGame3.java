@@ -55,6 +55,7 @@ public class ViewGame3 extends View {
 				qchoice = 1;
 			}
 		});
+		b1.setPreferredSize(new Dimension((int)(frameWidth/4), 30));
 		JButton b2 =new JButton("B");
 		b2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -63,12 +64,14 @@ public class ViewGame3 extends View {
 			}
 		});
 		JButton b3 =new JButton("C");
+		b2.setPreferredSize(new Dimension((int)(frameWidth/4), 30));
 		b3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				answerChoices.add(3);
 				qchoice = 3;
 			}
 		});
+		b3.setPreferredSize(new Dimension((int)(frameWidth/4), 30));
 		this.add(b1);
 		this.add(b2);
 		this.add(b3);

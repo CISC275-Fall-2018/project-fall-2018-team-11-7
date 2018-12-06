@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class ModelGame3 extends Model{
 	private int Score=0;
 	int questionNum = 0;
-	int[] answerKey = {2,3,2,3};
+	int[] answerKey = {2,3,2,3,1};
 	static int resetQChoice = 0;
 	ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
 	

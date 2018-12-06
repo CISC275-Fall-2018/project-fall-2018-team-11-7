@@ -16,12 +16,13 @@ public class Animation3 extends JPanel {
 	Font font2 = new Font("Helvetica",Font.PLAIN,30);
 	int frameWidth;
 	int frameHeight;
-	String[] questions = {"What do Shore Birds like to eat?","Grass","Horseshoe Crab eggs","Frogs","Where do fish live?","Trees","Burrows","Water","What do frogs like to eat?", "Leaves","Insects","Acorns", "When can herons be found in Delaware?","Summer","Winter","All year"};
+	String[] questions = {"What do Shore Birds like to eat?","Grass","Horseshoe Crab eggs","Frogs","Where do fish live?","Trees","Burrows","Water","What do frogs like to eat?", "Leaves","Insects","Acorns", "When can herons be found in Delaware?","Summer","Winter","All year", "Where do ducks like to live?","Near water", "In parks", "In forrests"};
 	int questionNum = 0;
 	int score = 0;
 	private Color myGreen;
 	private ArrayList<GameObjects> objects;
 	boolean tutorial;
+	BufferedImage image;
 	
 	public Animation3(ArrayList<GameObjects> objects) throws IOException {
 		this.objects = objects;
@@ -39,8 +40,13 @@ public class Animation3 extends JPanel {
 			questions[2] = image3;
 			BufferedImage image4 = ImageIO.read(file4);
 			questions[3] = image4;*/
-			
-		}
+		try {
+			image = ImageIO.read(new File("skylandnsea.jpg"));
+					// ImageIO.read("src/skynsea.jpg");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
 		
 	/*	BufferedImage background1 = Toolkit.getDefaultToolkit().createImage("Question1.png");
 		questions[0] = background1;
@@ -51,7 +57,7 @@ public class Animation3 extends JPanel {
 
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.setColor(Color.cyan);
+		/*g.setColor(Color.cyan);
 		g.fillRect(0,0,frameWidth,frameHeight/2);
 		g.setColor(Color.blue);
 		g.fillRect(frameWidth/2,frameHeight/2,frameWidth/2,frameHeight/2);
@@ -59,14 +65,15 @@ public class Animation3 extends JPanel {
 		g.fillRect(0,frameHeight/2,frameWidth/2,frameHeight/2);
 		for(GameObjects o:objects) {
 			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
-		}
+		}*/
+		g.drawImage(image, 0, 0, frameWidth, frameHeight, this);
 		g.setFont(font1);
 		g.setColor(Color.black);
 		if(tutorial) {
 			g.drawString("Learn the correct answers so you can teach others!", (int)(frameWidth/3), 100);
 			g.drawString("Click the button with your answer choice", (int)(frameWidth/3), 150);
 		}
-		if(questionNum<4) {
+		if(questionNum<5) {
 			g.drawString(questions[4*questionNum], 675,400);
 			g.drawString("A - "+questions[4*questionNum + 1]+"\t B - "+questions[4*questionNum + 2]+"\t C - "+questions[4*questionNum + 3], 675, 500);
 			g.drawString("Score: " + score,50,60);
@@ -75,7 +82,7 @@ public class Animation3 extends JPanel {
 			g.setFont(font2);
 			g.setColor(Color.black);
 			g.drawString("Good Job!", 675,400);
-			g.drawString("Your Score: "+ score+" out of 4", 675, 500);
+			g.drawString("Your Score: "+ score+" out of 5", 675, 500);
 		}
 	}
 	

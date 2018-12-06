@@ -96,5 +96,8 @@ public class ViewGame1 extends View{
 			g.drawString("Take a picture of the target animal to get a point!", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+100);
 			g.drawString("Take a picture of a "+target+" to start the game!", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+150);
 		}
+		if(score == 5) {
+			g.drawString("Great Job! Click anywhere to continue", (int)(frameWidth/3), 50);
+		}
 	}
 }

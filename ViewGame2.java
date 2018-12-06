@@ -37,6 +37,7 @@ public class ViewGame2 extends View {
     			next = true;
     		}
     	});
+    	b.setPreferredSize(new Dimension((int)(frameWidth/2), 30));
     	this.add(b);
     	pane.add(this, BorderLayout.PAGE_START);
     	a = new Animation2(imageWidth, imageHeight, objects);

@@ -10,7 +10,7 @@ public class ModelGame1 extends Model{
 	Tree tree;
 	Animal target;
 	String fact = " ";
-	ArrayList<String> prevAnimals = new ArrayList<String>(4);
+	ArrayList<String> prevAnimals = new ArrayList<String>();
 	Random rand = new Random();
 	
 	public ModelGame1(int frameWidth,int frameHeight){
@@ -28,7 +28,8 @@ public class ModelGame1 extends Model{
 		animals.add(new Bird((int)(frameWidth - frameWidth/10),(int)(frameHeight/7),(frameWidth/20),(frameWidth/30),frameWidth - frameWidth/5,0));
 		animals.add(new Frog((int)(frameWidth/10),(int)(frameHeight - frameHeight/5),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,1));
 		animals.add(new Frog((int)(frameWidth/2 - frameWidth/10),(int)(frameHeight - frameHeight/4),(frameWidth/52),(frameWidth/52),frameWidth/2 - frameWidth/5,0));
-		animals.add(new Heron((int)(frameWidth/2 - frameWidth/8),(int)(frameHeight/3),(frameWidth/5),(frameWidth/5),frameWidth/3,0));
+		animals.add(new Heron((int)(frameWidth/2 - frameWidth/6),(int)(frameHeight/3),(frameWidth/4),(frameWidth/4),frameWidth/5,0));
+		animals.add(new Duck((int)(frameWidth/2 + frameWidth/8),(int)(frameHeight/2 - frameHeight/25),(frameWidth/30),(frameWidth/30),(frameWidth/3 - frameWidth/6),1));
 		tree = new Tree((int)(0),(int)(0),(int)(frameWidth/3),(int)(frameWidth/2.5));
 		changeTarget();
 	}
@@ -46,33 +47,39 @@ public class ModelGame1 extends Model{
 	}
 	@Override
 	public void takePicture(){
-		int tmp = score;
-		for(Animal a: animals){
-			if(a.toString().equals(target.toString())){
-				score += camera.snap(a.getX() + (int)(a.getWidth()/2), a.getY() + (int)(a.getHeight()/2));
-				if(score > tmp) {
-					fact = a.getFact();
+		if(score < 5) {
+			int tmp = score;
+			for(Animal a: animals){
+				if(a.toString().equals(target.toString())){
+					score += camera.snap(a.getX() + (int)(a.getWidth()/2), a.getY() + (int)(a.getHeight()/2));
+					if(score > tmp) {
+						fact = a.getFact();
+					}
 				}
 			}
-		}
-		if(score > tmp){
-			if(tutorial) {
-				tutorial = false;
+			if(score > tmp){
+				if(tutorial) {
+					tutorial = false;
+				}
+				prevAnimals.add(target.toString());
+				changeTarget();
 			}
-			prevAnimals.add(target.toString());
-			changeTarget();
+		}
+		else {
+			score+=1;
 		}
 		//System.out.println(camera.getX());
 		//System.out.println(camera.getY());
 	}
 
 	void changeTarget(){
-
-		int randanimal = rand.nextInt(animals.size());
-		target = animals.get(randanimal);
-		for(String s: prevAnimals) {
-			while(s.equals(target.toString())) {
-				changeTarget();
+		if(score<5) {
+			int randanimal = rand.nextInt(animals.size());
+			target = animals.get(randanimal);
+			for(String s: prevAnimals) {
+				while(s.equals(target.toString())) {
+					changeTarget();
+				}
 			}
 		}
 	}

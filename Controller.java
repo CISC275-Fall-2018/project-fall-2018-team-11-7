@@ -21,6 +21,9 @@ public class Controller {
 	static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 	protected static int frameWidth = (int) size.getWidth();
 	protected static int frameHeight = (int) size.getHeight();
+	int score1;
+	int score2;
+	int score3;
 
 	public Controller() throws IOException {
 
@@ -53,8 +56,9 @@ public class Controller {
 			model.updateAnimals();
 
 			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact());
-			if(model.getScore()>=4) {
+			if(model.getScore()>=6) {
 				game1=false;
+				score1 = model.getScore();
 			}
 		}
 		MouseListener mouseinput2 = new MouseListener() {
@@ -120,6 +124,7 @@ public class Controller {
 			view.update(model.getObjects(), model.tutorial, model.getScore(), model.getNum());
 			if(model.getNum() >= 4) {
 				game2 = false;
+				score2 = model.getScore();
 			}
 		}
 
@@ -129,8 +134,9 @@ public class Controller {
 		while(game3) {
 			model.update(view.getQChoice());
 			view.update(model.getNum(), model.getScore(), model.resetQChoice, model.tutorial);
-			if(model.getNum()==5) {
+			if(model.getNum()==6) {
 				game3=false;
+				score3 = model.getScore();
 			}
 		}
 	}
