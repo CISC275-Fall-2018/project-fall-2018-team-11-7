@@ -47,7 +47,6 @@ public class ModelGame1 extends Model{
 		int tmp = score;
 		for(Animal a: animals){
 			if(a.toString().equals(target.toString())){
-				System.out.println("yes");
 				score += camera.snap(a.getX() + (int)(a.getWidth()/2), a.getY() + (int)(a.getHeight()/2));
 				if(score > tmp) {
 					fact = a.getFact();

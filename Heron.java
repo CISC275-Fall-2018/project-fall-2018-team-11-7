@@ -12,7 +12,7 @@ public class Heron extends Animal {
 	private int distance;
 	private int start;
 	private int count = 0;
-	private int vel = 1;
+	private int vel = 3;
 	private int yvel = 0;
 	int picNum;
 	final static int imgWidth = 1024;
@@ -65,7 +65,6 @@ public class Heron extends Animal {
 			dir = 1;
 			xloc+=vel;
 		}
-		System.out.println("Heron position: "+xloc+","+yloc);
 	}
 
 

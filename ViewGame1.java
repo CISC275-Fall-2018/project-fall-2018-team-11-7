@@ -86,7 +86,6 @@ public class ViewGame1 extends View{
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
 		for(GameObjects o: objects){
 			g.drawImage(o.getImage(),o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
-			g.drawRect(o.getX() + (int)(o.getWidth()/2), o.getY() + (int)(o.getHeight()/2), 20,20);
 		}
 		if(score > 0) {
 			g.drawString("Good Job! "+fact, (int)(frameWidth/2 - frameWidth/8), (int)(frameHeight/2 - frameHeight/9));
