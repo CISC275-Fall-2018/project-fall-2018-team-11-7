@@ -17,7 +17,7 @@ public class Animation2 extends JPanel {
 	int middleFish = 0;
 	int bigFish = 0;
 	int dayNum = 0;
-	
+
 	public Animation2(int frameWidth, int frameHeight, ArrayList<GameObjects> objects) {
 		this.frameWidth = frameWidth;
 		this.frameHeight = frameHeight;
@@ -46,7 +46,7 @@ public class Animation2 extends JPanel {
 			g.drawImage(o.getImage(), (int)(o.getX()), (int)(o.getY()), (int)(o.getWidth()), (int)(o.getHeight()), this);
 		}
 		if(tutorial) {
-			g.drawString("Try to balance the ecosystem!", (int)(frameWidth/3), 50);
+			g.drawString("As steward of the estuary, try to balance the ecosystem!", (int)(frameWidth/3), 50);
 			g.drawString("Click to pick up a fish.", (int)(frameWidth/3), 150);
 			g.drawString("Click again to place the fish.", (int)(frameWidth/3), 200);
 			g.drawString("Click 'go to next day' to see what happens!", (int)(frameWidth/3), 250);

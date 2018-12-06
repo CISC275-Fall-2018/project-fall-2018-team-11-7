@@ -53,12 +53,12 @@ public class Controller {
 		while(game1){
 			mouseLocation();
 			((ModelGame1)model).getCamera().updatePosition(mX,mY);
-			model.updateAnimals();
+			model.update();
 
-			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact());
-			if(model.getScore()>=6) {
+			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact(),model.getTime());
+			if(model.getTime()<0) {
 				game1=false;
-				score1 = (model.getScore() - 1);
+				score1 = (model.getScore());
 			}
 		}
 		MouseListener mouseinput2 = new MouseListener() {

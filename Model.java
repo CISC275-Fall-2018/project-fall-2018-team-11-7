@@ -16,7 +16,7 @@ public class Model {
 
 	public void takePicture() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void addAnimals() throws IOException {}
@@ -26,9 +26,11 @@ public class Model {
 		return null;
 	}
 
+	public void update(){}
+
 	public void updateAnimals() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public ArrayList<GameObjects> getObjects() {
@@ -48,7 +50,7 @@ public class Model {
 
 	public void update(int qChoice) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public int getNum() {
@@ -58,22 +60,24 @@ public class Model {
 
 	public void update(int mX, int mY) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
 	public void drop(int x, int y) throws IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void update(int x, int y, boolean mouseloc, boolean next) throws IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public String getFact() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public int getTime(){return 0;};
 }

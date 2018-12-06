@@ -79,7 +79,9 @@ public class Animation3 extends JPanel {
 		}
 		if(questionNum<5) {
 			g.drawString(questions[4*questionNum], (int)(frameWidth/3),300);
-			g.drawString("A - "+questions[4*questionNum + 1]+"\t B - "+questions[4*questionNum + 2]+"\t C - "+questions[4*questionNum + 3], (int)(frameWidth/3), 400);
+			g.drawString("A - "+questions[4*questionNum + 1], (int)(frameWidth/3), 400);
+			g.drawString("B - "+questions[4*questionNum + 2], (int)(frameWidth/3), 400 + g.getFontMetrics().getHeight());
+			g.drawString("C - "+questions[4*questionNum + 3], (int)(frameWidth/3), 400 + 2 * g.getFontMetrics().getHeight());
 			g.drawString("Score: " + score,50,60);
 		}
 		else {
@@ -88,7 +90,7 @@ public class Animation3 extends JPanel {
 			g.drawString("Good Job!", (frameWidth/2 - frameWidth/8), 50);
 			g.drawString("Your Score for Game 1: " + score1, (frameWidth/2 - frameWidth/8), (frameHeight/2 - 100));
 			g.drawString("Your Score for Game 2: " + score2, (frameWidth/2 - frameWidth/8), (frameHeight/2-50));
-			g.drawString("Your Score for Game 3: "+ score+" out of 5", (frameWidth/2 - frameWidth/8), (frameHeight/2));
+			g.drawString("Your Score for Game 3: "+ score+" out of 50", (frameWidth/2 - frameWidth/8), (frameHeight/2));
 			g.drawString("Total Score: "+(score1+score2+score), (frameWidth/2 - frameWidth/8), (frameHeight/2 +100));
 		}
 	}

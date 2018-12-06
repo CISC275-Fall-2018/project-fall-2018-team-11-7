@@ -3,6 +3,8 @@ import java.util.List;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ModelGame1 extends Model{
 
@@ -12,13 +14,17 @@ public class ModelGame1 extends Model{
 	String fact = " ";
 	ArrayList<String> prevAnimals = new ArrayList<String>();
 	Random rand = new Random();
-	
+	int time;
+	Timer timer;
+
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);
 		camera = new Camera(175,250,0,0);
 		animals = new ArrayList<Animal>();
 		score = 0;
 		tutorial = true;
+		time = 60;
+		timer = new Timer();
 	}
 	@Override
 	public void addAnimals() throws IOException{
@@ -32,6 +38,15 @@ public class ModelGame1 extends Model{
 		animals.add(new Duck((int)(frameWidth/2 + frameWidth/8),(int)(frameHeight/2 - frameHeight/25),(frameWidth/30),(frameWidth/30),(frameWidth/3 - frameWidth/6),1));
 		tree = new Tree((int)(0),(int)(0),(int)(frameWidth/3),(int)(frameWidth/2.5));
 		changeTarget();
+	}
+
+	public void update(){
+		if(time>0){
+			updateAnimals();
+		}
+		if(time == 0){
+			timer.cancel();
+		}
 	}
 	@Override
 	public void updateAnimals(){
@@ -47,12 +62,12 @@ public class ModelGame1 extends Model{
 	}
 	@Override
 	public void takePicture(){
-		if(score < 5) {
+		if(time > 0) {
 			int tmp = score;
 			for(Animal a: animals){
 				if(a.toString().equals(target.toString())){
 					score += camera.snap(a.getX() + (int)(a.getWidth()/2), a.getY() + (int)(a.getHeight()/2));
-					if(score > tmp) {
+					if(score > tmp && prevAnimals.size()<5) {
 						fact = a.getFact();
 					}
 				}
@@ -61,21 +76,27 @@ public class ModelGame1 extends Model{
 				if(tutorial) {
 					tutorial = false;
 				}
-				prevAnimals.add(target.toString());
+				if(prevAnimals.size() < 6){
+					prevAnimals.add(target.toString());
+					if(prevAnimals.size() == 5){
+						timer.schedule(new TimerTask(){
+							public void run(){if(time>0){time--;}}},1000,1000);
+					}
+				}
 				changeTarget();
 			}
 		}
-		else {
-			score+=1;
+		else{
+			time--;
 		}
 		//System.out.println(camera.getX());
 		//System.out.println(camera.getY());
 	}
 
 	void changeTarget(){
-		if(score<5) {
-			int randanimal = rand.nextInt(animals.size());
-			target = animals.get(randanimal);
+		int randanimal = rand.nextInt(animals.size());
+		target = animals.get(randanimal);
+		if(prevAnimals.size()<5) {
 			for(String s: prevAnimals) {
 				while(s.equals(target.toString())) {
 					changeTarget();
@@ -105,5 +126,9 @@ public class ModelGame1 extends Model{
 	@Override
 	public String getFact() {
 		return fact;
+	}
+	@Override
+	public int getTime(){
+		return time;
 	}
 }

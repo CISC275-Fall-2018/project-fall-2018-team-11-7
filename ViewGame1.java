@@ -29,6 +29,7 @@ public class ViewGame1 extends View{
 	Tree tree;
 	boolean init = true;
 	String fact = " ";
+	int time = 0;
 
 	private Color myGreen;
 
@@ -47,13 +48,14 @@ public class ViewGame1 extends View{
 
 	}
 	@Override
-	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial, String fact){
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial, String fact, int time){
 		this.camera = camera;
 		this.objects = objects;
 		this.score = score;
 		this.target = target;
 		this.tutorial = tutorial;
 		this.fact = fact;
+		this.time = time;
 
 		this.repaint();
 		try {
@@ -82,22 +84,27 @@ public class ViewGame1 extends View{
 		}
 		g.setColor(Color.black);
 		g.drawString("Score: " + score,20,60);
-		g.drawString("Target: " + target,frameWidth-200,60);
+		g.drawString("Time: " + time,frameWidth-150,60);
+		g.drawString("Target: " + target,(int)(frameWidth/2)-75,60);
 		g.drawRect(camera.getX(),camera.getY(),camera.getWidth(),camera.getHeight());
 		for(GameObjects o: objects){
 			g.drawImage(o.getImage(),o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
 		}
-		if(score > 0) {
+		if(score > 0 && score<=5) {
 			g.drawString("Good Job! "+fact, (int)(frameWidth/2 - frameWidth/8), (int)(frameHeight/2 - frameHeight/9));
 		}
 		if(tutorial) {
-			g.drawString("Move the mouse to move the camera.",(int)(frameWidth - frameWidth/3), (int)(frameHeight/4));
-			g.drawString("Click to take a picture.", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+50);
-			g.drawString("Take a picture of the target animal to get a point!", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+100);
-			g.drawString("Take a picture of a "+target+" to start the game!", (int)(frameWidth - frameWidth/3), (int)(frameHeight/4)+150);
+			g.drawString("As a researcher, you are taking pictures of the wildlife in the estuary",(int)(frameWidth/2), (int)(frameHeight/4)-50);
+			g.drawString("Move the mouse to move the camera.",(int)(frameWidth/2), (int)(frameHeight/4));
+			g.drawString("Click to take a picture.", (int)(frameWidth/2), (int)(frameHeight/4)+50);
+			g.drawString("Take a picture of the target animal to get a point!", (int)(frameWidth/2), (int)(frameHeight/4)+100);
+			g.drawString("Take a picture of a "+target+" to start the game!", (int)(frameWidth/2), (int)(frameHeight/4)+150);
 		}
 		if(score == 5) {
-			g.drawString("Great Job! Click anywhere to continue", (int)(frameWidth/3), 50);
+			g.drawString("Great Job! Now capture as many pictures as you can for your research within 60 seconds!", (int)(frameWidth/3) - 50, 200);
+		}
+		if(time == 0) {
+			g.drawString("Fantastic, you scored " + score + " points! Click anywhere to continue.", (int)(frameWidth/3) - 50, 100);
 		}
 	}
 }

@@ -41,7 +41,7 @@ public class View extends JPanel {
 		return 0;
 	}
 
-	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial, String fact) {
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial, String fact, int time) {
 		// TODO Auto-generated method stub
 
 	}
@@ -68,22 +68,22 @@ public class View extends JPanel {
 
 	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String string, boolean tutorial2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void update(ArrayList<GameObjects> objects, boolean tutorial2, int score) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void update(int num, int score, int resetQChoice, boolean tutorial2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void update(ArrayList<GameObjects> objects, boolean tutorial2, int score, int num) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	//public void update(Camera camera, List<GameObjects> objects, int score, String target) {
