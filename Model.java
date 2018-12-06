@@ -7,6 +7,7 @@ public class Model {
 	Camera camera = null;
 	public int resetQChoice;
 	public boolean tutorial;
+	int score;
 
 	public Model(int frameWidth,int frameHeight){
 		this.frameWidth = frameWidth;
@@ -37,7 +38,7 @@ public class Model {
 
 	public int getScore() {
 		// TODO Auto-generated method stub
-		return 0;
+		return score;
 	}
 
 	public Object getTarget() {

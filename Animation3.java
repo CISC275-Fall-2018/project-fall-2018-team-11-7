@@ -21,6 +21,7 @@ public class Animation3 extends JPanel {
 	int score = 0;
 	private Color myGreen;
 	private ArrayList<GameObjects> objects;
+	boolean tutorial;
 	
 	public Animation3(ArrayList<GameObjects> objects) throws IOException {
 		this.objects = objects;
@@ -61,10 +62,13 @@ public class Animation3 extends JPanel {
 		}
 		g.setFont(font1);
 		g.setColor(Color.black);
+		if(tutorial) {
+			g.drawString("Learn the correct answers so you can teach others!", (int)(frameWidth/3), 100);
+		}
 		if(questionNum<3) {
 			g.drawString(questions[4*questionNum], 675,400);
 			g.drawString("A - "+questions[4*questionNum + 1]+"\t B - "+questions[4*questionNum + 2]+"\t C - "+questions[4*questionNum + 3], 675, 500);
-			g.drawString("Score: " + score,800,60);
+			g.drawString("Score: " + score,50,60);
 		}
 		else {
 			g.setFont(font2);
@@ -74,11 +78,12 @@ public class Animation3 extends JPanel {
 		}
 	}
 	
-	public void update(int w, int h, int questionNum, int score) {
+	public void update(int w, int h, int questionNum, int score, boolean tutorial) {
 		this.frameHeight = h;
 		this.frameWidth = w;
 		this.questionNum = questionNum;
 		this.score = score;
+		this.tutorial = tutorial;
 		this.repaint();
 	}
 }

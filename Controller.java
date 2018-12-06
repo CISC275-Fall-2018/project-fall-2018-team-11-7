@@ -117,8 +117,8 @@ public class Controller {
 			if(view.getNext()) {
 				view.setNext(false);
 			}
-			view.update(model.getObjects(), model.tutorial);
-			if(model.getNum() >= 3) {
+			view.update(model.getObjects(), model.tutorial, model.getScore(), model.getNum());
+			if(model.getNum() >= 4) {
 				game2 = false;
 			}
 		}
@@ -128,7 +128,7 @@ public class Controller {
 
 		while(game3) {
 			model.update(view.getQChoice());
-			view.update(model.getNum(), model.getScore(), model.resetQChoice);
+			view.update(model.getNum(), model.getScore(), model.resetQChoice, model.tutorial);
 			if(model.getNum()==4) {
 				game3=false;
 			}

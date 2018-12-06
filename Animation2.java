@@ -16,6 +16,7 @@ public class Animation2 extends JPanel {
 	int littleFish = 0;
 	int middleFish = 0;
 	int bigFish = 0;
+	int dayNum = 0;
 	
 	public Animation2(int frameWidth, int frameHeight, ArrayList<GameObjects> objects) {
 		this.frameWidth = frameWidth;
@@ -40,6 +41,7 @@ public class Animation2 extends JPanel {
 		g.drawString("Remove",(int)(frameWidth - frameWidth/7), (int)(frameHeight - frameHeight/6));
 		g.drawRect((int)(frameWidth - frameWidth/5), (int)(frameHeight - frameHeight/4), (int)(frameWidth/5), (int)(frameHeight/4));
 		g.drawString("Score: "+score, 50,50);
+		g.drawString("Day: "+dayNum, (int)(frameWidth - 100), 50);
 		
 		for(GameObjects o:objects) {
 			g.drawImage(o.getImage(), o.getX(), o.getY(), o.getWidth(), o.getHeight(), this);
@@ -50,12 +52,17 @@ public class Animation2 extends JPanel {
 			g.drawString("Click again to place the fish.", (int)(frameWidth/3), 200);
 			g.drawString("Click 'go to next day' to see what happens!", (int)(frameWidth/3), 250);
 		}
+		if(dayNum == 3) {
+			g.drawString("Good Job! Press 'go to next day' to continue", (int)(frameWidth/3), 150);
+		}
 	}
-	public void update(int w, int h, ArrayList<GameObjects> objects, boolean tutorial) {
+	public void update(int w, int h, ArrayList<GameObjects> objects, boolean tutorial, int score, int dayNum) {
 		this.frameHeight = h;
 		this.frameWidth = w;
 		this.objects = objects;
 		this.tutorial = tutorial;
+		this.score = score;
+		this.dayNum = dayNum;
 		this.repaint();
 	}
 }

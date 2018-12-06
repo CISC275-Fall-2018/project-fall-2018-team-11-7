@@ -9,6 +9,7 @@ public class ModelGame2 extends Model {
 	int bigFish=0;
 	boolean next = false;
 	int dayNum = 0;
+	// score;
 	
 	public ModelGame2(int width, int height) throws IOException {
 		super(width, height);
@@ -16,6 +17,7 @@ public class ModelGame2 extends Model {
 		objects.add(new MiddleFish(frameWidth, frameHeight));
 		objects.add(new BigFish(frameWidth, frameHeight));
 		this.tutorial = true;
+		this.score = 0;
 	}
 	
 	void count() {
@@ -46,13 +48,14 @@ public class ModelGame2 extends Model {
 		// for big fish
 		if(b>=m) {
 			bigFish = m;
+			middleFish = 0;
 		}
 		else {
 			bigFish = b;
 		}
 		if(m>=l) {
 			m = l-b;
-			l = 0;
+			littleFish = 0;
 		}
 		else {
 			if(b>=m) {
@@ -93,15 +96,26 @@ public class ModelGame2 extends Model {
 		
 		this.objects = fish;
 		dayNum+=1;
+		int mb = (middleFish - bigFish);
+		if(mb>0) {
+			score += mb;
+		}
+		int lm = (littleFish - middleFish);
+		if(lm > 0) {
+			score += lm;
+		}
+		tutorial = false;
 	}
 	
 	@Override
 	public void update(int x, int y, boolean mouseloc, boolean next) throws IOException {
-		if(mouseloc) {
-			for(GameObjects o: objects) {
-				if(o.getDrag()) {
-					o.setX(x - (int)(o.getWidth()));
-					o.setY(y - (int)(o.getHeight()));
+		if(dayNum < 3) {
+			if(mouseloc) {
+				for(GameObjects o: objects) {
+					if(o.getDrag()) {
+						o.setX(x - (int)(o.getWidth()));
+						o.setY(y - (int)(o.getHeight()));
+					}
 				}
 			}
 		}

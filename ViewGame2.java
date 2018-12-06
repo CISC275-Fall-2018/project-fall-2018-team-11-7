@@ -66,10 +66,10 @@ public class ViewGame2 extends View {
 		}
 	}*/
 
-	public void update(ArrayList<GameObjects> objects, boolean tutorial) {
+	public void update(ArrayList<GameObjects> objects, boolean tutorial, int score, int dayNum) {
 		this.objects = objects;
 		this.tutorial = tutorial;
-		a.update(frameWidth, frameHeight, objects, tutorial);
+		a.update(frameWidth, frameHeight, objects, tutorial, score, dayNum);
 		this.repaint();
 		try {
 			Thread.sleep(50);

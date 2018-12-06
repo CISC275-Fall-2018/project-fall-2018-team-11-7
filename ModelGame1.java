@@ -9,7 +9,6 @@ public class ModelGame1 extends Model{
 	List<Animal> animals;
 	Tree tree;
 	Animal target;
-	private int score;
 
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);

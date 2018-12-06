@@ -84,11 +84,12 @@ public class ViewGame3 extends View {
 		g.drawString("Score: " + score,20,60);
 	}*/
 
-	public void update(int questionNum, int score, int reset) {
+	public void update(int questionNum, int score, int reset, boolean tutorial) {
 		this.score = score;
 		this.questionNum = questionNum;
 		this.qchoice = reset;
-		a.update(this.frameWidth, this.frameHeight, this.questionNum, this.score);
+		this.tutorial = tutorial;
+		a.update(this.frameWidth, this.frameHeight, this.questionNum, this.score, this.tutorial);
 		this.repaint();
 		try {
 			Thread.sleep(50);

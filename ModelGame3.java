@@ -10,6 +10,7 @@ public class ModelGame3 extends Model{
 	
 	public ModelGame3(int width, int height) throws IOException {
 		super(width, height);
+		tutorial = true;
 		objects.add(new Tree((int)(0),(int)(0),(int)(frameWidth/3),(int)(frameWidth/2.5)));
 	}
 	
@@ -26,8 +27,7 @@ public class ModelGame3 extends Model{
 				Score += 1;
 			}
 			questionNum += 1;
-			System.out.println(questionNum);
-			
+			tutorial = false;
 		}
 	}
 	

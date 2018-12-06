@@ -71,7 +71,17 @@ public class View extends JPanel {
 		
 	}
 
-	public void update(ArrayList<GameObjects> objects, boolean tutorial2) {
+	public void update(ArrayList<GameObjects> objects, boolean tutorial2, int score) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(int num, int score, int resetQChoice, boolean tutorial2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void update(ArrayList<GameObjects> objects, boolean tutorial2, int score, int num) {
 		// TODO Auto-generated method stub
 		
 	}
