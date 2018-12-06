@@ -53,7 +53,7 @@ public class Controller {
 			model.updateAnimals();
 
 			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact());
-			if(model.getScore()>=5) {
+			if(model.getScore()>=4) {
 				game1=false;
 			}
 		}
@@ -129,7 +129,7 @@ public class Controller {
 		while(game3) {
 			model.update(view.getQChoice());
 			view.update(model.getNum(), model.getScore(), model.resetQChoice, model.tutorial);
-			if(model.getNum()==4) {
+			if(model.getNum()==5) {
 				game3=false;
 			}
 		}

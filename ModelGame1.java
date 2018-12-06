@@ -10,7 +10,9 @@ public class ModelGame1 extends Model{
 	Tree tree;
 	Animal target;
 	String fact = " ";
-
+	ArrayList<String> prevAnimals = new ArrayList<String>(4);
+	Random rand = new Random();
+	
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);
 		camera = new Camera(175,250,0,0);
@@ -57,6 +59,7 @@ public class ModelGame1 extends Model{
 			if(tutorial) {
 				tutorial = false;
 			}
+			prevAnimals.add(target.toString());
 			changeTarget();
 		}
 		//System.out.println(camera.getX());
@@ -64,9 +67,14 @@ public class ModelGame1 extends Model{
 	}
 
 	void changeTarget(){
-		Random rand = new Random();
+
 		int randanimal = rand.nextInt(animals.size());
 		target = animals.get(randanimal);
+		for(String s: prevAnimals) {
+			while(s.equals(target.toString())) {
+				changeTarget();
+			}
+		}
 	}
 	@Override
 	public int getScore(){

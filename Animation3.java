@@ -16,7 +16,7 @@ public class Animation3 extends JPanel {
 	Font font2 = new Font("Helvetica",Font.PLAIN,30);
 	int frameWidth;
 	int frameHeight;
-	String[] questions = {"What do Shore Birds like to eat?","Grass","Horseshoe Crab eggs","Frogs","Where do fish live?","Trees","Burrows","Water","What do frogs like to eat?", "Leaves","Insects","Acorns"};
+	String[] questions = {"What do Shore Birds like to eat?","Grass","Horseshoe Crab eggs","Frogs","Where do fish live?","Trees","Burrows","Water","What do frogs like to eat?", "Leaves","Insects","Acorns", "When can herons be found in Delaware?","Summer","Winter","All year"};
 	int questionNum = 0;
 	int score = 0;
 	private Color myGreen;
@@ -64,8 +64,9 @@ public class Animation3 extends JPanel {
 		g.setColor(Color.black);
 		if(tutorial) {
 			g.drawString("Learn the correct answers so you can teach others!", (int)(frameWidth/3), 100);
+			g.drawString("Click the button with your answer choice", (int)(frameWidth/3), 150);
 		}
-		if(questionNum<3) {
+		if(questionNum<4) {
 			g.drawString(questions[4*questionNum], 675,400);
 			g.drawString("A - "+questions[4*questionNum + 1]+"\t B - "+questions[4*questionNum + 2]+"\t C - "+questions[4*questionNum + 3], 675, 500);
 			g.drawString("Score: " + score,50,60);
@@ -74,7 +75,7 @@ public class Animation3 extends JPanel {
 			g.setFont(font2);
 			g.setColor(Color.black);
 			g.drawString("Good Job!", 675,400);
-			g.drawString("Your Score: "+ score+" out of 3", 675, 500);
+			g.drawString("Your Score: "+ score+" out of 4", 675, 500);
 		}
 	}
 	
