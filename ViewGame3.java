@@ -36,7 +36,7 @@ public class ViewGame3 extends View {
 	int qchoice = 0;
 	ArrayList<GameObjects> objects;
 
-	public ViewGame3(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects) throws IOException {
+	public ViewGame3(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects, int score1, int score2) throws IOException {
 		super(imageWidth, imageHeight,size);
 		this.objects = objects;
 		System.out.println(objects);
@@ -45,7 +45,7 @@ public class ViewGame3 extends View {
 		Container pane = frame.getContentPane();
 		pane.setPreferredSize(size);
     	pane.setLayout(new BorderLayout());
-    	a = new Animation3(objects);
+    	a = new Animation3(objects, score1, score2);
     	pane.add(a, BorderLayout.CENTER);
 
 		JButton b1 = new JButton("A");

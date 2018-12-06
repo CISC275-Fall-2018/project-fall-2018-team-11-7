@@ -23,7 +23,7 @@ public class Controller {
 	protected static int frameHeight = (int) size.getHeight();
 	int score1;
 	int score2;
-	int score3;
+	//int score3;
 
 	public Controller() throws IOException {
 
@@ -58,7 +58,7 @@ public class Controller {
 			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact());
 			if(model.getScore()>=6) {
 				game1=false;
-				score1 = model.getScore();
+				score1 = (model.getScore() - 1);
 			}
 		}
 		MouseListener mouseinput2 = new MouseListener() {
@@ -129,14 +129,13 @@ public class Controller {
 		}
 
 		model = new ModelGame3(frameWidth,frameHeight);
-		view = new ViewGame3(frameWidth,frameHeight, size, model.getObjects());
+		view = new ViewGame3(frameWidth,frameHeight, size, model.getObjects(), score1, score2);
 
 		while(game3) {
 			model.update(view.getQChoice());
 			view.update(model.getNum(), model.getScore(), model.resetQChoice, model.tutorial);
 			if(model.getNum()==6) {
 				game3=false;
-				score3 = model.getScore();
 			}
 		}
 	}

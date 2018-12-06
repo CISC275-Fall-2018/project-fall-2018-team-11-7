@@ -63,6 +63,8 @@ public class Animation2 extends JPanel {
 		this.tutorial = tutorial;
 		this.score = score;
 		this.dayNum = dayNum;
-		this.repaint();
+		if(dayNum<4) {
+			this.repaint();
+		}
 	}
 }

@@ -19,14 +19,18 @@ public class Animation3 extends JPanel {
 	String[] questions = {"What do Shore Birds like to eat?","Grass","Horseshoe Crab eggs","Frogs","Where do fish live?","Trees","Burrows","Water","What do frogs like to eat?", "Leaves","Insects","Acorns", "When can herons be found in Delaware?","Summer","Winter","All year", "Where do ducks like to live?","Near water", "In parks", "In forrests"};
 	int questionNum = 0;
 	int score = 0;
+	int score1;
+	int score2;
 	private Color myGreen;
 	private ArrayList<GameObjects> objects;
 	boolean tutorial;
 	BufferedImage image;
 	
-	public Animation3(ArrayList<GameObjects> objects) throws IOException {
+	public Animation3(ArrayList<GameObjects> objects, int score1, int score2) throws IOException {
 		this.objects = objects;
 		myGreen = new Color(0,140,0);
+		this.score1 = score1;
+		this.score2 = score2;
 		/*File file1 = new File("Question1.png");
 		File file2 = new File("Question2.png");
 		File file3 = new File("Question3.png");
@@ -81,8 +85,11 @@ public class Animation3 extends JPanel {
 		else {
 			g.setFont(font2);
 			g.setColor(Color.black);
-			g.drawString("Good Job!", 675,400);
-			g.drawString("Your Score: "+ score+" out of 5", 675, 500);
+			g.drawString("Good Job!", (frameWidth/2 - frameWidth/8), 50);
+			g.drawString("Your Score for Game 1: " + score1, (frameWidth/2 - frameWidth/8), (frameHeight/2 - 100));
+			g.drawString("Your Score for Game 2: " + score2, (frameWidth/2 - frameWidth/8), (frameHeight/2-50));
+			g.drawString("Your Score for Game 3: "+ score+" out of 5", (frameWidth/2 - frameWidth/8), (frameHeight/2));
+			g.drawString("Total Score: "+(score1+score2+score), (frameWidth/2 - frameWidth/8), (frameHeight/2 +100));
 		}
 	}
 	
