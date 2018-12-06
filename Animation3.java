@@ -25,7 +25,7 @@ public class Animation3 extends JPanel {
 	private ArrayList<GameObjects> objects;
 	boolean tutorial;
 	BufferedImage image;
-	
+
 	public Animation3(ArrayList<GameObjects> objects, int score1, int score2) throws IOException {
 		this.objects = objects;
 		myGreen = new Color(0,140,0);
@@ -49,9 +49,9 @@ public class Animation3 extends JPanel {
 					// ImageIO.read("src/skynsea.jpg");
 		} catch (IOException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
-		
+
 	/*	BufferedImage background1 = Toolkit.getDefaultToolkit().createImage("Question1.png");
 		questions[0] = background1;
 		Image background2 = Toolkit.getDefaultToolkit().createImage("Question2.png");
@@ -78,8 +78,8 @@ public class Animation3 extends JPanel {
 			g.drawString("Click the button with your answer choice", (int)(frameWidth/3), 150);
 		}
 		if(questionNum<5) {
-			g.drawString(questions[4*questionNum], 675,400);
-			g.drawString("A - "+questions[4*questionNum + 1]+"\t B - "+questions[4*questionNum + 2]+"\t C - "+questions[4*questionNum + 3], 675, 500);
+			g.drawString(questions[4*questionNum], (int)(frameWidth/3),300);
+			g.drawString("A - "+questions[4*questionNum + 1]+"\t B - "+questions[4*questionNum + 2]+"\t C - "+questions[4*questionNum + 3], (int)(frameWidth/3), 400);
 			g.drawString("Score: " + score,50,60);
 		}
 		else {
@@ -92,7 +92,7 @@ public class Animation3 extends JPanel {
 			g.drawString("Total Score: "+(score1+score2+score), (frameWidth/2 - frameWidth/8), (frameHeight/2 +100));
 		}
 	}
-	
+
 	public void update(int w, int h, int questionNum, int score, boolean tutorial) {
 		this.frameHeight = h;
 		this.frameWidth = w;
