@@ -61,7 +61,41 @@ public class Controller {
 				score1 = (model.getScore());
 			}
 		}
-		MouseListener mouseinput2 = new MouseListener() {
+
+		MouseListener mouseinput2 = getMouse2();
+
+		model = new ModelGame2(frameWidth, frameHeight);
+		view = new ViewGame2(frameWidth, frameHeight, size, model.getObjects(), mouseinput2);
+		//view.addMouseListener(mouseinput2);
+
+		while(game2) {
+			mouseLocation();
+			mouseloc = true;
+			model.update(mX, mY, mouseloc, view.getNext());
+			if(view.getNext()) {
+				view.setNext(false);
+			}
+			view.update(model.getObjects(), model.tutorial, model.getScore(), model.getNum());
+			if(model.getNum() >= 4) {
+				game2 = false;
+				score2 = model.getScore();
+			}
+		}
+
+		model = new ModelGame3(frameWidth,frameHeight);
+		view = new ViewGame3(frameWidth,frameHeight, size, model.getObjects(), score1, score2);
+
+		while(game3) {
+			model.update(view.getQChoice());
+			view.update(model.getNum(), model.getScore(), model.resetQChoice, model.tutorial);
+			if(model.getNum()==6) {
+				game3=false;
+			}
+		}
+	}
+
+	public MouseListener getMouse2(){
+		return new MouseListener() {
 			public void mouseClicked(MouseEvent event){}
 			public void mousePressed(MouseEvent event){}
 			public void mouseReleased(MouseEvent event){
@@ -109,34 +143,5 @@ public class Controller {
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}
 		};
-
-		model = new ModelGame2(frameWidth, frameHeight);
-		view = new ViewGame2(frameWidth, frameHeight, size, model.getObjects(), mouseinput2);
-		//view.addMouseListener(mouseinput2);
-
-		while(game2) {
-			mouseLocation();
-			mouseloc = true;
-			model.update(mX, mY, mouseloc, view.getNext());
-			if(view.getNext()) {
-				view.setNext(false);
-			}
-			view.update(model.getObjects(), model.tutorial, model.getScore(), model.getNum());
-			if(model.getNum() >= 4) {
-				game2 = false;
-				score2 = model.getScore();
-			}
-		}
-
-		model = new ModelGame3(frameWidth,frameHeight);
-		view = new ViewGame3(frameWidth,frameHeight, size, model.getObjects(), score1, score2);
-
-		while(game3) {
-			model.update(view.getQChoice());
-			view.update(model.getNum(), model.getScore(), model.resetQChoice, model.tutorial);
-			if(model.getNum()==6) {
-				game3=false;
-			}
-		}
 	}
 }

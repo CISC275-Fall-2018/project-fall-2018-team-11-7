@@ -9,31 +9,31 @@ public class LittleFish extends Animal {
 	BufferedImage image;
 	private boolean drag = false;
 	private boolean origin = true;
-	
+
 	public LittleFish(int frameWidth, int frameHeight) throws IOException {
 		super(frameWidth, frameHeight);
 		xloc = (int)(frameWidth/16);
 		yloc = (int)(frameHeight - (frameHeight/4) - (frameHeight/20));
 		imageWidth = (int)(frameWidth/40);
 		imageHeight = (int)(frameWidth/40);
-		File file = new File("Fish_east_1.png");
+		File file = new File("images/Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
 	}
-	
+
 	public LittleFish(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
 		super(frameWidth, frameHeight);
 		this.xloc = xloc;
 		this.yloc = yloc;
 		imageWidth = (int)(frameWidth/40);
 		imageHeight = (int)(frameWidth/40);
-		File file = new File("Fish_east_1.png");
+		File file = new File("images/Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
 	}
-	
+
 	public String toString() {
 		return "little fish";
 	}
@@ -65,6 +65,6 @@ public class LittleFish extends Animal {
 	@Override
 	public void updatePosition() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

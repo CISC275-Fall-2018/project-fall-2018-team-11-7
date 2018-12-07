@@ -11,10 +11,10 @@ public class Tree implements GameObjects {
 	int yloc;
 	int imageWidth;
 	int imageHeight;
-	
+
 	public Tree(int xloc, int yloc, int imageWidth, int imageHeight) throws IOException {
-		File file = new File("Tree.png");
-		
+		File file = new File("images/Tree.png");
+
 		if(file.exists()) {
 			image[0] = ImageIO.read(file);
 		}
@@ -23,7 +23,7 @@ public class Tree implements GameObjects {
 		this.imageWidth = imageWidth;
 		this.imageHeight = imageHeight;
 	}
-	
+
 	public BufferedImage getImage() {
 		return image[0];
 	}
@@ -42,7 +42,7 @@ public class Tree implements GameObjects {
 		return this.imageHeight;
 	}
 	public void updatePosition() {}
-	
+
 	public String toString() {
 		return "Tree";
 	}
@@ -66,7 +66,7 @@ public class Tree implements GameObjects {
 	@Override
 	public void setDrag(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -78,12 +78,12 @@ public class Tree implements GameObjects {
 	@Override
 	public void setOrigin(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updatePosition(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -21,8 +21,8 @@ public class Frog extends Animal{
 		fact = "Frogs eat insects";
 		// gets all images for Frog
 
-		File file1 = new File("frog_west.png");
-		File file2 = new File("frog_east.png");
+		File file1 = new File("images/frog_west.png");
+		File file2 = new File("images/frog_east.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			images[0] = image1;
@@ -89,7 +89,7 @@ public class Frog extends Animal{
 	@Override
 	public void setDrag(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -101,12 +101,12 @@ public class Frog extends Animal{
 	@Override
 	public void setOrigin(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updatePosition(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -26,8 +26,8 @@ public class Heron extends Animal {
 
 		// gets all images for Bird
 
-		File file1 = new File("heronwalking_NW.png");
-		File file2 = new File("heronwalking_NE.png");
+		File file1 = new File("images/heronwalking_NW.png");
+		File file2 = new File("images/heronwalking_NE.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			//images[0] = image1;
@@ -91,7 +91,7 @@ public class Heron extends Animal {
 	@Override
 	public void setDrag(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -101,13 +101,12 @@ public class Heron extends Animal {
 	}
 	public void setOrigin(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updatePosition(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
-

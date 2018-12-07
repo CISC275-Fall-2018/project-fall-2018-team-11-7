@@ -45,7 +45,7 @@ public class Animation3 extends JPanel {
 			BufferedImage image4 = ImageIO.read(file4);
 			questions[3] = image4;*/
 		try {
-			image = ImageIO.read(new File("skylandnsea.jpg"));
+			image = ImageIO.read(new File("images/skylandnsea.jpg"));
 					// ImageIO.read("src/skynsea.jpg");
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -22,8 +22,8 @@ public class Bird extends Animal{
 
 		// gets all images for Bird
 
-		File file1 = new File("bird_west.png");
-		File file2 = new File("bird_east.png");
+		File file1 = new File("images/bird_west.png");
+		File file2 = new File("images/bird_east.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			images[0] = image1;
@@ -88,7 +88,7 @@ public class Bird extends Animal{
 	@Override
 	public void setDrag(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -100,12 +100,12 @@ public class Bird extends Animal{
 	@Override
 	public void setOrigin(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updatePosition(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
