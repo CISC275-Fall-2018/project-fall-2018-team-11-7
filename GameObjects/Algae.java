@@ -10,7 +10,7 @@ public class Algae extends Animal {
 	BufferedImage image;
 	private boolean drag = false;
 	private boolean origin = true;
-	
+
 	public Algae(int frameWidth, int frameHeight) throws IOException {
 		super(frameWidth, frameHeight);
 		xloc = (int)(frameWidth/16);
@@ -22,7 +22,7 @@ public class Algae extends Animal {
 			image = ImageIO.read(file);
 		}
 	}
-	
+
 	public Algae(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
 		super(frameWidth, frameHeight);
 		this.xloc = xloc;
@@ -34,7 +34,7 @@ public class Algae extends Animal {
 			image = ImageIO.read(file);
 		}
 	}
-	
+
 	public String toString() {
 		return "algae";
 	}
@@ -66,6 +66,6 @@ public class Algae extends Animal {
 	@Override
 	public void updatePosition() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

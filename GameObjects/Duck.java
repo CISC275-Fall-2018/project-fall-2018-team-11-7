@@ -26,8 +26,8 @@ public class Duck extends Animal {
 
 		// gets all images for Bird
 
-		File file1 = new File("duckwalking_NW_larger.png");
-		File file2 = new File("duckwalking_NE_larger.png");
+		File file1 = new File("images/duckwalking_NW_larger.png");
+		File file2 = new File("images/duckwalking_NE_larger.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			//images[0] = image1;
@@ -91,7 +91,7 @@ public class Duck extends Animal {
 	@Override
 	public void setDrag(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -101,12 +101,12 @@ public class Duck extends Animal {
 	}
 	public void setOrigin(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updatePosition(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -21,8 +21,8 @@ public class Fish extends Animal{
 		this.distance = distance;
 		fact = "Fish live in water";
 		// gets all images for fish
-		File file1 = new File("Fish_west_1.png");
-		File file2 = new File("Fish_east_1.png");
+		File file1 = new File("images/Fish_west_1.png");
+		File file2 = new File("images/Fish_east_1.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			images[0] = image1;
@@ -77,7 +77,7 @@ public class Fish extends Animal{
 	@Override
 	public void setDrag(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -89,13 +89,12 @@ public class Fish extends Animal{
 	@Override
 	public void setOrigin(boolean b) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updatePosition(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
-

@@ -17,19 +17,19 @@ public class BigFish extends Animal {
 		yloc = (int)(frameHeight/5 + frameHeight/30);
 		imageWidth = (int)(frameWidth/20);
 		imageHeight = (int)(frameWidth/20);
-		File file = new File("Fish_east_1.png");
+		File file = new File("images/Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
 	}
-	
+
 	public BigFish(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
 		super(frameWidth, frameHeight);
 		this.xloc = xloc;
 		this.yloc = yloc;
 		imageWidth = (int)(frameWidth/20);
 		imageHeight = (int)(frameWidth/20);
-		File file = new File("Fish_east_1.png");
+		File file = new File("images/Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
@@ -50,22 +50,22 @@ public class BigFish extends Animal {
 		this.xloc = x - (int)(imageWidth/2 + imageWidth/8);
 		this.yloc = y - (int)(imageHeight + imageHeight/5);
 	}
-	
+
 	@Override
 	public boolean getDrag() {
 		return drag;
 	}
-	
+
 	@Override
 	public void setDrag(boolean d) {
 		drag = d;
 	}
-	
+
 	@Override
 	public boolean getOrigin() {
 		return origin;
 	}
-	
+
 	@Override
 	public void setOrigin(boolean o) {
 		origin = o;
@@ -74,7 +74,7 @@ public class BigFish extends Animal {
 	@Override
 	public void updatePosition() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

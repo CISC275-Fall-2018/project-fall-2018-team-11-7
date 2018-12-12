@@ -9,7 +9,7 @@ public class Crab extends Animal {
 	BufferedImage image;
 	private boolean drag = false;
 	private boolean origin = true;
-	
+
 	public Crab(int frameWidth, int frameHeight) throws IOException {
 		super(frameWidth, frameHeight);
 		xloc = (int)(frameWidth/18);
@@ -21,7 +21,7 @@ public class Crab extends Animal {
 			image = ImageIO.read(file);
 		}
 	}
-	
+
 	public Crab(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
 		super(frameWidth, frameHeight);
 		this.xloc = xloc;
@@ -49,22 +49,22 @@ public class Crab extends Animal {
 		this.xloc = x - (int)(imageWidth/2 + imageWidth/4);
 		this.yloc = y - (int)(imageHeight + imageHeight/2 + imageHeight/4);
 	}
-	
+
 	@Override
 	public boolean getDrag() {
 		return drag;
 	}
-	
+
 	@Override
 	public void setDrag(boolean d) {
 		drag = d;
 	}
-	
+
 	@Override
 	public boolean getOrigin() {
 		return origin;
 	}
-	
+
 	@Override
 	public void setOrigin(boolean o) {
 		origin = o;
@@ -73,7 +73,7 @@ public class Crab extends Animal {
 	@Override
 	public void updatePosition() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
