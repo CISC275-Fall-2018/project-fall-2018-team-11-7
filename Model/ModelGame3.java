@@ -1,5 +1,9 @@
+package Model;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import GameObjects.GameObjects;
+import GameObjects.Tree;
 
 public class ModelGame3 extends Model{
 	private int Score=0;

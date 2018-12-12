@@ -1,28 +1,30 @@
+package GameObjects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Frog extends Animal{
+public class Bird extends Animal{
 	BufferedImage[] images = new BufferedImage[2];
 	//Direction d = Direction.EAST;
 	private int dir;
 	private int distance;
 	private int start;
 	private int count = 0;
-	private int vel = 6;
-	private int yvel = 6;
+	private int vel = 12;
+	private int yvel = 4;
 
-	public Frog(int xloc, int yloc, int imageWidth, int imageHeight, int distance, int dir) throws IOException{
+	public Bird(int xloc, int yloc, int imageWidth, int imageHeight, int distance, int dir) throws IOException{
 		super(xloc,yloc,imageWidth,imageHeight);
 		this.dir = dir;
 		this.distance = distance;
-		fact = "Frogs eat insects";
-		// gets all images for Frog
+		fact = "Shore Birds eat horseshoe crab eggs";
 
-		File file1 = new File("frog_west.png");
-		File file2 = new File("frog_east.png");
+		// gets all images for Bird
+
+		File file1 = new File("bird_west.png");
+		File file2 = new File("bird_east.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			images[0] = image1;
@@ -41,10 +43,8 @@ public class Frog extends Animal{
 
 	public void updatePosition(){
 		count++;
-		vel = 6;
-		if(count%4 == 0){
+		if(count%10 == 0){
 			yvel *= -1;
-			vel = 0;
 		}
 
 
@@ -65,7 +65,7 @@ public class Frog extends Animal{
 		yloc += yvel;
 	}
 
-	@Override
+
 	public BufferedImage getImage() {
 		return images[dir];
 	}
@@ -77,7 +77,7 @@ public class Frog extends Animal{
 	}
 
 	public String toString(){
-		return "Frog";
+		return "Bird";
 	}
 
 	@Override

@@ -1,10 +1,21 @@
+package Model;
 
-import java.util.List;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import GameObjects.Animal;
+import GameObjects.Bird;
+import GameObjects.Duck;
+import GameObjects.Fish;
+import GameObjects.Frog;
+import GameObjects.GameObjects;
+import GameObjects.Heron;
+import GameObjects.Camera;
+import GameObjects.Tree;
 
 public class ModelGame1 extends Model{
 

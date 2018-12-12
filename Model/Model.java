@@ -1,5 +1,9 @@
+package Model;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import GameObjects.Camera;
+import GameObjects.GameObjects;
 
 public class Model {
 	int frameWidth;
@@ -14,70 +18,64 @@ public class Model {
 		this.frameHeight = frameHeight;
 	}
 
-	public void takePicture() {
+	public void takePicture() {//
 		// TODO Auto-generated method stub
 
 	}
 
-	public void addAnimals() throws IOException {}
+	public void addAnimals() throws IOException {} //
 
-	public Camera getCamera() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void update(){}
-
-	public void updateAnimals() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public ArrayList<GameObjects> getObjects() {
+	public Camera getCamera() {//
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int getScore() {
+	public void update(){}//
+
+	public void updateAnimals() {//
+		// TODO Auto-generated method stub
+
+	}
+
+	public ArrayList<GameObjects> getObjects() {//
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getScore() {//
 		// TODO Auto-generated method stub
 		return score;
 	}
 
-	public Object getTarget() {
+	public Object getTarget() {//
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void update(int qChoice) {
+	public void update(int qChoice) {//
 		// TODO Auto-generated method stub
 
 	}
 
-	public int getNum() {
+	public int getNum() {//
 		// TODO Auto-generated method stub
 		return (Integer) null;
 	}
 
-	public void update(int mX, int mY) {
+	public void drop(int x, int y) throws IOException {//
 		// TODO Auto-generated method stub
 
 	}
 
-
-	public void drop(int x, int y) throws IOException {
+	public void update(int x, int y, boolean mouseloc, boolean next) throws IOException {//
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(int x, int y, boolean mouseloc, boolean next) throws IOException {
-		// TODO Auto-generated method stub
-
-	}
-
-	public String getFact() {
+	public String getFact() {//
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int getTime(){return 0;};
+	public int getTime(){return 0;};//
 }

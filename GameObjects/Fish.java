@@ -1,36 +1,34 @@
+package GameObjects;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Bird extends Animal{
+public class Fish extends Animal{
 	BufferedImage[] images = new BufferedImage[2];
 	//Direction d = Direction.EAST;
 	private int dir;
 	private int distance;
 	private int start;
-	private int count = 0;
-	private int vel = 12;
-	private int yvel = 4;
+	private int vel = 8;
 
-	public Bird(int xloc, int yloc, int imageWidth, int imageHeight, int distance, int dir) throws IOException{
+	public Fish(int xloc, int yloc, int imageWidth, int imageHeight, int distance, int dir) throws IOException{
 		super(xloc,yloc,imageWidth,imageHeight);
+		//System.out.println(imageHeight);
 		this.dir = dir;
 		this.distance = distance;
-		fact = "Shore Birds eat horseshoe crab eggs";
-
-		// gets all images for Bird
-
-		File file1 = new File("bird_west.png");
-		File file2 = new File("bird_east.png");
+		fact = "Fish live in water";
+		// gets all images for fish
+		File file1 = new File("Fish_west_1.png");
+		File file2 = new File("Fish_east_1.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			images[0] = image1;
 			BufferedImage image2 = ImageIO.read(file2);
 			images[1] = image2;
 		}
-
 
 		if(dir == 1){
 			start = xloc;
@@ -41,12 +39,6 @@ public class Bird extends Animal{
 	}
 
 	public void updatePosition(){
-		count++;
-		if(count%10 == 0){
-			yvel *= -1;
-		}
-
-
 		if(dir == 1 && xloc < start+distance){
 			xloc += vel;
 		}
@@ -61,14 +53,11 @@ public class Bird extends Animal{
 			dir = 1;
 			xloc+=vel;
 		}
-		yloc += yvel;
+
 	}
-
-
 	public BufferedImage getImage() {
 		return images[dir];
 	}
-
 
 
 	public int getDir() {
@@ -76,7 +65,7 @@ public class Bird extends Animal{
 	}
 
 	public String toString(){
-		return "Bird";
+		return "Fish";
 	}
 
 	@Override
@@ -109,3 +98,4 @@ public class Bird extends Animal{
 		
 	}
 }
+

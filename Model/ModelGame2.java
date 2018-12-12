@@ -1,11 +1,17 @@
+package Model;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import GameObjects.Algae;
+import GameObjects.BigFish;
+import GameObjects.GameObjects;
+import GameObjects.Crab;
+
 public class ModelGame2 extends Model {
 	ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
-	int littleFish=0;
-	int middleFish=0;
+	int algae=0;
+	int crab=0;
 	int bigFish=0;
 	boolean next = false;
 	int dayNum = 0;
@@ -13,24 +19,24 @@ public class ModelGame2 extends Model {
 	
 	public ModelGame2(int width, int height) throws IOException {
 		super(width, height);
-		objects.add(new LittleFish(frameWidth, frameHeight));
-		objects.add(new MiddleFish(frameWidth, frameHeight));
+		objects.add(new Algae(frameWidth, frameHeight));
+		objects.add(new Crab(frameWidth, frameHeight));
 		objects.add(new BigFish(frameWidth, frameHeight));
 		this.tutorial = true;
 		this.score = 0;
 	}
 	
 	void count() {
-		littleFish = -1;
-		middleFish = -1;
+		algae = -1;
+		crab = -1;
 		bigFish = -1;
 		for(GameObjects o: objects) {
 			switch(o.toString()) {
-			case "little fish":
-				littleFish +=1;
+			case "algae":
+				algae +=1;
 				break;
-			case "middle fish":
-				middleFish +=1;
+			case "crab":
+				crab +=1;
 				break;
 			case "big fish":
 				bigFish +=1;
@@ -43,12 +49,12 @@ public class ModelGame2 extends Model {
 		count();
 		ArrayList<GameObjects> fish = new ArrayList<GameObjects>();
 		int b = bigFish;
-		int m = middleFish;
-		int l = littleFish;
+		int c = crab;
+		int a = algae;
 		// for big fish
-		if(b>=m) {
-			bigFish = m;
-			middleFish = 0;
+		if(b>=c) {
+			bigFish = c;
+			crab = 0;
 		}
 		else {
 			bigFish = b;
@@ -56,67 +62,65 @@ public class ModelGame2 extends Model {
 				bigFish = 8;
 			}
 		}
-		if(m>=l) {
-			if(l-b > 0) {
-				middleFish = l-b;
+		if(c>=a) {
+			if(a-b > 0) {
+				crab = a-b;
 			}
 			else {
-				middleFish = 0;
+				crab = 0;
 			}
-			littleFish = 0;
+			algae = 0;
 		}
 		else {
-			if(b>=m) {
-				middleFish=0;
+			if(b>=c) {
+				crab=0;
 			}
 			else {
-				middleFish = m - (((int)(b/2))+1) + ((int)(((m - (((int)(b/2))+1))/4))) - ((int)((((int)(bigFish/2))/2)));
-				if(middleFish > 10) {
-					middleFish = 10;
+				crab = c - (((int)(b/2))+1) + ((int)(((c - (((int)(b/2))+1))/4))) - ((int)((((int)(bigFish/2))/2)));
+				if(crab > 10) {
+					crab = 10;
 				}
-				if(l==0) {
-					littleFish = 0;
+				if(a==0) {
+					algae = 0;
 				}
 				else {
-					littleFish = l - (((int)(m/2))+1) + ((int)(((l - (((int)(m/2))+1))/4))) - ((int)((((int)(middleFish/2))/2)));
-					if(littleFish > 15) {
-						littleFish = 15;
+					algae = a - (((int)(c/2))+1) + ((int)(((a - (((int)(c/2))+1))/4))) - ((int)((((int)(crab/2))/2)));
+					if(algae > 15) {
+						algae = 15;
 					}
 				}
 			}
 		}
-		//littleFish = l - (((int)(m/2))+1) + ((int)(((l - (((int)(m/2))+1))/4))) - ((int)((((int)(middleFish/2))/2)));
-		//System.out.println(bigFish+" "+middleFish+" "+littleFish);
 		b = 0;
-		m = 0;
-		l = 0;
+		c = 0;
+		a = 0;
 		Random rand = new Random();
 		while(b<bigFish) {
 			fish.add(new BigFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth/2))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
 			b+=1;
 		}
-		while(m<middleFish) {
-			fish.add(new MiddleFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
-			m+=1;
+		while(c<crab) {
+			fish.add(new Crab(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
+			c+=1;
 		}
-		while(l<littleFish) {
-			fish.add(new LittleFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
-			l+=1;
+		while(a<algae) {
+			fish.add(new Algae(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
+			a+=1;
 		}
 		
 		fish.add(new BigFish(frameWidth, frameHeight));
-		fish.add(new MiddleFish(frameWidth, frameHeight));
-		fish.add(new LittleFish(frameWidth, frameHeight));
+		fish.add(new Crab(frameWidth, frameHeight));
+		fish.add(new Algae(frameWidth, frameHeight));
 		
 		this.objects = fish;
 		dayNum+=1;
-		int mb = (middleFish - bigFish);
-		if(mb>0) {
-			score += mb;
+		int cb = (crab - bigFish);
+		if(cb>0) {
+			score += cb;
 		}
-		int lm = (littleFish - middleFish);
-		if(lm > 0) {
-			score += lm;
+		int ac = (algae - crab);
+		if(ac > 0) {
+			score += ac;
 		}
 		tutorial = false;
 	}
@@ -143,45 +147,45 @@ public class ModelGame2 extends Model {
 			if(o.getDrag()) {
 				o.updatePosition(x,y);
 				switch(o.toString()) {
-				case "little fish":
+				case "algae":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
 						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new LittleFish(frameWidth, frameHeight));
+							objects.add(new Algae(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
 						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new LittleFish(frameWidth, frameHeight));
+							objects.add(new Algae(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else {
 						if(o.getOrigin()) {
-							objects.add(new LittleFish(frameWidth, frameHeight));
+							objects.add(new Algae(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
-				case "middle fish":
+				case "crab":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
 						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new MiddleFish(frameWidth, frameHeight));
+							objects.add(new Crab(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
 						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new MiddleFish(frameWidth, frameHeight));
+							objects.add(new Crab(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else {
 						if(o.getOrigin()) {
-							objects.add(new MiddleFish(frameWidth, frameHeight));
+							objects.add(new Crab(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}

@@ -1,3 +1,4 @@
+package View;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -20,6 +21,8 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import GameObjects.GameObjects;
 
 import java.awt.Image;
 
@@ -104,13 +107,4 @@ public class ViewGame3 extends View {
 		return qchoice;
 	}
 
-	/*public static void main(String[] args) {
-		//Here solely for the purpose of testing
-		try {
-			DummyController3 c = new DummyController3();
-			c.start();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-	}*/
 }

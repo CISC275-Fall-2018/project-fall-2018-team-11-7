@@ -1,40 +1,41 @@
+package GameObjects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class MiddleFish extends Animal {
+public class Crab extends Animal {
 	BufferedImage image;
 	private boolean drag = false;
 	private boolean origin = true;
 	
-	public MiddleFish(int frameWidth, int frameHeight) throws IOException {
+	public Crab(int frameWidth, int frameHeight) throws IOException {
 		super(frameWidth, frameHeight);
 		xloc = (int)(frameWidth/18);
 		yloc = (int)(frameHeight/2 - frameHeight/28);
 		imageWidth = (int)(frameWidth/28);
 		imageHeight = (int)(frameWidth/28);
-		File file = new File("Fish_east_1.png");
+		File file = new File("crab.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
 	}
 	
-	public MiddleFish(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
+	public Crab(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
 		super(frameWidth, frameHeight);
 		this.xloc = xloc;
 		this.yloc = yloc;
 		imageWidth = (int)(frameWidth/28);
 		imageHeight = (int)(frameWidth/28);
-		File file = new File("Fish_east_1.png");
+		File file = new File("crab.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
 	}
 
 	public String toString() {
-		return "middle fish";
+		return "crab";
 	}
 
 	@Override

@@ -1,3 +1,4 @@
+package View;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+
+import GameObjects.GameObjects;
 
 public class Animation3 extends JPanel {
 	Font font1 = new Font("Helvetica",Font.PLAIN,24);

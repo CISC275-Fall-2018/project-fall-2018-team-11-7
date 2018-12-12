@@ -1,41 +1,42 @@
-import java.awt.Image;
+package GameObjects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class LittleFish extends Animal {
+public class BigFish extends Animal {
+
 	BufferedImage image;
 	private boolean drag = false;
 	private boolean origin = true;
 	
-	public LittleFish(int frameWidth, int frameHeight) throws IOException {
+	public BigFish(int frameWidth, int frameHeight) throws IOException {
 		super(frameWidth, frameHeight);
-		xloc = (int)(frameWidth/16);
-		yloc = (int)(frameHeight - (frameHeight/4) - (frameHeight/20));
-		imageWidth = (int)(frameWidth/40);
-		imageHeight = (int)(frameWidth/40);
+		xloc = (int)(frameWidth/23);
+		yloc = (int)(frameHeight/5 + frameHeight/30);
+		imageWidth = (int)(frameWidth/20);
+		imageHeight = (int)(frameWidth/20);
 		File file = new File("Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
 	}
 	
-	public LittleFish(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
+	public BigFish(int frameWidth, int frameHeight, int xloc, int yloc) throws IOException {
 		super(frameWidth, frameHeight);
 		this.xloc = xloc;
 		this.yloc = yloc;
-		imageWidth = (int)(frameWidth/40);
-		imageHeight = (int)(frameWidth/40);
+		imageWidth = (int)(frameWidth/20);
+		imageHeight = (int)(frameWidth/20);
 		File file = new File("Fish_east_1.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
 	}
-	
+
 	public String toString() {
-		return "little fish";
+		return "big fish";
 	}
 
 	@Override
@@ -46,18 +47,26 @@ public class LittleFish extends Animal {
 
 	@Override
 	public void updatePosition(int x, int y) {
-		this.xloc = x - (int)(imageWidth/2 + imageWidth/4);
-		this.yloc = y - (int)(2*imageHeight - imageHeight/25);
+		this.xloc = x - (int)(imageWidth/2 + imageWidth/8);
+		this.yloc = y - (int)(imageHeight + imageHeight/5);
 	}
+	
+	@Override
 	public boolean getDrag() {
 		return drag;
 	}
+	
+	@Override
 	public void setDrag(boolean d) {
 		drag = d;
 	}
+	
+	@Override
 	public boolean getOrigin() {
 		return origin;
 	}
+	
+	@Override
 	public void setOrigin(boolean o) {
 		origin = o;
 	}
@@ -67,4 +76,5 @@ public class LittleFish extends Animal {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

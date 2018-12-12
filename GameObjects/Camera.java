@@ -1,3 +1,4 @@
+package GameObjects;
 
 public class Camera {
 
@@ -13,29 +14,29 @@ public class Camera {
 		this.yloc = yloc;
 	}
 
-	int getWidth(){
+	public int getWidth(){
 		return width;
 	}
 
-	int getHeight(){
+	public int getHeight(){
 		return height;
 	}
 
-	int getX() {
+	public int getX() {
 		return xloc;
 	}
 
-	int getY(){
+	public int getY(){
 
 		return yloc;
 	}
 
-	void updatePosition(int xloc, int yloc) {
+	public void updatePosition(int xloc, int yloc) {
 		this.xloc = xloc - (int)(width/2);
 		this.yloc = yloc - (int)(height/2);
 	}
 
-	int snap(int x, int y){
+	public int snap(int x, int y){
 		
 		if(x>xloc && x < xloc+width && y>yloc && y < yloc+height){
 			return 1;

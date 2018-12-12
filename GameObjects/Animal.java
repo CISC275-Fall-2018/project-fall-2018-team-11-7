@@ -1,3 +1,4 @@
+package GameObjects;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
@@ -10,7 +11,6 @@ public abstract class Animal implements GameObjects {
 	protected int imageHeight;
 	protected int frameWidth;
 	protected int frameHeight;
-	Direction d;
 	int dir;
 	String fact;
 	protected BufferedImage[] images = new BufferedImage[2];
@@ -41,33 +41,6 @@ public abstract class Animal implements GameObjects {
 		return this.imageHeight;
 	}
 
-	Direction getDirection() {
-		return d;
-	}
-	/*public void updatePosition() {
-		switch (d.getName()) {
-			case "north":
-				yloc +=yvel;
-			case "northeast":
-				xloc+=xvel;
-				yloc+=yvel;
-			case "east":
-				xloc+=xvel;
-			case "southeast":
-				xloc+=xvel;
-				yloc-=yvel;
-			case "south":
-				yloc-=0;
-			case "southwest":
-				xloc-=xvel;
-				yloc-=yvel;
-			case "west":
-				xloc -=xvel;
-			case "northwest":
-				xloc -= xvel;
-				yloc +=yvel;
-		}
-	}*/
 	public int getDir() {
 		return dir;
 	}

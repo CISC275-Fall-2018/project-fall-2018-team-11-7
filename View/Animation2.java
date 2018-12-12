@@ -1,3 +1,4 @@
+package View;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -6,6 +7,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import GameObjects.GameObjects;
+
 public class Animation2 extends JPanel {
 	Font font = new Font("Helvetica",Font.PLAIN,24);
 	int frameWidth;
@@ -13,9 +16,6 @@ public class Animation2 extends JPanel {
 	ArrayList<GameObjects> objects;
 	boolean tutorial;
 	int score = 0;
-	int littleFish = 0;
-	int middleFish = 0;
-	int bigFish = 0;
 	int dayNum = 0;
 
 	public Animation2(int frameWidth, int frameHeight, ArrayList<GameObjects> objects) {
@@ -47,8 +47,9 @@ public class Animation2 extends JPanel {
 		}
 		if(tutorial) {
 			g.drawString("As steward of the estuary, try to balance the ecosystem!", (int)(frameWidth/3), 50);
-			g.drawString("Click to pick up a fish.", (int)(frameWidth/3), 150);
-			g.drawString("Click again to place the fish.", (int)(frameWidth/3), 200);
+			g.drawString("Crabs eat algae, fish eat crabs", (int)(frameWidth/3), 100);
+			g.drawString("Click to pick up an object.", (int)(frameWidth/3), 150);
+			g.drawString("Click again to place the objects.", (int)(frameWidth/3), 200);
 			g.drawString("Click 'go to next day' to see what happens!", (int)(frameWidth/3), 250);
 		}
 		if(dayNum == 3) {

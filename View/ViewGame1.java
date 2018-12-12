@@ -1,3 +1,4 @@
+package View;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,6 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
+
+import GameObjects.Camera;
+import GameObjects.GameObjects;
+import GameObjects.Tree;
 
 import java.util.ArrayList;
 import java.util.List;

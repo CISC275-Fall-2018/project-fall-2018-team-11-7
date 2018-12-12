@@ -1,3 +1,4 @@
+package Controller;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -7,6 +8,16 @@ import java.awt.MouseInfo;
 import java.awt.Toolkit;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+
+import GameObjects.GameObjects;
+import Model.Model;
+import Model.ModelGame1;
+import Model.ModelGame2;
+import Model.ModelGame3;
+import View.View;
+import View.ViewGame1;
+import View.ViewGame2;
+import View.ViewGame3;
 
 public class Controller {
 	View view;
@@ -39,7 +50,7 @@ public class Controller {
 
 		model = new ModelGame1(frameWidth,frameHeight);
 		model.addAnimals();
-		view = new ViewGame1(frameWidth, frameHeight, size, model.camera, model.getObjects());
+		view = new ViewGame1(frameWidth, frameHeight, size, model.getCamera(), model.getObjects());
 		view.addMouseListener(mouseinput);
 	}
 

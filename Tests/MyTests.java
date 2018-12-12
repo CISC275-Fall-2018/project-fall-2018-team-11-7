@@ -1,3 +1,4 @@
+package Tests;
 import static org.junit.Assert.assertEquals;
 
 import java.awt.AWTException;
@@ -7,6 +8,16 @@ import java.awt.Robot;
 import java.io.IOException;
 
 import org.junit.Test;
+
+import GameObjects.Animal;
+import GameObjects.Bird;
+import GameObjects.Camera;
+import GameObjects.Fish;
+import Model.ModelGame1;
+import Model.ModelGame2;
+import Model.ModelGame3;
+import View.ViewGame1;
+import View.ViewGame3;
 
 public class MyTests {
 
@@ -40,7 +51,7 @@ public class MyTests {
         //testing updateCamera and takePicture
         tester.animals.get(5).xloc = 1000;
         tester.animals.get(5).yloc = 800;
-        tester.updateCamera(920,750);
+        tester.updateCamera(1000,800);
         tester.target = tester.animals.get(5);
         tester.takePicture();
         assertEquals(1, tester.getScore());
@@ -56,7 +67,7 @@ public class MyTests {
         ViewGame1 tester1 = new ViewGame1(1900,1000, size, tester.camera, tester.getObjects());
         assertEquals(1900, tester1.frameWidth);
         //testing update. Retesting getters for ModelGame1
-        tester1.update(tester.getCamera(), tester.getObjects(), tester.getScore(), tester.getTarget().toString());
+        tester1.update(tester.getCamera(), tester.getObjects(), tester.getScore(), tester.getTarget().toString(), false, "null", 0);
         assertEquals(tester.getObjects(),tester1.objects);
         
         ///Starting tests for modelgame3
@@ -65,19 +76,19 @@ public class MyTests {
         assertEquals("Tree", tester2.getObjects().get(0).toString());
         //testing update and getScore
         tester2.questionNum = 1;
-        tester2.update(1);
-        assertEquals(1, tester2.getScore());
+        tester2.update(3);
+        assertEquals(10, tester2.getScore());
         //testing getQNum
-        assertEquals(2, tester2.getQNum());
+        assertEquals(2, tester2.getNum());
         
         //Starting tests for viewgame3 and animation3
         //testing veiwgame3 constructor and tree getWidth
-        ViewGame3 tester3 = new ViewGame3(1900,1000,size,tester2.objects);
+        ViewGame3 tester3 = new ViewGame3(1900,1000,size,tester2.objects, 0,0);
         assertEquals(633, tester3.objects.get(0).getWidth());
         //testing viewgame3 update, animation3 update, and animation3 constructor
-        tester3.update(3, 2, 0);
+        tester3.update(3, 2, 0, false);
         assertEquals(2, tester3.a.score);
-        tester3.update(2,2,0);
+        tester3.update(2,2,0, false);
         assertEquals(2, tester3.a.questionNum);
         //testing get qchoice
         tester3.qchoice = 3;
@@ -86,13 +97,15 @@ public class MyTests {
         //Starting tests for modelgame2
         //testing ModelGame2 constructor and run()
         ModelGame2 tester4 = new ModelGame2(1900,1000);
-        tester4.bigFish = 3;
-        tester4.middleFish = 7;
-        tester4.littleFish = 15;
+        tester4.bigFish = 2;
+        System.out.println(tester4.bigFish);
+        tester4.middleFish =8;
+        tester4.littleFish = 5;
         tester4.run();
-        assertEquals(4, tester4.bigFish);
-        assertEquals(6, tester4.middleFish);
-        assertEquals(15, tester4.littleFish);
+        System.out.println(tester4.bigFish);
+        assertEquals(2, tester4.bigFish);
+        assertEquals(3, tester4.middleFish);
+        assertEquals(5, tester4.littleFish);
         
     }
 }

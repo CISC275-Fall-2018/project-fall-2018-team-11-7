@@ -1,32 +1,34 @@
+package GameObjects;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Duck extends Animal {
+public class Heron extends Animal {
+
 	BufferedImage[][] images = new BufferedImage[2][12];
 	//Direction d = Direction.EAST;
 	private int dir;
 	private int distance;
 	private int start;
 	private int count = 0;
-	private int vel = 5;
+	private int vel = 3;
 	private int yvel = 0;
 	int picNum;
 	final static int imgWidth = 1024;
     final static int imgHeight = 1024;
 
-	public Duck(int xloc, int yloc, int imageWidth, int imageHeight, int distance, int dir) throws IOException{
+	public Heron(int xloc, int yloc, int imageWidth, int imageHeight, int distance, int dir) throws IOException{
 		super(xloc,yloc,imageWidth,imageHeight);
 		this.dir = dir;
 		this.distance = distance;
-		fact = "Ducks like living near water";
+		fact = "Herons can be found in Delaware year round";
 
 		// gets all images for Bird
 
-		File file1 = new File("duckwalking_NW_larger.png");
-		File file2 = new File("duckwalking_NE_larger.png");
+		File file1 = new File("heronwalking_NW.png");
+		File file2 = new File("heronwalking_NE.png");
 		if(file1.exists() && file2.exists()) {
 			BufferedImage image1 = ImageIO.read(file1);
 			//images[0] = image1;
@@ -78,7 +80,7 @@ public class Duck extends Animal {
 	}
 
 	public String toString(){
-		return "Duck";
+		return "Heron";
 	}
 
 	@Override
@@ -109,3 +111,4 @@ public class Duck extends Animal {
 		
 	}
 }
+
