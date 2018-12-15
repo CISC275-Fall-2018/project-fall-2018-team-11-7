@@ -34,19 +34,6 @@ public class Animation3 extends JPanel {
 		myGreen = new Color(0,140,0);
 		this.score1 = score1;
 		this.score2 = score2;
-		/*File file1 = new File("Question1.png");
-		File file2 = new File("Question2.png");
-		File file3 = new File("Question3.png");
-		File file4 = new File("end.png");
-		if(file1.exists() && file2.exists() && file3.exists() && file4.exists()) {
-			BufferedImage image1 = ImageIO.read(file1);
-			questions[0] = image1;
-			BufferedImage image2 = ImageIO.read(file2);
-			questions[1] = image2;
-			BufferedImage image3 = ImageIO.read(file3);
-			questions[2] = image3;
-			BufferedImage image4 = ImageIO.read(file4);
-			questions[3] = image4;*/
 		try {
 			image = ImageIO.read(new File("images/skylandnsea.jpg"));
 					// ImageIO.read("src/skynsea.jpg");
@@ -54,13 +41,6 @@ public class Animation3 extends JPanel {
 			e.printStackTrace();
 		}
 	}
-
-	/*	BufferedImage background1 = Toolkit.getDefaultToolkit().createImage("Question1.png");
-		questions[0] = background1;
-		Image background2 = Toolkit.getDefaultToolkit().createImage("Question2.png");
-		questions[1] = background2;
-		Image background3 = Toolkit.getDefaultToolkit().createImage("Question3.png");
-		questions[2] = background3;*/
 
 	public void paint(Graphics g) {
 		super.paint(g);

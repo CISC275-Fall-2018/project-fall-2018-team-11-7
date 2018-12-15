@@ -22,7 +22,7 @@ import View.ViewGame3;
 public class Controller {
 	View view;
 	Model model;
-	boolean game1 = true;
+	boolean game1 = false;
 	boolean game2 = true;
 	boolean game3 = true;
 	int mX;

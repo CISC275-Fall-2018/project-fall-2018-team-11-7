@@ -28,6 +28,13 @@ public class ModelGame1 extends Model{
 	int time;
 	Timer timer;
 
+	/**
+	* Model constructor for game1, used to set proper coordinates based
+	* on the frameWidth and frameHeight of the screen
+	* 
+	* @param frameWidth width of screen
+	* @param frameHeight height of screen
+	*/
 	public ModelGame1(int frameWidth,int frameHeight){
 		super(frameWidth,frameHeight);
 		camera = new Camera(175,250,0,0);
@@ -37,6 +44,9 @@ public class ModelGame1 extends Model{
 		time = 60;
 		timer = new Timer();
 	}
+	/**
+	 * adds the animals to the game
+	 */
 	@Override
 	public void addAnimals() throws IOException{
 		animals.add(new Fish((int)(frameWidth-(frameWidth/10)),(int)(frameHeight-(frameHeight/5)),(frameWidth/28),(frameWidth/42),frameWidth/2 - frameWidth/5,0));
@@ -51,6 +61,9 @@ public class ModelGame1 extends Model{
 		changeTarget();
 	}
 
+	/**
+	 * updates the game
+	 */
 	public void update(){
 		if(time>0){
 			updateAnimals();
@@ -59,6 +72,9 @@ public class ModelGame1 extends Model{
 			timer.cancel();
 		}
 	}
+	/**
+	 * updates the positions of the animals in the game
+	 */
 	@Override
 	public void updateAnimals(){
 		if(!tutorial) {

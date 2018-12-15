@@ -26,7 +26,7 @@ public class ModelGame2 extends Model {
 		this.score = 0;
 	}
 	
-	void count() {
+	public void count() {
 		algae = -1;
 		crab = -1;
 		bigFish = -1;
@@ -43,9 +43,12 @@ public class ModelGame2 extends Model {
 				break;
 			}	
 		}
+		System.out.println(algae);
+		System.out.println(crab);
+		System.out.println(bigFish);
 	}
 	
-	void run() throws IOException {
+	public void run() throws IOException {
 		count();
 		ArrayList<GameObjects> fish = new ArrayList<GameObjects>();
 		int b = bigFish;
@@ -142,79 +145,84 @@ public class ModelGame2 extends Model {
 	}
 	@Override
 	public void drop(int x, int y) throws IOException {
-		ArrayList<GameObjects> removeList = new ArrayList<GameObjects>();
+		ArrayList<GameObjects> newList = new ArrayList<GameObjects>();
 		for(GameObjects o: objects) {
 			if(o.getDrag()) {
 				o.updatePosition(x,y);
 				switch(o.toString()) {
 				case "algae":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
-						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new Algae(frameWidth, frameHeight));
+							newList.add(new Algae(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
-						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new Algae(frameWidth, frameHeight));
+							newList.add(new Algae(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else {
+						newList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new Algae(frameWidth, frameHeight));
+							newList.add(new Algae(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
+					break;
 				case "crab":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
-						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new Crab(frameWidth, frameHeight));
+							newList.add(new Crab(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
-						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new Crab(frameWidth, frameHeight));
+							newList.add(new Crab(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else {
+						newList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new Crab(frameWidth, frameHeight));
+							newList.add(new Crab(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
+					break;
 				case "big fish":
 					if(o.getX() > (int)(frameWidth - frameWidth/5) && o.getY() > (int)(frameHeight - frameHeight/4)) {
-						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new BigFish(frameWidth, frameHeight));
+							newList.add(new BigFish(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else if(o.getX()<((int)(frameWidth/7)) && (o.getY()>(int)(frameHeight/6) && o.getY()<(int)(frameHeight - frameHeight/6))) {
-						removeList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new BigFish(frameWidth, frameHeight));
+							newList.add(new BigFish(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
 					else {
+						newList.add(o);
 						if(o.getOrigin()) {
-							objects.add(new BigFish(frameWidth, frameHeight));
+							newList.add(new BigFish(frameWidth, frameHeight));
 							o.setOrigin(false);
 						}
 					}
+					break;
 				}
 				o.setDrag(false);
 			}
-			objects.removeAll(removeList);
+			else {
+				newList.add(o);
+			}
+			
 		}
+		objects=newList;
+		System.out.println(objects.size());
 	}
 	@Override
 	public ArrayList<GameObjects> getObjects(){
@@ -224,5 +232,14 @@ public class ModelGame2 extends Model {
 	@Override 
 	public int getNum() {
 		return dayNum;
+	}
+	public int getAnimalNums(int index) {
+		int[] arr = {algae, crab, bigFish};
+		return arr[index];
+	}
+	public void setAnimalNums(int algae, int crab, int bigFish) {
+		this.algae = algae;
+		this.crab = crab;
+		this.bigFish = bigFish;
 	}
 }

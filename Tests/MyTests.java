@@ -94,18 +94,22 @@ public class MyTests {
         tester3.setQChoice(3);
         assertEquals(3,tester3.getQChoice());
         
-       /* //Starting tests for modelgame2
+        //Starting tests for modelgame2
         //testing ModelGame2 constructor and run()
         ModelGame2 tester4 = new ModelGame2(1900,1000);
-        tester4.bigFish = 2;
-        System.out.println(tester4.bigFish);
-        tester4.middleFish =8;
-        tester4.littleFish = 5;
-        tester4.run();
-        System.out.println(tester4.bigFish);
-        assertEquals(2, tester4.bigFish);
-        assertEquals(3, tester4.middleFish);
-        assertEquals(5, tester4.littleFish);*/
+        tester4.count();
+        assertEquals(0, tester4.getAnimalNums(0));
         
+        tester4.getObjects().get(0).setDrag(true);
+        tester4.drop(900, 500);
+        assertEquals(false,tester4.getObjects().get(0).getDrag());
+        
+      /*  
+        tester4.setAnimalNums(5,8,2);
+        tester4.run();
+        int[] arr = {5,3,2};
+       // assertEquals(arr[0], tester4.getAnimalNums()[0]);
+        assertEquals(arr[1], tester4.getAnimalNums(1));
+        assertEquals(arr[2], tester4.getAnimalNums(2));*/
     }
 }
