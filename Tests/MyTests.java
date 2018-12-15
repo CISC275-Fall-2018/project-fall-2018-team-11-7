@@ -130,7 +130,7 @@ public class MyTests {
         tester4.getObjects().get(4).setDrag(true);
         tester4.drop(900, 500);
         assertEquals(false,tester4.getObjects().get(2).getDrag());
-        //testing run()
+        //testing run() and update()
         tester4.setAnimalNums(5,8,2);
         tester4.addAnimals();
         tester4.run();
