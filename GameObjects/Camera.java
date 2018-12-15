@@ -72,4 +72,11 @@ public class Camera {
 	}
 	}
 */
+
+	public void setX(int i) {
+		this.xloc = i;
+	}
+	public void setY(int i) {
+		this.yloc = i;
+	}
 }

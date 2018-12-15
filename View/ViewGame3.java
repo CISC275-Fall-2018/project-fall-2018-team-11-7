@@ -106,5 +106,14 @@ public class ViewGame3 extends View {
 	public int getQChoice() {
 		return qchoice;
 	}
+	public void setQChoice(int i) {
+		this.qchoice = i;
+	}
+	public ArrayList<GameObjects> getObjects(){
+		return objects;
+	}
+	public Animation3 getAnimation() {
+		return a;
+	}
 
 }

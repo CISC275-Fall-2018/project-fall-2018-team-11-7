@@ -106,4 +106,11 @@ public class Animation3 extends JPanel {
 		this.tutorial = tutorial;
 		this.repaint();
 	}
+	
+	public int getScore() {
+		return score;
+	}
+	public int getNum() {
+		return questionNum;
+	}
 }

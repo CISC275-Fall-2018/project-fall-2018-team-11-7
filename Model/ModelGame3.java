@@ -24,6 +24,9 @@ public class ModelGame3 extends Model{
 	public int getNum() {
 		return questionNum;
 	}
+	public void setNum(int i) {
+		this.questionNum = i;
+	}
 
 	public void update(int qchoice) {
 		if(qchoice != 0) {

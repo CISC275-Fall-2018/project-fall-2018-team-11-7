@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 public interface GameObjects {
 
 	boolean drag = false;
+	int dir= (Integer) null;
 
 	BufferedImage getImage();
 

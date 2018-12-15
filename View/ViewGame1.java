@@ -112,4 +112,8 @@ public class ViewGame1 extends View{
 			g.drawString("Fantastic, you scored " + score + " points! Click anywhere to continue.", (int)(frameWidth/3) - 50, 100);
 		}
 	}
+	
+	public List<GameObjects> getObjects(){
+		return objects;
+	}
 }

@@ -68,7 +68,7 @@ public class ModelGame1 extends Model{
 		}
 	}
 
-	void updateCamera(int x, int y){
+	public void updateCamera(int x, int y){
 		camera.updatePosition(x,y);
 	}
 	@Override
@@ -123,6 +123,9 @@ public class ModelGame1 extends Model{
 	public Animal getTarget(){
 		return target;
 	}
+	public void setTarget(Animal a) {
+		this.target = a;
+	}
 	@Override
 	public ArrayList<GameObjects> getObjects(){
 		ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
@@ -142,4 +145,5 @@ public class ModelGame1 extends Model{
 	public int getTime(){
 		return time;
 	}
+	
 }
