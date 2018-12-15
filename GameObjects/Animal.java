@@ -1,8 +1,10 @@
 package GameObjects;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
-public abstract class Animal implements GameObjects {
+public abstract class Animal implements GameObjects, java.io.Serializable {
 	protected int xloc;
 	protected int yloc;
 	protected int xvel;
@@ -14,6 +16,19 @@ public abstract class Animal implements GameObjects {
 	int dir;
 	String fact;
 	protected BufferedImage[] images = new BufferedImage[2];
+
+	private void writeObject(ObjectOutputStream out) throws IOException {
+		out.writeInt(xloc);
+		out.writeInt(yloc);
+		out.writeInt(xvel);
+		out.writeInt(yvel);
+		out.writeInt(imageWidth);
+		out.writeInt(imageHeight);
+		out.writeInt(frameWidth);
+		out.writeInt(frameWidth);
+		out.writeInt(dir);
+		out.writeUTF(fact);
+	}
 
 	/**
 	* Animal constructor, used to create animal with a specific
@@ -70,6 +85,7 @@ public abstract class Animal implements GameObjects {
 		return dir;
 	}
 
+
 	public abstract String toString();
 	/**
 	* set x location of Animal
@@ -90,6 +106,10 @@ public abstract class Animal implements GameObjects {
 	*/
 	public String getFact() {
 		return fact;
+	}
+
+	public BufferedImage getTargetImage() {
+		return images[0];
 	}
 
 }

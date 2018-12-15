@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Duck extends Animal {
+public class Duck extends Animal  {
 	BufferedImage[][] images = new BufferedImage[2][12];
 	//Direction d = Direction.EAST;
 	private int dir;
@@ -70,6 +70,10 @@ public class Duck extends Animal {
 
 	public BufferedImage getImage() {
 		return images[dir][picNum];
+	}
+
+	public BufferedImage getTargetImage() {
+		return images[0][1];
 	}
 
 

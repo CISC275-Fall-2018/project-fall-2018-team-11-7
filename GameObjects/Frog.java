@@ -71,6 +71,10 @@ public class Frog extends Animal{
 		return images[dir];
 	}
 
+	public BufferedImage getTargetImage() {
+		return images[0];
+	}
+
 
 
 	public int getDir() {

@@ -47,11 +47,29 @@ public class Controller {
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}
 		};
+		KeyListener keyinput = new KeyListener(){
+
+			public void keyPressed(KeyEvent event){}
+			public void keyReleased(KeyEvent event){
+				if(event.getKeyCode() == KeyEvent.VK_S){
+					model.save();
+
+				}
+				else if(event.getKeyCode() == KeyEvent.VK_L){
+					model.load();
+				}
+			}
+			public void keyTyped(KeyEvent event){}
+		};
+
+
 
 		model = new ModelGame1(frameWidth,frameHeight);
 		model.addAnimals();
 		view = new ViewGame1(frameWidth, frameHeight, size, model.getCamera(), model.getObjects());
 		view.addMouseListener(mouseinput);
+		view.addKeyListener(keyinput);
+		view.requestFocusInWindow();
 	}
 
 	public void mouseLocation() {
@@ -66,7 +84,7 @@ public class Controller {
 			((ModelGame1)model).getCamera().updatePosition(mX,mY);
 			model.update();
 
-			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact(),model.getTime());
+			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget(), model.tutorial, model.getFact(),model.getTime());
 			if(model.getTime()<0) {
 				game1=false;
 				score1 = (model.getScore());

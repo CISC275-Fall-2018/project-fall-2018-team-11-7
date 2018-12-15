@@ -73,6 +73,10 @@ public class Heron extends Animal {
 		return images[dir][picNum];
 	}
 
+	public BufferedImage getTargetImage() {
+		return images[0][0];
+	}
+
 
 
 	public int getDir() {
