@@ -113,7 +113,9 @@ public class ViewGame1 extends View{
 			g.drawString("Move the mouse to move the camera.",(int)(frameWidth/2), (int)(frameHeight/4));
 			g.drawString("Click to take a picture.", (int)(frameWidth/2), (int)(frameHeight/4)+50);
 			g.drawString("Take a picture of the target animal to get a point!", (int)(frameWidth/2), (int)(frameHeight/4)+100);
-			g.drawString("Take a picture of a "+ target.toString() + " to start the game!", (int)(frameWidth/2), (int)(frameHeight/4)+150);
+			if(target != null){
+				g.drawString("Take a picture of a "+ target.toString() + " to start the game!", (int)(frameWidth/2), (int)(frameHeight/4)+150);
+			}
 		}
 		if(score == 5) {
 			g.drawString("Great Job! Now capture as many pictures as you can for your research within 60 seconds!", (int)(frameWidth/3) - 50, 200);
