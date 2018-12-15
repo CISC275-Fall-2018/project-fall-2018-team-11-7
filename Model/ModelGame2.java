@@ -17,6 +17,13 @@ public class ModelGame2 extends Model {
 	int dayNum = 0;
 	// score;
 
+/**
+ *  Model constructor for game 2, used to set proper coordinates based
+	* on the frameWidth and frameHeight of the screen
+ * @param width int, width of screen
+ * @param height int, height of screen
+ * @throws IOException
+ */
 	public ModelGame2(int width, int height) throws IOException {
 		super(width, height);
 		objects.add(new Algae(frameWidth, frameHeight));
@@ -25,7 +32,9 @@ public class ModelGame2 extends Model {
 		this.tutorial = true;
 		this.score = 0;
 	}
-
+	/**
+	 * keeps track of animals on in the ecosystem
+	 */
 	public void count() {
 		algae = -1;
 		crab = -1;
@@ -44,7 +53,10 @@ public class ModelGame2 extends Model {
 			}
 		}
 	}
-
+	/**
+	 * changes the number of animals and day number 
+	 * @throws IOException
+	 */
 	public void run() throws IOException {
 		count();
 		//System.out.println(algae);
@@ -105,7 +117,9 @@ public class ModelGame2 extends Model {
 		}
 		tutorial = false;
 	}
-
+	/**
+	 * adds the correct animals to the object list 
+	 */
 	public void addAnimals() throws IOException {
 		int b = 0;
 		int c = 0;
@@ -131,7 +145,13 @@ public class ModelGame2 extends Model {
 
 		this.objects = animals;
 	}
-
+	/**
+	 * updates the position of objects, and checks whether to go to the next day
+	 * @param x int, new position for dragged object
+	 * @param y int, new position for dragged object
+	 * @param mouseloc boolean, whether the mouse location is being kept track of
+	 * @param next boolean, whether to go to the next day
+	 */
 	@Override
 	public void update(int x, int y, boolean mouseloc, boolean next) throws IOException {
 		if(dayNum < 3) {
@@ -147,6 +167,12 @@ public class ModelGame2 extends Model {
 			run();
 		}
 	}
+	/**
+	 * determines where to drop an object, and update number of animals in
+	 * the ecosystem
+	 * @param x int, new location of dropped object
+	 * @param y int, new location of dropped object
+	 */
 	@Override
 	public void drop(int x, int y) throws IOException {
 		ArrayList<GameObjects> newList = new ArrayList<GameObjects>();
@@ -227,19 +253,37 @@ public class ModelGame2 extends Model {
 		}
 		objects=newList;
 	}
+	/**
+	 * returns object list
+	 * @return objects ArrayList<GameObjects>, object list
+	 */
 	@Override
 	public ArrayList<GameObjects> getObjects(){
 		return objects;
 	}
-
+	/**
+	 * returns day number
+	 * @return dayNum int, day number
+	 */
 	@Override
 	public int getNum() {
 		return dayNum;
 	}
+	/**
+	 * checks the number of a particular animal
+	 * @param index int, which animal to check on
+	 * @return number of specific type of animal in ecosystem
+	 */
 	public int getAnimalNums(int index) {
 		int[] arr = {algae, crab, bigFish};
 		return arr[index];
 	}
+	/**
+	 * sets the number of particular animal
+	 * @param algae int, number of algae
+	 * @param crab int, number of crabs
+	 * @param bigFish int, number of bigFish
+	 */
 	public void setAnimalNums(int algae, int crab, int bigFish) {
 		this.algae = algae;
 		this.crab = crab;

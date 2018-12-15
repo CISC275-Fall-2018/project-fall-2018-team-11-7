@@ -47,32 +47,44 @@ public class Controller {
 			public void mouseEntered(MouseEvent event){}
 			public void mouseExited(MouseEvent event){}
 		};
+		KeyListener keyinput = new KeyListener(){
+
+			public void keyPressed(KeyEvent event){}
+			public void keyReleased(KeyEvent event){
+				if(event.getKeyCode() == KeyEvent.VK_S){
+					model.save();
+
+				}
+				else if(event.getKeyCode() == KeyEvent.VK_L){
+					model.load();
+				}
+			}
+			public void keyTyped(KeyEvent event){}
+		};
+
+
 
 		model = new ModelGame1(frameWidth,frameHeight);
 		model.addAnimals();
 		view = new ViewGame1(frameWidth, frameHeight, size, model.getCamera(), model.getObjects());
 		view.addMouseListener(mouseinput);
+		view.addKeyListener(keyinput);
+		view.requestFocusInWindow();
 	}
-	
-	/**
-	 * Keeps track of mouse location
-	 */
+
 	public void mouseLocation() {
 		mX = (int)MouseInfo.getPointerInfo().getLocation().getX();
 		mY = (int)MouseInfo.getPointerInfo().getLocation().getY();
 	}
 
-	/**
-	 * Starts the game, and transitions between the three minigames
-	 * @throws IOException
-	 */
+
 	public void start() throws IOException{
 		while(game1){
 			mouseLocation();
 			((ModelGame1)model).getCamera().updatePosition(mX,mY);
 			model.update();
 
-			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget().toString(), model.tutorial, model.getFact(),model.getTime());
+			view.update(model.getCamera(), model.getObjects(),model.getScore(),model.getTarget(), model.tutorial, model.getFact(),model.getTime());
 			if(model.getTime()<0) {
 				game1=false;
 				score1 = (model.getScore());
@@ -110,12 +122,7 @@ public class Controller {
 			}
 		}
 	}
-	
-	/**
-	 * Keeps track of mouse activity for game 2
-	 * @return MouseListener, mouse listener to keep track of activities 
-	 * relevant to game 2
-	 */
+
 	public MouseListener getMouse2(){
 		return new MouseListener() {
 			public void mouseClicked(MouseEvent event){}
