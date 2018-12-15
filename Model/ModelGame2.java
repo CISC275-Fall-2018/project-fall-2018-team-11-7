@@ -43,13 +43,11 @@ public class ModelGame2 extends Model {
 				break;
 			}	
 		}
-		System.out.println(algae);
-		System.out.println(crab);
-		System.out.println(bigFish);
 	}
 	
 	public void run() throws IOException {
 		count();
+		System.out.println(algae);
 		ArrayList<GameObjects> fish = new ArrayList<GameObjects>();
 		int b = bigFish;
 		int c = crab;
@@ -57,6 +55,7 @@ public class ModelGame2 extends Model {
 		// for big fish
 		if(b>=c) {
 			bigFish = c;
+			
 			crab = 0;
 		}
 		else {
@@ -83,39 +82,18 @@ public class ModelGame2 extends Model {
 				if(crab > 10) {
 					crab = 10;
 				}
-				if(a==0) {
-					algae = 0;
-				}
-				else {
-					algae = a - (((int)(c/2))+1) + ((int)(((a - (((int)(c/2))+1))/4))) - ((int)((((int)(crab/2))/2)));
-					if(algae > 15) {
-						algae = 15;
-					}
+			}
+			if(a==0) {
+				algae = 0;
+			}
+			else {
+				algae = a - (((int)(c/2))+1) + ((int)(((a - (((int)(c/2))+1))/4))) - ((int)((((int)(crab/2))/2)));
+				if(algae > 15) {
+					algae = 15;
 				}
 			}
 		}
-		b = 0;
-		c = 0;
-		a = 0;
-		Random rand = new Random();
-		while(b<bigFish) {
-			fish.add(new BigFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth/2))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
-			b+=1;
-		}
-		while(c<crab) {
-			fish.add(new Crab(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
-			c+=1;
-		}
-		while(a<algae) {
-			fish.add(new Algae(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
-			a+=1;
-		}
-		
-		fish.add(new BigFish(frameWidth, frameHeight));
-		fish.add(new Crab(frameWidth, frameHeight));
-		fish.add(new Algae(frameWidth, frameHeight));
-		
-		this.objects = fish;
+		addAnimals();
 		dayNum+=1;
 		int cb = (crab - bigFish);
 		if(cb>0) {
@@ -126,6 +104,32 @@ public class ModelGame2 extends Model {
 			score += ac;
 		}
 		tutorial = false;
+	}
+	
+	public void addAnimals() throws IOException {
+		int b = 0;
+		int c = 0;
+		int a = 0;
+		ArrayList<GameObjects> animals = new ArrayList<GameObjects>();
+		Random rand = new Random();
+		while(b<bigFish) {
+			animals.add(new BigFish(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth/2))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
+			b+=1;
+		}
+		while(c<crab) {
+			animals.add(new Crab(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
+			c+=1;
+		}
+		while(a<algae) {
+			animals.add(new Algae(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
+			a+=1;
+		}
+		
+		animals.add(new BigFish(frameWidth, frameHeight));
+		animals.add(new Crab(frameWidth, frameHeight));
+		animals.add(new Algae(frameWidth, frameHeight));
+		
+		this.objects = animals;
 	}
 	
 	@Override
@@ -222,7 +226,6 @@ public class ModelGame2 extends Model {
 			
 		}
 		objects=newList;
-		System.out.println(objects.size());
 	}
 	@Override
 	public ArrayList<GameObjects> getObjects(){
@@ -241,5 +244,6 @@ public class ModelGame2 extends Model {
 		this.algae = algae;
 		this.crab = crab;
 		this.bigFish = bigFish;
+		System.out.println(algae);
 	}
 }

@@ -83,10 +83,18 @@ public class ModelGame1 extends Model{
 			}
 		}
 	}
-
+	/**
+	 * updates the position of the camera
+	 * @param x int, x coordinate of camera
+	 * @param y int, y coordinate of camera
+	 */
 	public void updateCamera(int x, int y){
 		camera.updatePosition(x,y);
 	}
+	/**
+	 * takes a picture. Checks to see if there is an animal within the bounds of the camera frame, and updates
+	 * the target and score of the game
+	 */
 	@Override
 	public void takePicture(){
 		if(time > 0) {
@@ -120,6 +128,9 @@ public class ModelGame1 extends Model{
 		//System.out.println(camera.getY());
 	}
 
+	/**
+	 * Changes the target animal to take a picture of
+	 */
 	void changeTarget(){
 		int randanimal = rand.nextInt(animals.size());
 		target = animals.get(randanimal);
@@ -131,17 +142,33 @@ public class ModelGame1 extends Model{
 			}
 		}
 	}
+	/**
+	 * returns the score of the game
+	 * @return score int, the current score for the game
+	 */
 	@Override
 	public int getScore(){
 		return score;
 	}
+	/**
+	 * returns the target animal
+	 * @return target Animal, the current target animal
+	 */
 	@Override
 	public Animal getTarget(){
 		return target;
 	}
+	/**
+	 * sets the target animal
+	 * @param a Animal, the desired animal target
+	 */
 	public void setTarget(Animal a) {
 		this.target = a;
 	}
+	/**
+	 * returns a list of game objects
+	 * @return objects ArrayList<GameObjects>, a list of all game objects
+	 */
 	@Override
 	public ArrayList<GameObjects> getObjects(){
 		ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
@@ -149,14 +176,26 @@ public class ModelGame1 extends Model{
 		objects.add(tree);
 		return objects;
 	}
+	/**
+	 * returns the camera
+	 * @return camera Camera, the game camera
+	 */
 	@Override
 	public Camera getCamera(){
 		return camera;
 	}
+	/**
+	 * returns the fact associated with the current target animal
+	 * @return fact String, the fact that goes with the current target animal
+	 */
 	@Override
 	public String getFact() {
 		return fact;
 	}
+	/**
+	 * returns the current time
+	 * @return time int, current time
+	 */
 	@Override
 	public int getTime(){
 		return time;

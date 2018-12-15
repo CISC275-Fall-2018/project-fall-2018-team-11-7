@@ -95,21 +95,57 @@ public class MyTests {
         assertEquals(3,tester3.getQChoice());
         
         //Starting tests for modelgame2
-        //testing ModelGame2 constructor and run()
+        //testing ModelGame2 constructor and count()
         ModelGame2 tester4 = new ModelGame2(1900,1000);
         tester4.count();
         assertEquals(0, tester4.getAnimalNums(0));
-        
+        //testing drop
+        	//for algae
+        tester4.getObjects().get(0).setDrag(true);
+        tester4.drop(0, 500);
+        assertEquals(true, tester4.getObjects().get(0).getOrigin());
+        tester4.getObjects().get(0).setDrag(true);
+        tester4.drop(1900, 1000);
+        assertEquals(3, tester4.getObjects().size());
         tester4.getObjects().get(0).setDrag(true);
         tester4.drop(900, 500);
         assertEquals(false,tester4.getObjects().get(0).getDrag());
-        
-      /*  
+        	//for crab
+        tester4.getObjects().get(2).setDrag(true);
+        tester4.drop(0, 500);
+        assertEquals(true, tester4.getObjects().get(2).getOrigin());
+        tester4.getObjects().get(2).setDrag(true);
+        tester4.drop(1900, 1000);
+        assertEquals(4, tester4.getObjects().size());
+        tester4.getObjects().get(2).setDrag(true);
+        tester4.drop(900, 500);
+        assertEquals(false,tester4.getObjects().get(2).getDrag());
+        	//for bigFish
+        tester4.getObjects().get(4).setDrag(true);
+        tester4.drop(0, 500);
+        assertEquals(true, tester4.getObjects().get(4).getOrigin());
+        tester4.getObjects().get(4).setDrag(true);
+        tester4.drop(1900, 1000);
+        assertEquals(5, tester4.getObjects().size());
+        tester4.getObjects().get(4).setDrag(true);
+        tester4.drop(900, 500);
+        assertEquals(false,tester4.getObjects().get(2).getDrag());
+        //testing run()
         tester4.setAnimalNums(5,8,2);
+        tester4.addAnimals();
         tester4.run();
-        int[] arr = {5,3,2};
-       // assertEquals(arr[0], tester4.getAnimalNums()[0]);
+        int[] arr = {0,3,2};
+        assertEquals(arr[2], tester4.getAnimalNums(2));
         assertEquals(arr[1], tester4.getAnimalNums(1));
-        assertEquals(arr[2], tester4.getAnimalNums(2));*/
+        assertEquals(arr[0], tester4.getAnimalNums(0));
+        
+        tester4.setAnimalNums(8,2,5);
+        tester4.addAnimals();
+        tester4.update(0,0,false,true);
+        int[] arr1 = {7,0,2};
+        assertEquals(arr1[2], tester4.getAnimalNums(2));
+        assertEquals(arr1[1], tester4.getAnimalNums(1));
+        assertEquals(arr1[0], tester4.getAnimalNums(0));
+        
     }
 }
