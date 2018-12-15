@@ -19,7 +19,7 @@ public class ModelGame2 extends Model {
 
 /**
  *  Model constructor for game 2, used to set proper coordinates based
-	* on the frameWidth and frameHeight of the screen
+ * on the frameWidth and frameHeight of the screen
  * @param width int, width of screen
  * @param height int, height of screen
  * @throws IOException
