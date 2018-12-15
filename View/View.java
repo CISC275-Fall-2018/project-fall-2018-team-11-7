@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import GameObjects.Camera;
 import GameObjects.GameObjects;
+import GameObjects.Animal;
 
 public class View extends JPanel {
 	protected int frameWidth;
@@ -26,6 +27,7 @@ public class View extends JPanel {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(size);
 		frame.setVisible(true);
+
 		frame.pack();
 	}
 
@@ -45,7 +47,7 @@ public class View extends JPanel {
 		return 0;
 	}
 
-	public void update(Camera camera, ArrayList<GameObjects> objects, int score, String target, boolean tutorial, String fact, int time) {//
+	public void update(Camera camera, ArrayList<GameObjects> objects, int score, Animal target, boolean tutorial, String fact, int time) {//
 		// TODO Auto-generated method stub
 
 	}

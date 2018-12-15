@@ -5,12 +5,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class BigFish extends Animal {
+public class BigFish extends Animal  {
 
 	BufferedImage image;
 	private boolean drag = false;
 	private boolean origin = true;
-	
+
 	public BigFish(int frameWidth, int frameHeight) throws IOException {
 		super(frameWidth, frameHeight);
 		xloc = (int)(frameWidth/23);

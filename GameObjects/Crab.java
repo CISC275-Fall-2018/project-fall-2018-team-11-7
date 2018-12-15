@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Crab extends Animal {
+public class Crab extends Animal  {
 	BufferedImage image;
 	private boolean drag = false;
 	private boolean origin = true;
@@ -16,7 +16,7 @@ public class Crab extends Animal {
 		yloc = (int)(frameHeight/2 - frameHeight/28);
 		imageWidth = (int)(frameWidth/28);
 		imageHeight = (int)(frameWidth/28);
-		File file = new File("crab.png");
+		File file = new File("images/crab.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
@@ -28,7 +28,7 @@ public class Crab extends Animal {
 		this.yloc = yloc;
 		imageWidth = (int)(frameWidth/28);
 		imageHeight = (int)(frameWidth/28);
-		File file = new File("crab.png");
+		File file = new File("images/crab.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}

@@ -1,6 +1,6 @@
 package GameObjects;
 
-public class Camera {
+public class Camera implements java.io.Serializable {
 
 	int height;
 	int width;
@@ -37,7 +37,7 @@ public class Camera {
 	}
 
 	public int snap(int x, int y){
-		
+
 		if(x>xloc && x < xloc+width && y>yloc && y < yloc+height){
 			return 1;
 		}

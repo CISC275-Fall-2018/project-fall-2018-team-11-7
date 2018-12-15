@@ -145,5 +145,5 @@ public class ModelGame1 extends Model{
 	public int getTime(){
 		return time;
 	}
-	
+
 }
