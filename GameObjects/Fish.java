@@ -59,6 +59,10 @@ public class Fish extends Animal{
 		return images[dir];
 	}
 
+	public BufferedImage getTargetImage() {
+		return images[0];
+	}
+
 
 	public int getDir() {
 		return dir;

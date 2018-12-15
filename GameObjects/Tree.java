@@ -3,10 +3,11 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import javax.imageio.ImageIO;
 
-public class Tree implements GameObjects {
+public class Tree implements GameObjects, java.io.Serializable {
 	BufferedImage[] image = new BufferedImage[1];
 	int xloc;
 	int yloc;
@@ -23,6 +24,13 @@ public class Tree implements GameObjects {
 		this.yloc = yloc;
 		this.imageWidth = imageWidth;
 		this.imageHeight = imageHeight;
+	}
+
+	private void writeObject(ObjectOutputStream out) throws IOException {
+		out.writeInt(xloc);
+		out.writeInt(yloc);
+		out.writeInt(imageWidth);
+		out.writeInt(imageHeight);
 	}
 
 	public BufferedImage getImage() {

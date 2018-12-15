@@ -16,7 +16,7 @@ public class ModelGame2 extends Model {
 	boolean next = false;
 	int dayNum = 0;
 	// score;
-	
+
 	public ModelGame2(int width, int height) throws IOException {
 		super(width, height);
 		objects.add(new Algae(frameWidth, frameHeight));
@@ -25,7 +25,7 @@ public class ModelGame2 extends Model {
 		this.tutorial = true;
 		this.score = 0;
 	}
-	
+
 	public void count() {
 		algae = -1;
 		crab = -1;
@@ -41,13 +41,13 @@ public class ModelGame2 extends Model {
 			case "big fish":
 				bigFish +=1;
 				break;
-			}	
+			}
 		}
 	}
-	
+
 	public void run() throws IOException {
 		count();
-		System.out.println(algae);
+		//System.out.println(algae);
 		ArrayList<GameObjects> fish = new ArrayList<GameObjects>();
 		int b = bigFish;
 		int c = crab;
@@ -55,7 +55,7 @@ public class ModelGame2 extends Model {
 		// for big fish
 		if(b>=c) {
 			bigFish = c;
-			
+
 			crab = 0;
 		}
 		else {
@@ -105,7 +105,7 @@ public class ModelGame2 extends Model {
 		}
 		tutorial = false;
 	}
-	
+
 	public void addAnimals() throws IOException {
 		int b = 0;
 		int c = 0;
@@ -124,14 +124,14 @@ public class ModelGame2 extends Model {
 			animals.add(new Algae(frameWidth, frameHeight, (int)(frameWidth/6 + rand.nextInt((int)(frameWidth - frameWidth/3))), (int)(frameHeight/4 + frameHeight/10 + rand.nextInt((int)(frameHeight - frameHeight/2)))));
 			a+=1;
 		}
-		
+
 		animals.add(new BigFish(frameWidth, frameHeight));
 		animals.add(new Crab(frameWidth, frameHeight));
 		animals.add(new Algae(frameWidth, frameHeight));
-		
+
 		this.objects = animals;
 	}
-	
+
 	@Override
 	public void update(int x, int y, boolean mouseloc, boolean next) throws IOException {
 		if(dayNum < 3) {
@@ -223,7 +223,7 @@ public class ModelGame2 extends Model {
 			else {
 				newList.add(o);
 			}
-			
+
 		}
 		objects=newList;
 	}
@@ -231,8 +231,8 @@ public class ModelGame2 extends Model {
 	public ArrayList<GameObjects> getObjects(){
 		return objects;
 	}
-	
-	@Override 
+
+	@Override
 	public int getNum() {
 		return dayNum;
 	}
@@ -244,6 +244,6 @@ public class ModelGame2 extends Model {
 		this.algae = algae;
 		this.crab = crab;
 		this.bigFish = bigFish;
-		System.out.println(algae);
+		//System.out.println(algae);
 	}
 }

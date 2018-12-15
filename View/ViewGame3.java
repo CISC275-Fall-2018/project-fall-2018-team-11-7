@@ -42,7 +42,7 @@ public class ViewGame3 extends View {
 	public ViewGame3(int imageWidth, int imageHeight, Dimension size, ArrayList<GameObjects> objects, int score1, int score2) throws IOException {
 		super(imageWidth, imageHeight,size);
 		this.objects = objects;
-		System.out.println(objects);
+		//System.out.println(objects);
 				//Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
 		frame = new JFrame();
 		Container pane = frame.getContentPane();
@@ -78,7 +78,7 @@ public class ViewGame3 extends View {
 		this.add(b1);
 		this.add(b2);
 		this.add(b3);
-		
+
     	pane.add(this, BorderLayout.PAGE_START);
     	frame.setVisible(true);
     	frame.pack();

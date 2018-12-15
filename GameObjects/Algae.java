@@ -17,7 +17,7 @@ public class Algae extends Animal {
 		yloc = (int)(frameHeight - (frameHeight/4) - (frameHeight/20));
 		imageWidth = (int)(frameWidth/40);
 		imageHeight = (int)(frameWidth/40);
-		File file = new File("algae.png");
+		File file = new File("images/algae.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
@@ -29,7 +29,7 @@ public class Algae extends Animal {
 		this.yloc = yloc;
 		imageWidth = (int)(frameWidth/40);
 		imageHeight = (int)(frameWidth/40);
-		File file = new File("algae.png");
+		File file = new File("images/algae.png");
 		if(file.exists()) {
 			image = ImageIO.read(file);
 		}
